@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>白石憲正</title>
+<meta name="description" content="連続起業家・白石憲正（ばりかた）の公開プロフィール。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f7f4;
+    --ink: #15181d;
+    --sub: #5d636c;
+    --line: #dcddd6;
+    --accent: #0e6b66;
+    --accent-soft: #e2efed;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #101316;
+      --ink: #eceeef;
+      --sub: #9aa1a8;
+      --line: #2a2f34;
+      --accent: #5cc4bc;
+      --accent-soft: #17302f;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Noto Sans JP", Meiryo, sans-serif;
+    line-height: 1.85;
+    -webkit-text-size-adjust: 100%;
+  }
+  main { max-width: 720px; margin: 0 auto; padding: 72px 20px 48px; }
+  section { margin-top: 72px; }
+  h1, h2, p { margin: 0; }
+  .nb { display: inline-block; } /* 文節の途中で改行されないようにする */
+
+  .eyebrow { font-size: 13px; letter-spacing: .14em; color: var(--accent); font-weight: 700; }
+  h1 { margin-top: 14px; font-size: clamp(44px, 12vw, 76px); line-height: 1.1; font-weight: 900; letter-spacing: .02em; }
+  .reading { margin-top: 10px; color: var(--sub); font-size: 15px; }
+  .lead { margin-top: 28px; font-size: 18px; max-width: 34em; text-wrap: balance; }
+
+  h2 { font-size: 13px; letter-spacing: .14em; color: var(--sub); font-weight: 700; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+
+  /* 言葉 */
+  .quotes { margin-top: 28px; display: grid; gap: 22px; }
+  .quote { font-size: clamp(22px, 5.4vw, 30px); font-weight: 700; line-height: 1.5; text-wrap: balance; }
+  .quote small { display: block; margin-top: 6px; font-size: 13px; font-weight: 400; color: var(--sub); }
+
+  /* 経歴：年の順番そのものが情報なので、年表にしている */
+  .timeline { margin: 0; padding: 0; list-style: none; }
+  .timeline li { display: grid; grid-template-columns: 5.5em 1fr; gap: 6px 16px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+  .timeline time { color: var(--accent); font-weight: 700; font-variant-numeric: tabular-nums; }
+  .timeline b { display: block; font-weight: 700; }
+  .timeline span { color: var(--sub); font-size: 15px; }
+
+  /* いま */
+  .now { margin-top: 8px; display: grid; gap: 12px; }
+  .card { display: block; padding: 18px 20px; border: 1px solid var(--line); border-radius: 14px; color: inherit; text-decoration: none; }
+  a.card:hover { border-color: var(--accent); background: var(--accent-soft); }
+  a.card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .card b { display: block; font-size: 17px; }
+  .card span { color: var(--sub); font-size: 15px; }
+
+  footer { margin-top: 80px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--sub); font-size: 13px; line-height: 1.8; }
+
+  @media (max-width: 480px) {
+    main { padding-top: 48px; }
+    .timeline li { grid-template-columns: 1fr; gap: 2px; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <p class="eyebrow">SERIAL ENTREPRENEUR</p>
+    <h1>白石 憲正</h1>
+    <p class="reading">しらいし けんせい（通称：ばりかた）</p>
+    <p class="lead"><span class="nb">福岡・田川出身。</span><span class="nb">銀行システムの</span><span class="nb">プロジェクトマネージャーから</span><span class="nb">起業し、</span><span class="nb">SaaSの売却を経て、</span><span class="nb">いまは生成AIと</span><span class="nb">歯科医療DXに</span><span class="nb">取り組んでいます。</span></p>
+  </header>
+
+  <section aria-labelledby="words">
+    <h2 id="words">言葉</h2>
+    <div class="quotes">
+      <p class="quote"><span class="nb">世界中の</span><span class="nb">難しいことを</span><span class="nb">簡単に。</span><small>株式会社diffeasyの経営理念</small></p>
+      <p class="quote"><span class="nb">アイデアよりも、</span><span class="nb">明日から動く</span><span class="nb">実行力。</span><small>2026年、田川でのイベント登壇でのメッセージ</small></p>
+    </div>
+  </section>
+
+  <section aria-labelledby="career">
+    <h2 id="career">経歴</h2>
+    <ol class="timeline">
+      <li><time>1983</time><div><b>福岡県田川郡香春町に生まれる</b><span>福岡県立田川高校、熊本大学を経て、早稲田大学大学院で情報系（AI）を研究。</span></div></li>
+      <li><time>2007</time><div><b>日本IBMに入社</b><span>銀行のATMやインターネットバンキングのシステム開発から、プロジェクトマネジメントまでを担当。</span></div></li>
+      <li><time>2015</time><div><b>株式会社diffeasyを創業</b><span>Webシステム開発、大会運営SaaS「大会運営 向上心」、プロジェクトマネージャー研修、在宅医療向け「CrossLog」など、現場の困りごとを起点に事業を展開。</span></div></li>
+      <li><time>2020頃</time><div><b>アイルランドにAugusta Games Limitedを設立</b><span>スポーツ分野で、海外を舞台にスタートアップに挑戦。</span></div></li>
+      <li><time>2021</time><div><b>diffeasyがふくおかフィナンシャルグループ傘下へ</b><span>1月、傘下のiBankマーケティングがdiffeasyの全株式を取得。3月、CrossLog事業はクロスログ株式会社へ事業譲渡。</span></div></li>
+      <li><time>2023</time><div><b>Baricataを創業（マルタ）</b><span>生成AIを活用した「AI Casino Dealer」を開発。欧州のiGaming業界で、CEOとして紹介される。</span></div></li>
+      <li><time>2026</time><div><b>10FLOW株式会社 代表取締役</b><span>歯科医療DXに取り組む。</span></div></li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="now">
+    <h2 id="now">いま</h2>
+    <div class="now">
+      <a class="card" href="https://www.baricata.com/" target="_blank" rel="noopener"><b>Baricata</b><span>AI Casino Dealer ／ マルタ</span></a>
+      <div class="card"><b>10FLOW</b><span>歯科医療DX</span></div>
+      <a class="card" href="https://www.youtube.com/@AIKATSUYOHO" target="_blank" rel="noopener"><b>AI活用法実験ラジオ</b><span><span class="nb">YouTube・Podcast ／</span> <span class="nb">毎週 水・土 18:00 配信</span></span></a>
+    </div>
+  </section>
+
+  <footer>
+    ※ サンプルです。掲載内容は、公式のプレスリリース、本人の公開プロフィール、インタビューなど、公開されている情報にもとづいています。
+  </footer>
+</main>
+</body>
+</html>
