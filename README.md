@@ -38,11 +38,43 @@ cp .env.example .env.local   # 値を入れる
 npm run dev                   # http://localhost:3000
 ```
 
-## Vercel にデプロイする
+## 開発フロー（GitHub × Vercel Preview Deployment）
 
-1. このリポジトリを Vercel で Import（Next.js は自動検出されます）
-2. Settings → Environment Variables に `ANTHROPIC_API_KEY` と `ACCESS_CODE` を登録
-3. Deploy
+`main` を本番、それ以外のブランチを「確認用」として運用します。ブランチを push して Pull Request を作ると、Vercel が自動で Preview URL を発行します。
+
+### 初回セットアップ（1回だけ）
+
+```bash
+git push -u origin main                          # 土台（README と .gitignore）
+git push -u origin feature/initial-line-chat     # アプリ一式
+```
+
+1. GitHub で `feature/initial-line-chat` → `main` の Pull Request を作る
+2. Vercel で「Add New → Project」から `kazuki0716/LINE_Consultation` を Import（Production Branch は `main`）
+3. Settings → Environment Variables に次を登録する。**Production と Preview の両方にチェック**を入れる（Preview だけ忘れやすい）
+   - `ANTHROPIC_API_KEY`
+   - `ACCESS_CODE`（合言葉。未設定だと画面に「サーバーの設定が必要です」と出て動きません）
+4. PR に Vercel の Preview URL が付くので、動作を確認してからマージする
+
+初回は `main` に Next.js のアプリが無いため、`main` の Production ビルドは失敗することがあります。想定内です。PR の Preview が成功していれば、マージ後に `main` が自動で再デプロイされます。
+
+### 普段の変更の流れ
+
+```bash
+git switch main && git pull
+git switch -c feature/変更内容          # 作業ブランチを切る
+# …編集…
+git add -A && git commit -m "feat: 変更内容"
+git push -u origin feature/変更内容     # → PR を作ると Preview URL が出る
+```
+
+Preview で確認 → `main` にマージ → 本番に自動デプロイ。
+
+### Preview の注意
+
+- Preview URL は、Vercel の既定設定（Deployment Protection）では Vercel にログインした人しか開けません。ほかの人に見せるときは Vercel 側で保護の設定を変えてください。
+- Preview も本物の Claude API を呼びます。`ACCESS_CODE` を必ず設定し、API利用料に気を付けてください。
+- 環境変数を変えたら、再デプロイ（Redeploy）しないと反映されません。
 
 ## キャラクターを変える
 
