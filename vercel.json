@@ -1,0 +1,3 @@
+{
+  "rewrites": [{ "source": "/", "destination": "/roots-lab/index.html" }]
+}
