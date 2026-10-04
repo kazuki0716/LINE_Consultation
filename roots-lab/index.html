@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Roots Lab.美食部</title>
+  <meta name="description" content="食べログで活動するグルメレビュアー「Roots Lab.美食部」の概要ページ。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #faf7f2;
+      --surface: #ffffff;
+      --text: #2b2420;
+      --muted: #75695f;
+      --accent: #b5532b;
+      --accent-soft: #f3e3d8;
+      --line: #e8dfd5;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1a1714;
+        --surface: #24201c;
+        --text: #f1ebe4;
+        --muted: #b3a79b;
+        --accent: #e58a5f;
+        --accent-soft: #3a2a21;
+        --line: #3a332c;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Noto Sans JP", system-ui, sans-serif;
+      line-height: 1.8;
+    }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 0 16px; }
+    header.hero { padding: 88px 0 64px; border-bottom: 1px solid var(--line); }
+    .eyebrow { color: var(--accent); font-weight: 700; letter-spacing: .12em; font-size: .85rem; margin: 0 0 12px; }
+    h1 { font-family: "Noto Serif JP", serif; font-size: clamp(2.2rem, 7vw, 3.6rem); line-height: 1.2; margin: 0 0 20px; }
+    .lead { color: var(--muted); font-size: 1.05rem; max-width: 36em; margin: 0; }
+    section { padding: 56px 0; border-bottom: 1px solid var(--line); }
+    h2 { font-family: "Noto Serif JP", serif; font-size: 1.5rem; margin: 0 0 20px; }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+    .stat { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px; }
+    .stat .num { font-size: clamp(1.4rem, 5vw, 2rem); font-weight: 700; color: var(--accent); line-height: 1.3; word-break: keep-all; }
+    .stat .label { color: var(--muted); font-size: .9rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
+    .tags li { background: var(--accent-soft); color: var(--text); padding: 6px 14px; border-radius: 999px; font-size: .95rem; }
+    .areas { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    .area { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px; }
+    .area h3 { margin: 0 0 6px; font-size: 1.05rem; }
+    .area p { margin: 0; color: var(--muted); font-size: .95rem; }
+    .note { color: var(--muted); font-size: .85rem; margin-top: 16px; }
+    footer { padding: 40px 0 56px; color: var(--muted); font-size: .85rem; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow">GOURMET REVIEWER</p>
+      <h1>Roots Lab.美食部</h1>
+      <p class="lead">食べログで活動するグルメレビュアー。東京・神奈川を中心に、寿司からドーナツまでジャンルを問わず食べ歩き、お店の魅力を口コミで発信しています。</p>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="wrap">
+        <h2>活動のようす</h2>
+        <div class="stats">
+          <div class="stat"><div class="num">約100件</div><div class="label">投稿した口コミ</div></div>
+          <div class="stat"><div class="num">約40人</div><div class="label">フォロワー</div></div>
+          <div class="stat"><div class="num">東京・神奈川</div><div class="label">主な活動エリア</div></div>
+        </div>
+        <p class="note">※ 数値は2026年10月時点で公開されている情報をもとにした概数です。</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>レビューしているジャンル</h2>
+        <ul class="tags">
+          <li>寿司</li>
+          <li>海鮮</li>
+          <li>焼き鳥</li>
+          <li>中華料理</li>
+          <li>豚丼</li>
+          <li>カフェ</li>
+          <li>ドーナツ</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>よく登場するエリア</h2>
+        <div class="areas">
+          <div class="area"><h3>東京都心</h3><p>渋谷・有楽町など</p></div>
+          <div class="area"><h3>大田区</h3><p>蒲田</p></div>
+          <div class="area"><h3>川崎市</h3><p>武蔵小杉・鹿島田</p></div>
+          <div class="area"><h3>横浜市</h3><p>平沼橋</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      口コミは食べログで「Roots Lab.美食部」と検索するとご覧いただけます。
+    </div>
+  </footer>
+</body>
+</html>
