@@ -1,3 +1,6 @@
 {
-  "rewrites": [{ "source": "/", "destination": "/roots-lab/index.html" }]
+  "rewrites": [
+    { "source": "/", "destination": "/roots-lab/index.html" },
+    { "source": "/img/:path*", "destination": "/roots-lab/img/:path*" }
+  ]
 }

@@ -105,6 +105,31 @@
     h2 { margin: 0 0 40px; font-size: clamp(34px, 6vw, 60px); line-height: 1.15; }
     h2 .hl { background: linear-gradient(transparent 60%, var(--yellow) 60%); }
 
+    /* 人気の投稿 TOP5 */
+    .top5 { background: var(--ink); color: #fff; }
+    .top5 .label { color: var(--ink); }
+    .top5 h2 .hl { background: linear-gradient(transparent 60%, var(--pink) 60%); }
+    .ranking { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; list-style: none; margin: 0; padding: 0; }
+    .post {
+      position: relative; display: block; height: 100%; background: #fff; color: var(--ink); border: var(--line);
+      border-radius: 20px; overflow: hidden; box-shadow: 6px 6px 0 var(--yellow);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .post:hover { transform: translate(-3px, -3px) rotate(-1deg); box-shadow: 10px 10px 0 var(--yellow); }
+    .post img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-bottom: var(--line); }
+    .post .rank {
+      position: absolute; top: 10px; left: 10px; width: 48px; height: 48px; border-radius: 50%;
+      background: var(--yellow); border: var(--line); display: grid; place-items: center;
+      font-family: "Dela Gothic One", sans-serif; font-size: 22px; transform: rotate(-8deg);
+    }
+    .ranking li:first-child .rank { background: var(--pink); color: #fff; width: 60px; height: 60px; font-size: 28px; }
+    .post .body { padding: 12px 14px 14px; }
+    .post .area { font-size: 12px; color: #666; }
+    .post h3 { margin: 2px 0 6px; font-size: 16px; line-height: 1.35; }
+    .post .views { font-family: "Dela Gothic One", sans-serif; font-size: 22px; color: var(--pink); }
+    .post .views small { font-family: "M PLUS Rounded 1c", sans-serif; font-weight: 700; font-size: 12px; color: var(--ink); margin-left: 4px; }
+    .top5 .note { color: #fff; }
+
     /* 数字 */
     .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
     .stat {
@@ -180,6 +205,12 @@
     }
 
     @media (max-width: 860px) {
+      .ranking {
+        display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 16px;
+        margin: 0 -16px; padding: 4px 16px 16px; scroll-padding-inline: 16px; scrollbar-width: none;
+      }
+      .ranking::-webkit-scrollbar { display: none; }
+      .ranking li { flex: 0 0 min(220px, 62vw); scroll-snap-align: start; }
       .grid { grid-template-columns: repeat(2, 1fr); }
       .badge, .s4 { display: none; }
       .sticker { position: static; display: inline-block; margin: 0 8px 12px 0; animation: none; }
@@ -231,6 +262,40 @@
   </div>
 
   <main>
+    <section class="top5">
+      <div class="wrap">
+        <div class="label">RANKING</div>
+        <h2 class="display">Instagram<br><span class="hl">人気の投稿 TOP5</span></h2>
+        <ol class="ranking">
+          <li class="pop"><a class="post" href="https://www.instagram.com/rl_gourmet01/" target="_blank" rel="noopener">
+            <span class="rank">1</span>
+            <img src="img/top1-yamaimo.jpg" alt="山芋の多い料理店の料理写真" loading="lazy" width="600" height="806">
+            <div class="body"><div class="area">📍 川崎</div><h3>山芋の多い料理店</h3><div class="views">3.6万<small>回閲覧</small></div></div>
+          </a></li>
+          <li class="pop"><a class="post" href="https://www.instagram.com/rl_gourmet01/" target="_blank" rel="noopener">
+            <span class="rank">2</span>
+            <img src="img/top2-epront.jpg" alt="エプロントの料理写真" loading="lazy" width="600" height="806">
+            <div class="body"><div class="area">📍 武蔵小杉</div><h3>エプロント</h3><div class="views">3,716<small>回閲覧</small></div></div>
+          </a></li>
+          <li class="pop"><a class="post" href="https://www.instagram.com/rl_gourmet01/" target="_blank" rel="noopener">
+            <span class="rank">3</span>
+            <img src="img/top3-kokone.jpg" alt="旬菜 心音（綱島湯けむりの庄）の料理写真" loading="lazy" width="600" height="806">
+            <div class="body"><div class="area">📍 綱島</div><h3>旬菜 心音（綱島湯けむりの庄）</h3><div class="views">3,631<small>回閲覧</small></div></div>
+          </a></li>
+          <li class="pop"><a class="post" href="https://www.instagram.com/rl_gourmet01/" target="_blank" rel="noopener">
+            <span class="rank">4</span>
+            <img src="img/top4-moonjelly.jpg" alt="moon jelly（ムーンジェリー）の料理写真" loading="lazy" width="600" height="806">
+            <div class="body"><div class="area">📍 矢向</div><h3>moon jelly（ムーンジェリー）</h3><div class="views">2,705<small>回閲覧</small></div></div>
+          </a></li>
+          <li class="pop"><a class="post" href="https://www.instagram.com/rl_gourmet01/" target="_blank" rel="noopener">
+            <span class="rank">5</span>
+            <img src="img/top5-kamonanban.jpg" alt="そば処 鴨南ばんの料理写真" loading="lazy" width="600" height="806">
+            <div class="body"><div class="area">📍 矢向</div><h3>そば処 鴨南ばん</h3><div class="views">2,400+<small>回閲覧</small></div></div>
+          </a></li>
+        </ol>
+        <p class="note">※ 閲覧数は2026年10月5日時点の数値です。</p>
+      </div>
+    </section>
     <section>
       <div class="wrap">
         <div class="label">ABOUT</div>
