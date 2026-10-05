@@ -7,251 +7,304 @@
   <meta name="description" content="東京・神奈川を食べ歩くグルメレビュアー「Roots Lab.美食部」の公式ページ。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=M+PLUS+Rounded+1c:wght@500;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --light: #f5f5f7;
-      --white: #ffffff;
-      --black: #000000;
-      --ink: #1d1d1f;
-      --muted: #6e6e73;
-      --muted-dark: #a1a1a6;
-      --link: #0071e3;
-      --link-dark: #2997ff;
-      --radius: 28px;
+      --yellow: #ffe14d;
+      --pink: #ff5fa2;
+      --blue: #4d8dff;
+      --green: #3ddc97;
+      --orange: #ff8a3d;
+      --purple: #a77bff;
+      --cream: #fff8e7;
+      --ink: #111111;
+      --line: 3px solid var(--ink);
+      --shadow: 6px 6px 0 var(--ink);
     }
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      background: var(--white);
+      background: var(--cream);
       color: var(--ink);
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro JP", "Hiragino Sans", "Noto Sans JP", sans-serif;
-      -webkit-font-smoothing: antialiased;
-      line-height: 1.5;
-      letter-spacing: .01em;
+      font-family: "M PLUS Rounded 1c", "Hiragino Maru Gothic ProN", sans-serif;
+      font-weight: 700;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
-    a { color: inherit; }
+    a { color: inherit; text-decoration: none; }
+    .display { font-family: "Dela Gothic One", sans-serif; font-weight: 400; letter-spacing: .01em; }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+
+    /* ボタン */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--ink); color: #fff; border: var(--line); border-radius: 999px;
+      padding: 12px 24px; font-size: 16px; box-shadow: 4px 4px 0 var(--pink);
+      transition: transform .15s, box-shadow .15s;
+    }
+    .btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--pink); }
+    .btn:active { transform: translate(3px, 3px); box-shadow: 0 0 0 var(--pink); }
+    .btn-light { background: #fff; color: var(--ink); box-shadow: var(--shadow); }
+    .btn-light:hover { box-shadow: 8px 8px 0 var(--ink); }
+    .btn-ig {
+      background: linear-gradient(45deg, #feda75, #fa7e1e 25%, #d62976 55%, #962fbf 80%, #4f5bd5);
+      color: #fff; box-shadow: var(--shadow); font-size: 18px; padding: 16px 32px;
+    }
+    .btn-ig:hover { box-shadow: 8px 8px 0 var(--ink); }
 
     /* ナビ */
-    .nav {
-      position: sticky; top: 0; z-index: 10;
-      background: rgba(250, 250, 252, .8);
-      backdrop-filter: saturate(180%) blur(20px);
-      -webkit-backdrop-filter: saturate(180%) blur(20px);
-      border-bottom: 1px solid rgba(0, 0, 0, .08);
-    }
-    .nav-inner {
-      max-width: 1000px; margin: 0 auto; padding: 0 16px;
-      height: 48px; display: flex; align-items: center; justify-content: space-between;
-      font-size: 12px;
-    }
-    .nav .brand { font-weight: 700; font-size: 15px; text-decoration: none; }
-    .nav ul { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; }
-    .nav ul a { text-decoration: none; color: rgba(0, 0, 0, .8); transition: color .2s; }
-    .nav ul a:hover { color: var(--black); }
-
-    /* 共通 */
-    .tile {
-      text-align: center;
-      padding: 72px 16px 80px;
-      overflow: hidden;
-    }
-    .tile h1, .tile h2 { margin: 0; font-weight: 700; letter-spacing: -.01em; line-height: 1.1; }
-    .headline { font-size: clamp(40px, 8vw, 80px); }
-    .headline-md { font-size: clamp(32px, 6vw, 56px); }
-    .sub { font-size: clamp(19px, 2.6vw, 28px); margin: 10px 0 0; font-weight: 400; }
-    .ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 22px; }
-    .btn {
-      display: inline-block; background: var(--link); color: #fff; text-decoration: none;
-      padding: 11px 22px; border-radius: 980px; font-size: 17px; transition: background .2s;
-    }
-    .btn:hover { background: #0077ed; }
-    .btn-ghost { background: transparent; color: var(--link); box-shadow: inset 0 0 0 1px var(--link); }
-    .btn-ghost:hover { background: var(--link); color: #fff; }
-    .dark { background: var(--black); color: #f5f5f7; }
-    .dark .btn-ghost { color: var(--link-dark); box-shadow: inset 0 0 0 1px var(--link-dark); }
-    .dark .btn-ghost:hover { background: var(--link-dark); color: #000; }
-    .gray { background: var(--light); }
-    .eyebrow { font-size: 17px; font-weight: 700; margin: 0 0 8px; }
+    .nav { position: sticky; top: 0; z-index: 20; padding: 12px 0; background: var(--yellow); border-bottom: var(--line); }
+    .nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .logo { font-size: 20px; }
+    .logo span { color: var(--pink); }
+    .nav .btn { padding: 8px 18px; font-size: 14px; }
 
     /* ヒーロー */
-    .hero { background: var(--light); padding: 96px 16px 0; }
-    .hero .headline { font-weight: 900; }
-    .hero-visual {
-      margin: 56px auto 0; max-width: 980px; height: clamp(260px, 44vw, 460px);
-      border-radius: var(--radius) var(--radius) 0 0;
-      background:
-        radial-gradient(circle at 25% 35%, #ffb36b 0, transparent 40%),
-        radial-gradient(circle at 75% 30%, #ff5e62 0, transparent 42%),
-        radial-gradient(circle at 55% 85%, #8e54e9 0, transparent 45%),
-        #1d1d1f;
-      display: grid; place-items: center; position: relative;
+    .hero { background: var(--yellow); border-bottom: var(--line); position: relative; overflow: hidden; }
+    .hero .wrap { padding-top: 72px; padding-bottom: 96px; position: relative; z-index: 1; }
+    .hero h1 { margin: 0; line-height: 1.05; font-size: clamp(56px, 13vw, 150px); }
+    .hero h1 .tag {
+      display: inline-block; background: var(--pink); color: #fff; border: var(--line);
+      box-shadow: var(--shadow); border-radius: 20px; padding: 0 .25em; transform: rotate(-3deg);
+      margin-top: .12em;
     }
-    .hero-visual span {
-      font-size: clamp(110px, 22vw, 240px); font-weight: 900; color: rgba(255, 255, 255, .92);
-      letter-spacing: -.04em; line-height: 1; mix-blend-mode: overlay;
+    .hero .lead { font-size: clamp(18px, 2.6vw, 26px); margin: 32px 0 28px; max-width: 26em; }
+    .hero .ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+    .sticker {
+      position: absolute; border: var(--line); box-shadow: 4px 4px 0 var(--ink); border-radius: 999px;
+      padding: 8px 18px; font-size: clamp(14px, 1.6vw, 18px); white-space: nowrap; background: #fff;
+      animation: float 4s ease-in-out infinite;
     }
+    .s1 { top: 46%; right: 30%; background: var(--blue); color: #fff; transform: rotate(8deg); }
+    .s2 { top: 64%; right: 20%; background: var(--green); transform: rotate(-6deg); animation-delay: -1s; }
+    .s3 { bottom: 9%; right: 5%; background: var(--orange); transform: rotate(5deg); animation-delay: -2s; }
+    .s4 { bottom: 7%; right: 36%; background: #fff; transform: rotate(-10deg); animation-delay: -3s; }
+    .badge {
+      position: absolute; top: 40%; right: 6%; width: 128px; height: 128px; border-radius: 50%;
+      background: var(--pink); color: #fff; border: var(--line); box-shadow: 4px 4px 0 var(--ink);
+      display: grid; place-items: center; text-align: center; line-height: 1.2; font-size: 15px;
+      transform: rotate(12deg);
+    }
+    .badge b { display: block; font-family: "Dela Gothic One", sans-serif; font-weight: 400; font-size: 30px; }
+    @keyframes float { 50% { translate: 0 -10px; } }
+
+    /* 流れる帯 */
+    .marquee { background: var(--ink); color: var(--yellow); border-bottom: var(--line); overflow: hidden; padding: 14px 0; }
+    .marquee .track { display: flex; width: max-content; animation: scroll 28s linear infinite; }
+    .marquee span { font-family: "Dela Gothic One", sans-serif; font-size: 24px; padding: 0 20px; white-space: nowrap; }
+    .marquee span:nth-child(3n+2) { color: var(--pink); }
+    .marquee span:nth-child(3n) { color: var(--green); }
+    @keyframes scroll { to { transform: translateX(-50%); } }
+
+    /* セクション */
+    section { padding: 88px 0; border-bottom: var(--line); }
+    .label {
+      display: inline-block; background: #fff; border: var(--line); border-radius: 999px;
+      padding: 4px 16px; font-size: 14px; box-shadow: 3px 3px 0 var(--ink); margin-bottom: 16px;
+    }
+    h2 { margin: 0 0 40px; font-size: clamp(34px, 6vw, 60px); line-height: 1.15; }
+    h2 .hl { background: linear-gradient(transparent 60%, var(--yellow) 60%); }
 
     /* 数字 */
-    .gradient-text {
-      background: linear-gradient(90deg, #ff9f43, #ff5e62 45%, #a55eea);
-      -webkit-background-clip: text; background-clip: text; color: transparent;
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .stat {
+      border: var(--line); border-radius: 24px; box-shadow: var(--shadow); padding: 28px 24px;
+      transition: transform .2s;
     }
-    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 900px; margin: 56px auto 0; }
-    .stat .num { font-size: clamp(36px, 7vw, 64px); font-weight: 900; line-height: 1.1; }
-    .stat .label { color: var(--muted-dark); font-size: clamp(13px, 1.6vw, 17px); margin-top: 6px; }
-    .note { color: var(--muted-dark); font-size: 12px; margin-top: 40px; }
+    .stat:nth-child(1) { background: var(--pink); color: #fff; transform: rotate(-2deg); }
+    .stat:nth-child(2) { background: var(--blue); color: #fff; transform: rotate(1.5deg); }
+    .stat:nth-child(3) { background: var(--green); transform: rotate(-1deg); }
+    .stat:hover { transform: rotate(0) scale(1.04); }
+    .stat .num { font-family: "Dela Gothic One", sans-serif; font-size: clamp(44px, 7vw, 72px); line-height: 1; }
+    .stat .num small { font-size: .4em; margin-left: 4px; }
+    .stat .cap { margin-top: 10px; font-size: 16px; }
+    .note { font-size: 12px; font-weight: 500; margin-top: 32px; opacity: .7; }
 
     /* ジャンル */
-    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 12px; max-width: 1440px; margin: 0 auto; }
+    .genres { background: var(--pink); }
+    .genres h2 .hl { background: linear-gradient(transparent 60%, var(--yellow) 60%); }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
     .card {
-      border-radius: 0; min-height: clamp(300px, 42vw, 520px);
-      display: flex; flex-direction: column; align-items: center; justify-content: space-between;
-      text-align: center; padding: 48px 20px 0; overflow: hidden;
+      background: #fff; border: var(--line); border-radius: 24px; box-shadow: var(--shadow);
+      padding: 24px; display: flex; flex-direction: column; gap: 8px;
+      transition: transform .2s, box-shadow .2s;
     }
-    .card h3 { margin: 0; font-size: clamp(28px, 4vw, 44px); font-weight: 700; }
-    .card p { margin: 6px 0 0; font-size: clamp(15px, 1.8vw, 21px); }
-    .card .glyph {
-      font-size: clamp(120px, 18vw, 240px); font-weight: 900; line-height: .9; margin-bottom: -.12em;
-      transition: transform .6s cubic-bezier(.2, .8, .2, 1);
+    .card:hover { transform: translate(-3px, -3px) rotate(-1deg); box-shadow: 10px 10px 0 var(--ink); }
+    .card .icon {
+      width: 72px; height: 72px; border: var(--line); border-radius: 18px; display: grid; place-items: center;
+      font-size: 40px; line-height: 1;
     }
-    .card:hover .glyph { transform: translateY(-12px) scale(1.04); }
-    .c1 { background: #fbf4ec; } .c1 .glyph { color: #e8590c; }
-    .c2 { background: #0b1d2e; color: #f5f5f7; } .c2 .glyph { color: #4dabf7; }
-    .c3 { background: #1d1d1f; color: #f5f5f7; } .c3 .glyph { color: #ff922b; }
-    .c4 { background: #fff0f0; } .c4 .glyph { color: #e03131; }
-    .c5 { background: #f3f0ff; } .c5 .glyph { color: #7048e8; }
-    .c6 { background: #f1ede8; } .c6 .glyph { color: #7a4a2a; }
+    .card h3 { margin: 8px 0 0; font-size: 24px; }
+    .card p { margin: 0; font-weight: 500; }
+    .i1 { background: var(--yellow); } .i2 { background: var(--blue); } .i3 { background: var(--orange); }
+    .i4 { background: var(--green); } .i5 { background: var(--purple); } .i6 { background: var(--cream); }
 
-    /* エリア */
-    .areas {
-      --gutter: max(16px, calc((100vw - 980px) / 2));
-      display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory;
-      padding: 40px var(--gutter) 24px; scroll-padding-inline: var(--gutter); scrollbar-width: none;
+    /* エリア（路線図風） */
+    .areas { background: var(--blue); color: #fff; }
+    .areas .label { color: var(--ink); }
+    .line { position: relative; display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; padding-top: 8px; }
+    .line::before {
+      content: ""; position: absolute; left: 8%; right: 8%; top: 36px; height: 12px;
+      background: var(--yellow); border: var(--line); border-radius: 999px;
     }
-    .areas::-webkit-scrollbar { display: none; }
-    .area {
-      flex: 0 0 min(300px, 78vw); scroll-snap-align: start;
-      background: var(--white); border-radius: var(--radius); padding: 32px 28px;
-      text-align: left; min-height: 280px; display: flex; flex-direction: column; justify-content: space-between;
-      box-shadow: 0 4px 24px rgba(0, 0, 0, .04); transition: transform .4s, box-shadow .4s;
+    .stop { position: relative; text-align: center; }
+    .stop .dot {
+      width: 56px; height: 56px; margin: 0 auto; border-radius: 50%; background: #fff; border: var(--line);
+      display: grid; place-items: center; color: var(--ink); font-weight: 800; font-size: 20px;
+      transition: transform .2s;
     }
-    .area:hover { transform: scale(1.02); box-shadow: 0 12px 40px rgba(0, 0, 0, .1); }
-    .area .pref { color: var(--muted); font-size: 14px; font-weight: 500; }
-    .area h3 { margin: 6px 0 0; font-size: 32px; font-weight: 700; }
-    .area p { margin: 0; font-size: 17px; color: var(--muted); }
+    .stop:hover .dot { transform: scale(1.15) rotate(-8deg); background: var(--pink); color: #fff; }
+    .stop h3 { margin: 14px 0 2px; font-size: 22px; }
+    .stop p { margin: 0; font-size: 13px; font-weight: 500; opacity: .9; }
 
-    /* フッター */
-    footer { background: var(--light); color: var(--muted); font-size: 12px; }
-    footer .inner { max-width: 980px; margin: 0 auto; padding: 20px 16px 32px; border-top: 1px solid #d2d2d7; }
-    footer a { color: var(--ink); }
+    /* CTA */
+    .cta { background: var(--yellow); text-align: center; }
+    .cta h2 { font-size: clamp(48px, 11vw, 120px); margin-bottom: 16px; }
+    .cta p { font-size: clamp(16px, 2.2vw, 22px); margin: 0 0 32px; }
 
-    /* アニメーション */
-    .reveal { opacity: 0; transform: translateY(40px); transition: opacity 1s ease, transform 1s cubic-bezier(.2, .8, .2, 1); }
-    .reveal.in { opacity: 1; transform: none; }
+    footer { background: var(--ink); color: #fff; padding: 32px 0 40px; font-size: 13px; font-weight: 500; }
+    footer a { color: var(--yellow); text-decoration: underline; }
+    footer .logo { font-size: 22px; margin-bottom: 8px; }
+
+    /* 表示アニメーション */
+    .pop { opacity: 0; transform: translateY(30px) scale(.96); transition: opacity .6s, transform .6s cubic-bezier(.3, 1.6, .5, 1); }
+    .pop.in { opacity: 1; transform: none; }
+    .stat.pop.in:nth-child(1) { transform: rotate(-2deg); }
+    .stat.pop.in:nth-child(2) { transform: rotate(1.5deg); }
+    .stat.pop.in:nth-child(3) { transform: rotate(-1deg); }
+    .stat.pop.in:hover { transform: rotate(0) scale(1.04); }
+
     @media (prefers-reduced-motion: reduce) {
-      .reveal { opacity: 1; transform: none; transition: none; }
-      html { scroll-behavior: auto; }
+      .pop { opacity: 1; transform: none; transition: none; }
+      .marquee .track, .sticker { animation: none; }
     }
 
-    @media (max-width: 734px) {
-      .nav ul { gap: 18px; }
+    @media (max-width: 860px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
+      .badge, .s4 { display: none; }
+      .sticker { position: static; display: inline-block; margin: 0 8px 12px 0; animation: none; }
+      .stickers { margin-top: 40px; }
+      .line { grid-template-columns: 1fr; gap: 20px; padding-left: 8px; }
+      .line::before { left: 34px; right: auto; top: 20px; bottom: 20px; width: 12px; height: auto; }
+      .stop { display: grid; grid-template-columns: 56px 1fr; column-gap: 16px; text-align: left; align-items: center; }
+      .stop .dot { grid-row: span 2; margin: 0; }
+      .stop h3 { margin: 0; }
+    }
+    @media (max-width: 600px) {
+      .stats { grid-template-columns: 1fr; gap: 20px; }
       .grid { grid-template-columns: 1fr; }
-      .stats { gap: 12px; }
+      .nav .btn span { display: none; }
     }
   </style>
 </head>
 <body>
   <nav class="nav">
-    <div class="nav-inner">
-      <a class="brand" href="#">Roots Lab.</a>
-      <ul>
-        <li><a href="#genre">ジャンル</a></li>
-        <li><a href="#area">エリア</a></li>
-        <li><a href="https://www.instagram.com/rl_gourmet01/" target="_blank" rel="noopener">Instagram</a></li>
-      </ul>
+    <div class="wrap">
+      <a class="logo display" href="#">Roots Lab<span>.</span></a>
+      <a class="btn" href="https://www.instagram.com/rl_gourmet01/" target="_blank" rel="noopener">Instagram<span>をフォロー</span></a>
     </div>
   </nav>
 
-  <header class="tile hero">
-    <p class="eyebrow reveal">グルメレビュアー</p>
-    <h1 class="headline reveal">Roots Lab.美食部</h1>
-    <p class="sub reveal">食べ歩くたびに、街がもっと美味しくなる。</p>
-    <div class="ctas reveal">
-      <a class="btn" href="https://www.instagram.com/rl_gourmet01/" target="_blank" rel="noopener">Instagramを見る</a>
-      <a class="btn btn-ghost" href="#genre">もっと詳しく</a>
+  <header class="hero">
+    <div class="wrap">
+      <h1 class="display">Roots Lab.<br><span class="tag">美食部</span></h1>
+      <p class="lead">東京・神奈川を食べ歩いて、<br>「おいしい！」を全力で口コミ中。</p>
+      <div class="ctas">
+        <a class="btn btn-ig" href="https://www.instagram.com/rl_gourmet01/" target="_blank" rel="noopener">@rl_gourmet01</a>
+        <a class="btn btn-light" href="#genre">なに食べてるの？</a>
+      </div>
+      <div class="stickers">
+        <span class="sticker s1">🍣 寿司</span>
+        <span class="sticker s2">🍢 焼き鳥</span>
+        <span class="sticker s3">🍩 ドーナツ</span>
+        <span class="sticker s4">☕ カフェ</span>
+      </div>
+      <div class="badge" aria-hidden="true"><div>口コミ<b>100</b>件近く!</div></div>
     </div>
-    <div class="hero-visual reveal" aria-hidden="true"><span>美食</span></div>
   </header>
 
+  <div class="marquee" aria-hidden="true">
+    <div class="track">
+      <span>寿司</span><span>✦</span><span>海鮮</span><span>焼き鳥</span><span>✦</span><span>中華</span><span>豚丼</span><span>✦</span><span>カフェ</span><span>ドーナツ</span><span>✦</span><span>EAT GOOD</span>
+      <span>寿司</span><span>✦</span><span>海鮮</span><span>焼き鳥</span><span>✦</span><span>中華</span><span>豚丼</span><span>✦</span><span>カフェ</span><span>ドーナツ</span><span>✦</span><span>EAT GOOD</span>
+    </div>
+  </div>
+
   <main>
-    <section class="tile dark">
-      <h2 class="headline-md reveal">一軒一軒に、<br><span class="gradient-text">本気の口コミを。</span></h2>
-      <p class="sub reveal" style="color: var(--muted-dark)">東京・神奈川を中心に、食べログで発信中。</p>
-      <div class="stats">
-        <div class="stat reveal"><div class="num gradient-text">100</div><div class="label">件近い口コミ</div></div>
-        <div class="stat reveal"><div class="num gradient-text">40</div><div class="label">人近いフォロワー</div></div>
-        <div class="stat reveal"><div class="num gradient-text">7</div><div class="label">つ以上のジャンル</div></div>
-      </div>
-      <p class="note">数値は2026年10月時点で公開されている情報をもとにした概数です。</p>
-    </section>
-
-    <section id="genre">
-      <div class="tile" style="padding-bottom: 40px">
-        <h2 class="headline-md reveal">ジャンルは、問わない。</h2>
-        <p class="sub reveal" style="color: var(--muted)">寿司からドーナツまで。美味しいものなら、どこへでも。</p>
-      </div>
-      <div class="grid">
-        <div class="card c1 reveal"><div><h3>寿司</h3><p>カウンターで味わう、職人の技。</p></div><div class="glyph">鮨</div></div>
-        <div class="card c2 reveal"><div><h3>海鮮</h3><p>港から届く、その日いちばん。</p></div><div class="glyph">魚</div></div>
-        <div class="card c3 reveal"><div><h3>焼き鳥</h3><p>炭火の香りまで、ごちそう。</p></div><div class="glyph">串</div></div>
-        <div class="card c4 reveal"><div><h3>中華・豚丼</h3><p>がっつり食べたい日の、頼れる一杯。</p></div><div class="glyph">丼</div></div>
-        <div class="card c5 reveal"><div><h3>ドーナツ</h3><p>ひと口で幸せになる、生ドーナツ。</p></div><div class="glyph">甘</div></div>
-        <div class="card c6 reveal"><div><h3>カフェ</h3><p>食べ歩きの合間に、ほっとひと息。</p></div><div class="glyph">珈</div></div>
+    <section>
+      <div class="wrap">
+        <div class="label">ABOUT</div>
+        <h2 class="display">食べログで<br><span class="hl">口コミ発信中！</span></h2>
+        <div class="stats">
+          <div class="stat pop"><div class="num">100<small>件近く</small></div><div class="cap">投稿した口コミ</div></div>
+          <div class="stat pop"><div class="num">40<small>人近く</small></div><div class="cap">フォロワー</div></div>
+          <div class="stat pop"><div class="num">7<small>ジャンル+</small></div><div class="cap">寿司からスイーツまで</div></div>
+        </div>
+        <p class="note">※ 数値は2026年10月時点で公開されている情報をもとにした概数です。</p>
       </div>
     </section>
 
-    <section id="area" class="tile gray" style="padding-left: 0; padding-right: 0">
-      <h2 class="headline-md reveal" style="padding: 0 16px">歩いた街を、めぐる。</h2>
-      <p class="sub reveal" style="color: var(--muted); padding: 0 16px">横にスクロールして、エリアを見てみましょう。</p>
-      <div class="areas">
-        <div class="area"><div><div class="pref">東京都</div><h3>渋谷</h3></div><p>寿司の名店から話題の新店まで。</p></div>
-        <div class="area"><div><div class="pref">東京都</div><h3>有楽町</h3></div><p>街歩きの合間に寄りたいカフェ。</p></div>
-        <div class="area"><div><div class="pref">東京都大田区</div><h3>蒲田</h3></div><p>町中華の聖地を食べ歩き。</p></div>
-        <div class="area"><div><div class="pref">神奈川県川崎市</div><h3>武蔵小杉</h3></div><p>炭火焼き鳥で一杯。</p></div>
-        <div class="area"><div><div class="pref">神奈川県川崎市</div><h3>鹿島田</h3></div><p>海鮮と生ドーナツの街。</p></div>
-        <div class="area"><div><div class="pref">神奈川県横浜市</div><h3>平沼橋</h3></div><p>ボリューム満点の豚丼。</p></div>
+    <section id="genre" class="genres">
+      <div class="wrap">
+        <div class="label">GENRE</div>
+        <h2 class="display" style="color:#fff">なんでも<br><span class="hl" style="color:var(--ink)">食べます。</span></h2>
+        <div class="grid">
+          <div class="card pop"><div class="icon i1">🍣</div><h3>寿司</h3><p>ネタもシャリも、じっくり味わう。</p></div>
+          <div class="card pop"><div class="icon i2">🐟</div><h3>海鮮</h3><p>お刺身好きにはたまらない。</p></div>
+          <div class="card pop"><div class="icon i3">🍢</div><h3>焼き鳥</h3><p>炭火の香りで、もう一杯。</p></div>
+          <div class="card pop"><div class="icon i4">🥟</div><h3>中華・豚丼</h3><p>がっつり食べたい日に。</p></div>
+          <div class="card pop"><div class="icon i5">🍩</div><h3>ドーナツ</h3><p>ふわっふわの生ドーナツ。</p></div>
+          <div class="card pop"><div class="icon i6">☕</div><h3>カフェ</h3><p>食べ歩きの合間にひと休み。</p></div>
+        </div>
       </div>
     </section>
 
-    <section class="tile dark">
-      <h2 class="headline-md reveal">次の一軒は、<br>Instagramで。</h2>
-      <p class="sub reveal" style="color: var(--muted-dark)">最新の食べ歩きを、いち早くお届けします。</p>
-      <div class="ctas reveal">
-        <a class="btn" href="https://www.instagram.com/rl_gourmet01/" target="_blank" rel="noopener">@rl_gourmet01 をフォロー</a>
+    <section class="areas">
+      <div class="wrap">
+        <div class="label">AREA</div>
+        <h2 class="display">食べ歩き<br>マップ</h2>
+        <div class="line">
+          <div class="stop pop"><div class="dot">渋</div><h3>渋谷</h3><p>東京都</p></div>
+          <div class="stop pop"><div class="dot">有</div><h3>有楽町</h3><p>東京都</p></div>
+          <div class="stop pop"><div class="dot">蒲</div><h3>蒲田</h3><p>東京都大田区</p></div>
+          <div class="stop pop"><div class="dot">武</div><h3>武蔵小杉</h3><p>川崎市</p></div>
+          <div class="stop pop"><div class="dot">鹿</div><h3>鹿島田</h3><p>川崎市</p></div>
+          <div class="stop pop"><div class="dot">平</div><h3>平沼橋</h3><p>横浜市</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="wrap">
+        <h2 class="display">FOLLOW<br>ME!</h2>
+        <p>最新の食べ歩きは Instagram で更新中。</p>
+        <a class="btn btn-ig" href="https://www.instagram.com/rl_gourmet01/" target="_blank" rel="noopener">Instagram @rl_gourmet01</a>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="inner">
+    <div class="wrap">
+      <div class="logo display">Roots Lab<span style="color:var(--pink)">.</span>美食部</div>
       口コミは食べログで「Roots Lab.美食部」と検索するとご覧いただけます。<br>
-      Instagram：<a href="https://www.instagram.com/rl_gourmet01/" target="_blank" rel="noopener">@rl_gourmet01</a>
-      <p>© 2026 Roots Lab.美食部</p>
+      Instagram：<a href="https://www.instagram.com/rl_gourmet01/" target="_blank" rel="noopener">@rl_gourmet01</a><br>
+      © 2026 Roots Lab.美食部
     </div>
   </footer>
 
   <script>
     (function () {
-      var els = document.querySelectorAll('.reveal');
+      var els = document.querySelectorAll('.pop');
       if (!('IntersectionObserver' in window)) {
         els.forEach(function (el) { el.classList.add('in'); });
         return;
       }
       var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        entries.forEach(function (e, i) {
+          if (e.isIntersecting) {
+            setTimeout(function () { e.target.classList.add('in'); }, i * 80);
+            io.unobserve(e.target);
+          }
         });
       }, { threshold: 0.15 });
       els.forEach(function (el) { io.observe(el); });
