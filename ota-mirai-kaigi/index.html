@@ -9,324 +9,274 @@
 <meta property="og:description" content="2027年4月10日（土）大田区民ホール・アプリコ 小ホール。先着120名。">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ja_JP">
-<meta name="theme-color" content="#061a3a">
+<meta name="theme-color" content="#1a73c9">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- BudouX：日本語を文節で改行する（iOS Safari などで単語の途中で切れるのを防ぐ） -->
+<!-- BudouX：日本語を文節で改行する -->
 <script src="https://cdn.jsdelivr.net/npm/budoux@0.9.3/bundle/budoux-ja.min.js" defer></script>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@600;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Oswald:wght@500;700&display=swap">
 <style>
 :root{
-  --ink:#0e2547; --ink-2:#3d5379; --ink-3:#5f7393;
-  --navy:#0a2a57; --navy-deep:#061a3a;
-  --blue:#1b66e6; --blue-2:#3d86f5; --blue-pale:#d7e6ff;
-  --paper:#f2f7ff; --paper-2:#e7f0ff; --white:#fff;
-  --yellow:#ffcf2e; --yellow-2:#ffb81c; --yellow-edge:#c98200; --marker:rgba(255,207,46,.62);
-  --ume:#e0607a;
-  --f-head:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Noto Sans JP",sans-serif;
-  --f-body:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
-  --f-num:"Outfit","Noto Sans JP",sans-serif;
-  --r:18px;
-  --shadow:0 1px 0 rgba(14,37,71,.05),0 12px 28px rgba(27,102,230,.12);
+  --blue:#1a73c9; --blue-d:#0f4f97; --blue-l:#4ea3ee;
+  --sky:#e6f4fd; --sky-2:#cfe9fb; --sky-3:#f3faff;
+  --green:#22b07d; --green-d:#178a60; --green-l:#3dc796;
+  --yellow:#ffe45c; --yellow-l:#fff6c2;
+  --orange:#f07d1c; --pink:#e5577a;
+  --slate:#474e57; --cream:#fbf6e9;
+  --ink:#1f2a37; --ink-2:#4b5563; --ink-3:#7a8594; --line:#d9e6f2;
+  --f:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  --num:"Oswald","Noto Sans JP",sans-serif;
 }
 html[data-fs="large"]{font-size:112%}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--navy-deep);color:var(--ink);font-family:var(--f-body);font-size:1rem;line-height:1.9;line-break:strict;overflow-wrap:break-word;word-break:auto-phrase;-webkit-font-smoothing:antialiased}
+body{margin:0;font-family:var(--f);font-size:1rem;line-height:1.85;color:var(--ink);
+  background:linear-gradient(180deg,#d8eefc 0%,#f2f9ff 40%,#e6f4fd 100%) fixed;
+  word-break:auto-phrase;line-break:strict;overflow-wrap:break-word;-webkit-font-smoothing:antialiased}
 img{display:block;max-width:100%}
-a{color:inherit}
+a{color:var(--blue)}
 h1,h2,h3,p,ul,ol,dl,dd,figure{margin:0}
 ul,ol{padding:0;list-style:none}
 button{font:inherit;color:inherit}
-:focus-visible{outline:3px solid var(--blue-2);outline-offset:3px;border-radius:6px}
-.i{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
-
-/* ---------- 外側の背景と、中央の縦長カラム ---------- */
-.stage{min-height:100vh;background:
-  linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px) 0 0/34px 34px,
-  linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px) 0 0/34px 34px,
-  radial-gradient(120% 70% at 50% 0%,#14407f 0%,#061a3a 62%)}
-.lp{position:relative;width:min(100%,520px);margin:0 auto;background:var(--paper);overflow:hidden}
-@media(min-width:600px){.lp{box-shadow:0 0 90px rgba(0,0,0,.5)}}
-
-/* ---------- 共通パーツ ---------- */
-.grid-bg{background-color:var(--paper);background-image:
-  linear-gradient(rgba(27,102,230,.085) 1px,transparent 1px),
-  linear-gradient(90deg,rgba(27,102,230,.085) 1px,transparent 1px);background-size:22px 22px}
-.sec{position:relative;padding:60px 20px}
-.h2{font-family:var(--f-head);font-weight:900;font-size:1.55rem;line-height:1.48;text-align:center}
-.lead{font-size:.95rem;color:var(--ink-2);text-align:center;margin-top:14px}
-.kicker{display:flex;align-items:center;justify-content:center;gap:10px;font-family:var(--f-num);font-weight:800;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--blue-2);margin-bottom:12px}
-.kicker::before,.kicker::after{content:"";width:28px;height:1px;background:currentColor;opacity:.6}
-.mk{background:linear-gradient(transparent 60%,var(--marker) 60%);padding:0 .06em}
-.em{color:var(--blue)}
-.note-s{font-size:.75rem;line-height:1.7;color:var(--ink-3)}
-[data-reveal]{transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
-.js [data-reveal]{opacity:0;transform:translateY(20px)}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px;border-radius:6px}
+.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.page{position:relative;width:min(100%,640px);margin:0 auto;background:#fff;overflow:hidden;box-shadow:0 0 60px rgba(26,115,201,.12)}
+.c{text-align:center}
+.blue{color:var(--blue)} .orange{color:var(--orange)} .pink{color:var(--pink)}
+.note{font-size:.72rem;line-height:1.7;color:var(--ink-3)}
+[data-reveal]{transition:opacity .7s ease,transform .7s cubic-bezier(.16,1,.3,1)}
+.js [data-reveal]{opacity:0;transform:translateY(18px)}
 .js [data-reveal].on{opacity:1;transform:none}
 
-/* ---------- 申込ボタン ---------- */
-.cta-wrap{text-align:center}
-.cta-lead{display:flex;align-items:center;gap:10px;justify-content:center;font-size:.82rem;font-weight:700;color:var(--ink-2);margin-bottom:10px}
-.cta-lead::before,.cta-lead::after{content:"";height:1px;width:34px;background:var(--yellow-edge);opacity:.55}
-.cta{position:relative;display:flex;align-items:center;gap:12px;width:100%;text-decoration:none;text-align:left;border:0;cursor:pointer;
-  padding:14px 16px 14px 14px;border-radius:18px;background:linear-gradient(#ffdc55,#ffb81c);color:var(--ink);overflow:hidden;
-  box-shadow:0 5px 0 var(--yellow-edge),0 16px 24px rgba(201,130,0,.32);transition:transform .12s ease,box-shadow .12s ease}
-.cta:hover{transform:translateY(1px)}
-.cta:active{transform:translateY(4px);box-shadow:0 1px 0 var(--yellow-edge),0 6px 12px rgba(201,130,0,.3)}
-.cta::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.65) 50%,transparent 65%);transform:translateX(-120%);animation:shine 4.8s ease-in-out 1.6s infinite}
-@keyframes shine{0%,62%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
-.cta-ico{display:grid;place-items:center;width:44px;height:44px;border-radius:14px;background:var(--ume);color:#fff;flex:none;box-shadow:inset 0 -3px 0 rgba(0,0,0,.14)}
-.cta-txt{display:flex;flex-direction:column;flex:1;min-width:0;line-height:1.3}
-.cta-txt small{font-size:.75rem;font-weight:700;color:#5a4300;letter-spacing:.04em}
-.cta-txt b{font-family:var(--f-head);font-weight:900;font-size:1.25rem;letter-spacing:.02em;white-space:nowrap}
-.cta-go{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--navy);color:#fff;flex:none}
-.cta-go .i{width:16px;height:16px;stroke-width:3}
-.cta.is-off{background:linear-gradient(#e2e6ee,#c5cbd6);box-shadow:0 5px 0 #9aa3b2;cursor:not-allowed}
-.cta.is-off::after{display:none}
-.cta.is-off .cta-ico{background:#8b95a7}
-.cta-micro{margin-top:12px;font-size:.82rem;font-weight:500;color:var(--ink-2)}
-.cta-micro b{color:var(--ume);font-size:1.05em}
+/* 見出し：大きさを変えた文字を混ぜる */
+.ttl{font-weight:900;text-align:center;line-height:1.45;font-size:1.55rem;letter-spacing:.02em}
+.ttl small{font-size:.7em}
+.ttl .big{font-size:1.25em}
+.ttl-sub{display:block;margin-bottom:6px;font-size:.9rem;font-weight:700;color:var(--ink-2)}
+.ttl-line{display:flex;align-items:center;justify-content:center;gap:12px}
+.ttl-line::before,.ttl-line::after{content:"";width:18px;height:2px;background:currentColor;border-radius:2px}
+.ttl-line::before{transform:rotate(60deg)} .ttl-line::after{transform:rotate(-60deg)}
 
-/* ---------- ヘッダー ---------- */
-.hd{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 16px;background:#fff;border-bottom:1px solid #dfe8f6}
-.logo{display:flex;align-items:center;gap:8px;text-decoration:none;font-family:var(--f-head);font-weight:900;font-size:1.05rem;color:var(--navy)}
-.logo svg{width:26px;height:26px;color:var(--ume)}
-.hd-r{display:flex;align-items:center;gap:8px}
-.fs{display:inline-flex;border:1px solid #cfdcf2;border-radius:999px;overflow:hidden}
-.fs button{border:0;background:#fff;padding:4px 10px;font-size:.72rem;font-weight:700;cursor:pointer;color:var(--ink-2)}
-.fs button[aria-pressed="true"]{background:var(--navy);color:#fff}
-.hd-btn{display:inline-flex;align-items:center;gap:6px;text-decoration:none;font-size:.75rem;font-weight:900;padding:7px 12px 7px 9px;border-radius:999px;background:var(--yellow);box-shadow:0 2px 0 var(--yellow-edge);white-space:nowrap}
-.hd-btn i{display:grid;place-items:center;width:20px;height:20px;border-radius:7px;background:var(--ume);color:#fff}
-.hd-btn .i{width:13px;height:13px;stroke-width:2.6}
+/* 申込ボタン（緑） */
+.btn{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;max-width:440px;margin:0 auto;min-height:62px;
+  padding:10px 44px;border:0;border-radius:10px;cursor:pointer;text-decoration:none;color:#fff;text-align:center;
+  background:linear-gradient(180deg,var(--green-l),var(--green));box-shadow:0 5px 0 var(--green-d);font-weight:900;font-size:1.15rem;line-height:1.35;transition:transform .12s,box-shadow .12s}
+.btn small{font-size:.75rem;font-weight:700;opacity:.95}
+.btn::after{content:"";position:absolute;right:18px;top:50%;width:0;height:0;border:7px solid transparent;border-left:10px solid #fff;border-right:0;transform:translateY(-50%)}
+.btn:active{transform:translateY(4px);box-shadow:0 1px 0 var(--green-d)}
+.btn .shine{position:absolute;inset:0;border-radius:inherit;overflow:hidden;pointer-events:none}
+.btn .shine::before{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);animation:shine 3.6s ease-in-out infinite}
+@keyframes shine{0%,55%{left:-60%}100%{left:130%}}
+.btn.is-off{background:linear-gradient(#c8ced6,#aab2bd);box-shadow:0 5px 0 #8a939f;cursor:not-allowed}
+.btn.is-off .shine{display:none}
+.btn-note{margin-top:10px;text-align:center;font-size:.78rem;color:var(--ink-2)}
+.btn-note b{color:var(--pink)}
 
-/* ---------- 実績・数字の帯 ---------- */
-.trust{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:14px 16px;background:#e7f0ff}
-.tcard{display:flex;flex-direction:column;align-items:flex-start;gap:4px;background:#fff;border-radius:14px;padding:10px 14px 11px;box-shadow:0 1px 0 rgba(14,37,71,.05);border-top:3px solid var(--yellow)}
-.tcard strong{font-family:var(--f-num);font-weight:800;font-size:1.9rem;line-height:1;color:var(--blue);white-space:nowrap}
-.tcard strong small{font-size:.95rem;margin-left:2px;font-family:var(--f-head);font-weight:900}
-.tcard span{font-size:.75rem;font-weight:700;line-height:1.4;color:var(--ink-2);white-space:nowrap}
+/* ヘッダー */
+.hd{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 16px;background:#fff}
+.logo{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--blue-d);font-weight:900;font-size:1.05rem;line-height:1.2}
+.logo small{display:block;font-size:.62rem;font-weight:700;color:var(--ink-3);letter-spacing:.06em}
+.logo svg{width:30px;height:30px;color:var(--pink)}
+.fs{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.fs button{border:0;background:#fff;padding:4px 11px;font-size:.72rem;font-weight:700;color:var(--ink-2);cursor:pointer}
+.fs button[aria-pressed="true"]{background:var(--blue);color:#fff}
+.notice{background:var(--blue);color:#fff;text-align:center;font-weight:700;font-size:.82rem;padding:7px 12px;line-height:1.5}
+.notice b{color:var(--yellow)}
+.badges{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px 12px;background:var(--sky)}
+.bdg{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--sky-2);border-radius:8px;padding:8px 10px;font-size:.72rem;font-weight:700;line-height:1.35;color:var(--ink-2)}
+.bdg b{display:block;color:var(--blue);font-size:1.02rem;font-weight:900}
+.bdg svg{width:30px;height:30px;color:var(--blue);flex:none}
 
-/* ---------- ファーストビュー ---------- */
-.fv{position:relative;isolation:isolate;padding:26px 20px 44px;overflow:hidden}
-.fv::before{content:"";position:absolute;z-index:-1;right:-80px;top:150px;width:330px;height:330px;background:linear-gradient(135deg,#cfe1ff,#eaf2ff);clip-path:polygon(50% 0,100% 100%,0 100%);opacity:.95;pointer-events:none}
-.fv-top{display:flex;align-items:center;gap:10px;position:relative}
-.bubble{display:grid;place-items:center;width:58px;height:58px;border-radius:50% 50% 50% 8px;background:var(--blue);color:#fff;font-family:var(--f-head);font-weight:900;font-size:.8rem;line-height:1.15;text-align:center;transform:rotate(-6deg);box-shadow:0 8px 16px rgba(27,102,230,.35)}
-.bubble b{display:block;font-family:var(--f-num);font-size:1.1rem}
-.fv-top p{font-size:.85rem;font-weight:700}
-.fv-eyebrow{position:relative;margin-top:18px;font-size:.82rem;font-weight:900;color:var(--blue)}
-.fv-hero{position:relative;margin-top:10px;min-height:370px}
-.h1{position:relative;z-index:2;width:66%;font-family:var(--f-head);font-weight:900;font-size:clamp(28px,7.8vw,34px);line-height:1.3}
-.h1 .em{display:inline;background:linear-gradient(transparent 64%,var(--marker) 64%)}
-.h1 .q{color:var(--ume)}
-.fv-photo{position:absolute;right:-8px;bottom:0;width:46%;z-index:1}
-.fv-photo .arch{position:relative;aspect-ratio:4/5.1;border-radius:999px 999px 20px 20px;overflow:hidden;border:4px solid #fff;background:linear-gradient(#e6efff,#c9dcff);box-shadow:0 18px 32px rgba(14,37,71,.22)}
-.fv-photo .arch img{position:absolute;bottom:0;height:86%;width:auto}
-.fv-photo .arch img.a{left:-6%}
-.fv-photo .arch img.b{right:-8%;height:80%}
-.fv-cap{margin-top:8px;font-size:.7rem;line-height:1.5;color:var(--ink-2);text-align:center;font-weight:500}
-.fv-cap b{display:block;font-size:.8rem;color:var(--ink)}
-.speech{position:absolute;z-index:3;left:0;bottom:4px;background:#fff;color:var(--ink);border-radius:20px;padding:10px 14px;font-family:var(--f-head);font-weight:900;font-size:.9rem;line-height:1.35;text-align:center;box-shadow:0 10px 22px rgba(14,37,71,.18);animation:bob 4.2s ease-in-out infinite}
-.speech::after{content:"";position:absolute;right:-9px;bottom:14px;border:9px solid transparent;border-left-color:#fff;border-right:0;transform:rotate(-18deg)}
-.speech em{font-style:normal;color:var(--blue);font-size:1.1rem}
-@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-.fv-sub{position:relative;margin-top:22px;font-size:.95rem;font-weight:700;line-height:1.85}
-.vcard{position:relative;margin-top:22px;background:#fff;border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
-.vcard-hd{display:flex;align-items:center;justify-content:center;gap:8px;padding:10px;background:linear-gradient(#fff2b3,#ffe57a);font-family:var(--f-head);font-weight:900;font-size:1rem}
-.vcard ul{padding:6px 16px 8px}
-.vcard li{display:flex;gap:11px;align-items:flex-start;padding:12px 0;border-bottom:1px dashed #cfdcf2;font-size:.85rem;line-height:1.65}
-.vcard li:last-child{border-bottom:0}
-.ck{display:grid;place-items:center;width:26px;height:26px;margin-top:1px;border-radius:50%;background:var(--blue);color:#fff;flex:none}
-.ck .i{width:15px;height:15px;stroke-width:2.6}
-.vcard li b{display:block;font-size:.95rem;font-weight:900;color:var(--ink)}
-.vcard li span{color:var(--ink-2)}
-.fv .cta-wrap{margin-top:26px}
-.disc{margin-top:12px;font-size:.72rem;line-height:1.7;color:var(--ink-3);text-align:center}
+/* ファーストビュー */
+.fv{position:relative;padding:0 0 26px;background:linear-gradient(180deg,#fff 0%,var(--sky-3) 100%)}
+.fv-photo{position:relative;height:250px;overflow:hidden}
+.fv-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.fv-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,0) 45%,#fff 100%)}
+.fv-photo .cap{position:absolute;right:8px;top:8px;z-index:1;font-size:.62rem;color:#fff;background:rgba(15,79,151,.55);padding:1px 8px;border-radius:999px}
+.fv-diag{position:absolute;right:-60px;top:170px;width:300px;height:300px;background:linear-gradient(135deg,rgba(78,163,238,.22),rgba(78,163,238,0));transform:rotate(30deg);pointer-events:none}
+.fv-body{position:relative;margin-top:-92px;padding:0 20px;z-index:1}
+.fv-badge{display:inline-grid;place-items:center;width:62px;height:62px;border-radius:50%;background:var(--blue);color:#fff;font-weight:900;font-size:.78rem;line-height:1.2;text-align:center;box-shadow:0 6px 14px rgba(26,115,201,.35);vertical-align:middle}
+.fv-lead{display:inline-block;margin-left:8px;font-weight:900;font-size:1rem;vertical-align:middle;background:#fff;padding:0 8px;border-radius:4px}
+.fv-main{position:relative;display:flex;align-items:flex-end;gap:6px;margin-top:10px}
+.h1{flex:1;font-weight:900;color:var(--blue);font-size:clamp(30px,8.6vw,46px);line-height:1.28;letter-spacing:.01em}
+.h1 small{font-size:.62em;color:var(--ink)}
+.h1 .k{color:var(--pink)}
+.fv-chara{flex:none;width:38%;display:flex;align-items:flex-end;justify-content:center}
+.fv-chara img{height:auto;filter:drop-shadow(0 8px 10px rgba(15,79,151,.18))}
+.fv-chara img.a{width:52%;margin-right:-6%}
+.fv-chara img.b{width:50%}
+.fv-under{margin-top:14px;text-align:center;font-weight:900;font-size:1rem}
+.fv-under span{border-bottom:3px solid var(--yellow);padding:0 2px}
+.fv-card{margin:18px 20px 0;background:#fff;border:2px solid var(--sky-2);border-radius:14px;overflow:hidden}
+.fv-card-hd{background:var(--yellow-l);text-align:center;font-weight:900;font-size:1.05rem;padding:10px}
+.fv-card ul{padding:8px 16px 12px}
+.fv-card li{display:flex;gap:10px;align-items:flex-start;padding:8px 0;font-weight:700;font-size:.92rem;line-height:1.6;border-bottom:1px dashed var(--line)}
+.fv-card li:last-child{border-bottom:0}
+.fv-card li .i{color:var(--blue);margin-top:2px}
+.fv-card li b{color:var(--blue)}
+.fv .cta{margin:22px 20px 0}
+.fv .disc{margin:12px 20px 0;text-align:center}
 
-/* ---------- 共感（濃紺） ---------- */
-.dark{color:#fff;background:
-  linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px) 0 0/24px 24px,
-  linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px) 0 0/24px 24px,
-  radial-gradient(120% 60% at 50% 0%,#17488f 0%,#0a2a57 55%,#071f45 100%)}
-.dark .kicker{color:var(--yellow)}
-.dark .h2 .y{color:var(--yellow)}
-.worry{display:grid;gap:10px;margin-top:24px}
-.worry li{display:flex;gap:12px;align-items:center;padding:13px 14px;border-radius:14px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);font-size:.9rem;line-height:1.6;font-weight:500}
-.worry li .wi{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:rgba(255,207,46,.16);color:var(--yellow);flex:none}
-.worry li .wi .i{width:21px;height:21px}
-.verdict{margin-top:26px;text-align:center;font-family:var(--f-head);font-weight:900;font-size:1.2rem;line-height:1.65}
-.verdict .mk{background:linear-gradient(transparent 62%,rgba(255,207,46,.5) 62%);color:#fff}
-.pick{margin-top:30px;padding:20px 16px 18px;border-radius:var(--r);background:#fff;color:var(--ink);box-shadow:0 18px 34px rgba(0,0,0,.3)}
-.pick-hd{display:flex;flex-direction:column;align-items:center;gap:6px;font-family:var(--f-head);font-weight:900;font-size:1.12rem;line-height:1.5;text-align:center}
-.pick-hd small{font-family:var(--f-body);font-weight:700;font-size:.72rem;padding:2px 10px;border-radius:999px;background:var(--paper-2);color:var(--blue)}
-.pick-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
-.pbtn{position:relative;display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 8px 12px;border-radius:14px;border:2px solid #d3e1f8;background:#f7faff;cursor:pointer;font-weight:700;font-size:.85rem;line-height:1.35;text-align:center;transition:transform .15s,border-color .15s,background .15s,box-shadow .15s}
-.pbtn .i{width:28px;height:28px;color:var(--blue)}
-.pbtn:hover{transform:translateY(-2px);border-color:var(--blue-2)}
-.pbtn[aria-pressed="true"]{border-color:var(--yellow-2);background:#fff9e0;box-shadow:0 5px 0 var(--yellow-edge)}
-.pbtn[aria-pressed="true"]::after{content:"";position:absolute;top:7px;right:7px;width:18px;height:18px;border-radius:50%;background:var(--blue) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/12px no-repeat}
-.pres{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s cubic-bezier(.16,1,.3,1)}
-.pres.open{grid-template-rows:1fr}
-.pres>div{overflow:hidden}
-.pres-in{margin-top:16px;padding:16px;border-radius:14px;background:var(--paper-2);border-left:5px solid var(--blue)}
-.pres-in h3{font-family:var(--f-head);font-weight:900;font-size:1rem;line-height:1.5}
-.pres-in li{position:relative;padding-left:20px;margin-top:9px;font-size:.88rem;line-height:1.75}
-.pres-in li::before{content:"";position:absolute;left:3px;top:.72em;width:8px;height:8px;border-radius:50%;background:var(--blue-2)}
-.pick-cta{margin-top:16px;padding-bottom:10px}
+/* 濃いグレーの帯 */
+.slate{background:var(--slate);color:#fff;text-align:center;padding:44px 20px 0;overflow:hidden}
+.slate .q{font-weight:900;font-size:1.15rem;line-height:1.7;color:var(--yellow)}
+.slate p{margin-top:14px;font-size:.92rem;line-height:2}
+.slate p b{color:var(--yellow)}
+.slate .duo{display:flex;justify-content:space-between;align-items:flex-end;margin:16px -6px 0}
+.slate .duo img{width:118px;height:auto}
 
-/* ---------- コンセプト ---------- */
-.say{margin-top:22px;background:#fff;border-radius:var(--r);padding:18px;box-shadow:var(--shadow);font-size:.9rem;line-height:1.95;color:var(--ink-2)}
-.say b{color:var(--ink)}
-.diagram{position:relative;margin-top:22px;padding:18px 10px 14px;border-radius:var(--r);background:#fff;box-shadow:var(--shadow);text-align:center}
-.diagram svg{width:100%;height:auto;max-width:340px;margin:0 auto;display:block}
-.diagram figcaption{margin-top:4px;font-size:.8rem;font-weight:700;color:var(--ink-2)}
-.ring{animation:dash 26s linear infinite}
-@keyframes dash{to{stroke-dashoffset:-240}}
-.points{margin-top:34px;display:grid;gap:26px}
-.pt{text-align:center}
-.pt .pl{display:flex;align-items:center;gap:10px;justify-content:center;font-family:var(--f-num);font-weight:800;font-size:.82rem;letter-spacing:.16em;color:#e2792a}
-.pt .pl::before,.pt .pl::after{content:"";flex:1;max-width:60px;height:1px;background:#e2792a;opacity:.55}
-.pt h3{margin-top:6px;font-family:var(--f-head);font-weight:900;font-size:1.25rem;line-height:1.5}
-.pt h3 .mk{background:linear-gradient(transparent 58%,#ffd9b8 58%)}
-.pt p{margin-top:8px;font-size:.88rem;line-height:1.85;color:var(--ink-2)}
-.cong{margin-top:30px;padding:18px;border-radius:var(--r);background:linear-gradient(135deg,var(--navy),#134388);color:#fff;font-size:.88rem;line-height:1.9}
-.cong .tag{display:inline-block;font-family:var(--f-head);font-weight:900;font-size:1.05rem;color:var(--yellow);margin-bottom:4px}
+/* 大田区のまち */
+.town{background:var(--sky);padding:46px 20px}
+.town .ttl{color:var(--ink)}
+.town-lead{margin-top:12px;text-align:center;font-size:.9rem;color:var(--ink-2)}
+.spot{margin-top:18px;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 6px 18px rgba(26,115,201,.1)}
+.spot img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+.spot div{padding:14px 16px 16px}
+.spot h3{font-weight:900;font-size:1.05rem;line-height:1.5}
+.spot h3 span{display:inline-block;margin-right:8px;font-size:.72rem;color:#fff;background:var(--blue);padding:1px 8px;border-radius:4px;vertical-align:2px}
+.spot p{margin-top:6px;font-size:.88rem;line-height:1.8;color:var(--ink-2)}
+.spot.ume h3 span{background:var(--pink)}
+.spot.river h3 span{background:var(--green)}
 
-/* ---------- 当日まで ---------- */
-.sec-exp{background:#fff}
-.phone{position:relative;margin:30px auto 0;width:min(100%,290px);padding:12px;border-radius:38px;background:#0d2347;box-shadow:0 26px 44px rgba(10,42,87,.35)}
-.phone::before{content:"";position:absolute;top:18px;left:50%;width:70px;height:6px;margin-left:-35px;border-radius:99px;background:#223f6e}
-.screen{border-radius:28px;background:linear-gradient(#f6faff,#e9f1ff);padding:30px 14px 18px;text-align:center}
-.screen-hd{display:flex;align-items:center;justify-content:center;gap:8px;font-family:var(--f-head);font-weight:900;font-size:.88rem}
-.screen-hd i{display:grid;place-items:center;width:26px;height:26px;border-radius:9px;background:var(--ume);color:#fff}
-.screen-hd .i{width:15px;height:15px;stroke-width:2.6}
-.screen img{height:120px;width:auto;margin:10px auto 0}
-.screen .rcpt{margin-top:6px;padding:12px;border-radius:14px;background:#fff;border:2px solid var(--blue-2)}
-.screen .rcpt span{display:block;font-size:.7rem;font-weight:700;color:var(--ink-2)}
-.screen .rcpt b{font-family:var(--f-num);font-weight:800;font-size:2rem;color:var(--blue);line-height:1.2}
-.screen-foot{margin-top:10px;font-size:.68rem;line-height:1.6;color:var(--ink-3)}
-.sample-tag{position:absolute;top:-10px;right:-6px;z-index:2;padding:5px 12px;border-radius:999px;background:var(--yellow);font-size:.72rem;font-weight:900;box-shadow:0 3px 0 var(--yellow-edge);transform:rotate(5deg)}
-.steps{margin-top:38px;position:relative}
-.steps::before{content:"";position:absolute;left:21px;top:20px;bottom:30px;width:3px;background:repeating-linear-gradient(var(--blue-pale) 0 7px,transparent 7px 13px)}
-.step{position:relative;display:flex;gap:16px;padding-bottom:22px}
-.step:last-child{padding-bottom:0}
-.sn{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--paper);border:3px solid var(--blue);color:var(--blue);font-family:var(--f-num);font-weight:800;font-size:1.1rem;flex:none;z-index:1}
-.step:first-child .sn{background:var(--blue);color:#fff;box-shadow:0 0 0 6px rgba(27,102,230,.14)}
-.sc{flex:1;background:var(--paper);border-radius:16px;padding:14px 14px 15px;border:1px solid #dbe7fa}
-.sc .when{font-size:.75rem;font-weight:700;color:var(--ink-3)}
-.sc h3{margin-top:2px;font-family:var(--f-head);font-weight:900;font-size:1.08rem;line-height:1.45}
-.sc p{margin-top:6px;font-size:.85rem;line-height:1.8;color:var(--ink-2)}
-.stag{display:inline-block;margin-top:9px;font-size:.72rem;font-weight:900;padding:3px 10px;border-radius:999px;background:#e5f6ee;color:#0b7a47}
-.stag.alt{background:var(--paper-2);color:var(--blue)}
-.honest{margin-top:26px;padding:16px;border-radius:var(--r);background:#fff9e0;border:1.5px dashed #e6b400;font-size:.85rem;line-height:1.85;color:#5a4300}
-.honest b{color:var(--ink)}
-.sec-exp .cta-wrap{margin-top:30px}
+/* 緑の帯 */
+.greenband{background:var(--green);padding:40px 20px 44px;text-align:center;color:#fff}
+.greenband .t{font-weight:900;font-size:1.05rem;line-height:1.7}
+.bubble{position:relative;margin:20px auto 0;max-width:460px;background:#fff;color:var(--ink);border-radius:40px;padding:26px 20px 24px}
+.bubble p{font-weight:700;font-size:.95rem;line-height:1.85}
+.bubble p .pink{font-weight:900}
+.bubble .btn{margin-top:16px}
 
-/* ---------- 登壇者 ---------- */
-.pcard{position:relative;margin-top:22px;background:#fff;border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
-.pcard-top{display:flex;gap:14px;padding:16px 16px 12px}
-.pcard-top .ph{position:relative;width:108px;flex:none;border-radius:16px;overflow:hidden;background:linear-gradient(#fff2d6,#ffe1a8);aspect-ratio:4/5}
-.pcard.b .ph{background:linear-gradient(#e6efff,#c9dcff)}
-.pcard-top .ph img{position:absolute;left:50%;bottom:0;height:94%;width:auto;transform:translateX(-50%)}
-.pcard-top .nm small{display:block;font-size:.75rem;font-weight:700;color:var(--blue)}
-.pcard-top .nm strong{display:block;margin-top:2px;font-family:var(--f-head);font-weight:900;font-size:1.4rem;line-height:1.3}
-.pcard-top .nm p{margin-top:6px;font-size:.8rem;line-height:1.65;color:var(--ink-2)}
-.quals{display:flex;flex-wrap:wrap;gap:6px;padding:0 16px 16px}
-.quals span{font-size:.75rem;font-weight:700;padding:4px 10px;border-radius:999px;background:var(--paper-2);color:var(--ink)}
-.quote{position:relative;margin:26px 0 0;padding:22px 20px 18px;border-radius:var(--r);background:var(--navy);color:#fff;font-family:var(--f-head);font-weight:900;font-size:1.05rem;line-height:1.75;text-align:center}
-.quote::before{content:"“";position:absolute;top:-6px;left:14px;font-family:Georgia,serif;font-size:64px;line-height:1;color:var(--yellow)}
-.quote small{display:block;margin-top:8px;font-family:var(--f-body);font-weight:500;font-size:.72rem;color:#b9cdf0}
+/* POINT */
+.points{background:var(--cream);padding:44px 20px 34px}
+.points .ttl{color:var(--ink)}
+.goal{margin-top:18px;background:#fff;border-left:5px solid var(--blue);padding:14px 16px;font-weight:900;line-height:1.75}
+.goal small{display:block;font-size:.75rem;color:var(--ink-3);font-weight:700}
+.goal b{color:var(--blue)}
+.pt{position:relative;margin-top:26px;text-align:center}
+.pt .no{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--orange);font-family:var(--num);font-weight:500;font-size:.85rem;letter-spacing:.12em}
+.pt .no::before,.pt .no::after{content:"";width:46px;height:1px;background:var(--orange);opacity:.6}
+.pt h3{margin-top:4px;font-weight:900;font-size:1.12rem;line-height:1.6}
+.pt p{margin-top:4px;font-size:.85rem;color:var(--ink-2);line-height:1.75}
+.pt .ill{display:inline-grid;place-items:center;width:46px;height:46px;border-radius:50%;background:#fff;color:var(--orange);margin-bottom:4px;box-shadow:0 3px 8px rgba(240,125,28,.15)}
 
-/* ---------- 残りの席数 ---------- */
-.seat{position:relative;margin-top:24px;background:#fff;border-radius:var(--r);box-shadow:var(--shadow);padding:22px 18px 18px;text-align:center}
-.pin::before,.pin::after{content:"";position:absolute;top:-6px;width:12px;height:12px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffe780,#e5a500)}
-.pin::before{left:18px}.pin::after{right:18px}
-.seat-hd{font-family:var(--f-head);font-weight:900;font-size:1rem}
-.seat-num{font-family:var(--f-num);font-weight:800;font-size:3.6rem;line-height:1.1;color:var(--blue)}
-.seat-num small{font-family:var(--f-head);font-weight:900;font-size:1rem;color:var(--ink-2);margin-left:4px}
-.meter{height:14px;border-radius:999px;background:var(--paper-2);overflow:hidden;margin-top:10px}
-.meter i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue-2),var(--blue));border-radius:inherit;transition:width 1.2s cubic-bezier(.16,1,.3,1)}
-.seat-sub{display:flex;justify-content:space-between;margin-top:6px;font-size:.78rem;font-weight:700;color:var(--ink-2)}
+/* 当日の話題 */
+.topics{background:#fff;padding:44px 20px}
+.topic{margin-top:12px;background:#fff;border:1px solid var(--line);border-radius:6px;padding:12px 14px 12px 34px;position:relative;box-shadow:0 2px 0 var(--sky-2)}
+.topic::before{content:"";position:absolute;left:14px;top:20px;width:9px;height:9px;border:2px solid var(--blue);border-radius:50%}
+.topic b{font-weight:900;font-size:.98rem;line-height:1.55}
+.topic b em{font-style:normal;color:var(--orange)}
+.topic span{display:block;margin-top:2px;font-size:.8rem;color:var(--ink-2)}
+.more{margin-top:18px;text-align:center;font-weight:900;font-style:italic;font-size:1.1rem;color:var(--blue)}
 
-/* ---------- 申込フォーム ---------- */
-.form{margin-top:24px;background:#fff;border-radius:var(--r);box-shadow:var(--shadow);padding:22px 18px}
-.form-status{text-align:center;font-weight:900;font-size:.95rem;padding:8px;border-radius:12px;background:var(--paper-2);color:var(--navy);margin-bottom:18px}
-.form-status b{font-family:var(--f-num);font-size:1.4em;color:var(--ume)}
-.field{margin-bottom:18px}
-.field label{display:block;font-weight:700;font-size:.92rem;margin-bottom:6px}
-.req,.opt{display:inline-block;font-size:.68rem;font-weight:900;padding:1px 8px;border-radius:999px;margin-left:8px;vertical-align:2px}
-.req{background:var(--ume);color:#fff}
-.opt{background:var(--paper-2);color:var(--ink-2)}
-.field input[type="text"],.field input[type="email"],.field input[type="tel"]{width:100%;font:inherit;font-size:1.05rem;padding:13px 14px;border:2px solid #d3e1f8;border-radius:12px;background:#f7faff;color:var(--ink)}
-.field input:focus{outline:none;border-color:var(--blue-2);background:#fff;box-shadow:0 0 0 4px rgba(61,134,245,.15)}
-.field .err{display:none;margin-top:4px;color:#c2263f;font-size:.82rem;font-weight:700}
-.field.has-error input{border-color:#e05a70}
+/* 登壇者 */
+.spk{background:var(--sky);padding:44px 20px}
+.spk .ttl{color:var(--blue-d)}
+.card{position:relative;margin-top:22px;background:#fff;border-radius:6px;padding:20px 18px 16px;box-shadow:0 6px 18px rgba(26,115,201,.1)}
+.card::before,.card::after{content:"";position:absolute;top:10px;width:10px;height:10px;border-radius:50%;background:#f6c844}
+.card::before{left:10px}.card::after{right:10px}
+.card-hd{display:flex;align-items:center;gap:14px}
+.card-hd .av{width:76px;height:76px;flex:none;border-radius:50%;overflow:hidden;background:var(--yellow-l);border:3px solid #fff;box-shadow:0 0 0 2px var(--sky-2)}
+.card.b .card-hd .av{background:var(--sky-2)}
+.card-hd .av img{width:100%;height:auto;margin-top:2px}
+.card-hd strong{display:block;font-weight:900;font-size:1.2rem}
+.card-hd small{font-size:.8rem;color:var(--ink-3)}
+.card .catch{margin-top:12px;font-weight:900;color:var(--orange);font-size:1.05rem;line-height:1.55}
+.card dl{margin-top:10px;border-top:1px solid var(--line)}
+.card dl>div{display:flex;gap:12px;padding:7px 0;border-bottom:1px solid var(--line);font-size:.85rem}
+.card dt{width:6em;flex:none;color:var(--ink-3);font-weight:700}
+.kari{margin-top:14px;text-align:center}
+
+/* 手順 */
+.flow{padding:40px 20px;background:#fff}
+.flow-box{background:var(--sky);border-radius:6px;padding:20px 12px 14px}
+.flow-hd{display:block;width:max-content;max-width:100%;margin:0 auto;background:var(--blue-d);color:#fff;font-weight:900;font-size:.98rem;padding:4px 18px;border-radius:999px;position:relative}
+.flow-hd::after{content:"";position:absolute;left:50%;bottom:-8px;transform:translateX(-50%);border:8px solid transparent;border-top-color:var(--blue-d);border-bottom:0}
+.flow ol{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:start;gap:4px;margin-top:20px}
+.flow li{text-align:center;font-size:.78rem;font-weight:700;line-height:1.45}
+.flow li .ic{display:grid;place-items:center;width:64px;height:64px;margin:0 auto 6px;border-radius:50%;background:#fff;color:var(--blue);border:2px solid var(--sky-2)}
+.flow li .ic .i{width:30px;height:30px}
+.flow li.mid b{color:var(--blue);font-size:.88rem}
+.flow .arr{align-self:center;margin-top:-28px;color:var(--blue)}
+.flow .note{margin-top:12px;text-align:center}
+
+/* 残席・申込 */
+.entry{background:linear-gradient(180deg,var(--sky-3),var(--sky));padding:44px 20px}
+.entry .ttl{color:var(--blue-d)}
+.seat{margin-top:20px;background:#fff;border-radius:12px;padding:16px;text-align:center;box-shadow:0 6px 18px rgba(26,115,201,.1)}
+.seat .l{font-weight:900;font-size:.9rem}
+.seat .n{font-family:var(--num);font-weight:700;font-size:3.2rem;line-height:1.1;color:var(--blue)}
+.seat .n small{font-family:var(--f);font-size:1rem;color:var(--ink-2);margin-left:4px}
+.meter{height:12px;border-radius:999px;background:var(--sky-2);overflow:hidden;margin-top:6px}
+.meter i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--green-l),var(--green));transition:width 1.2s ease}
+.seat .s{display:flex;justify-content:space-between;margin-top:6px;font-size:.78rem;font-weight:700;color:var(--ink-2)}
+.form{margin-top:18px;background:#fff;border-radius:12px;padding:20px 16px;box-shadow:0 6px 18px rgba(26,115,201,.1)}
+.form-status{text-align:center;font-weight:900;padding:8px;border-radius:8px;background:var(--sky);color:var(--blue-d);margin-bottom:16px}
+.form-status b{font-family:var(--num);font-size:1.4em;color:var(--pink)}
+.field{margin-bottom:16px;padding:12px;border-radius:8px;background:var(--sky-3)}
+.field label{display:block;font-weight:700;font-size:.9rem;color:var(--blue-d);margin-bottom:6px}
+.req,.opt{display:inline-block;margin-left:6px;font-size:.66rem;font-weight:900;padding:1px 6px;border-radius:3px;vertical-align:2px}
+.req{background:#d93a3a;color:#fff}
+.opt{background:#dfe6ee;color:var(--ink-2)}
+.field input[type="text"],.field input[type="email"],.field input[type="tel"]{width:100%;font:inherit;font-size:1.05rem;padding:12px;border:2px solid #c9dcef;border-radius:6px;background:#fff;color:var(--ink)}
+.field input:focus{outline:none;border-color:var(--blue-l);box-shadow:0 0 0 3px rgba(78,163,238,.2)}
+.field .err{display:none;margin-top:4px;color:#d93a3a;font-size:.8rem;font-weight:700}
+.field.has-error input{border-color:#e07070}
 .field.has-error .err{display:block}
-.agree{padding:14px;border-radius:14px;background:var(--paper)}
-.agree p{font-size:.8rem;line-height:1.75;color:var(--ink-2);margin-bottom:8px}
-.agree label{display:flex;align-items:center;gap:10px;margin:0;cursor:pointer}
+.agree p{font-size:.78rem;line-height:1.7;color:var(--ink-2);margin-bottom:6px}
+.agree label{display:flex;align-items:center;gap:10px;margin:0;cursor:pointer;color:var(--ink)}
 .agree input{width:22px;height:22px;accent-color:var(--blue)}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
-.form-msg{display:none;margin-top:12px;padding:12px 14px;border-radius:12px;background:#fdecef;color:#c2263f;font-weight:700;font-size:.88rem}
+.form-msg{display:none;margin:4px 0 12px;padding:10px 12px;border-radius:8px;background:#fdecec;color:#c62828;font-weight:700;font-size:.86rem}
 .form-msg.show{display:block}
-.form .cta{margin-top:18px}
-.done{display:none;text-align:center;padding:6px 0}
+.done{display:none;text-align:center;padding:4px 0}
 .done.show{display:block}
-.done img{height:130px;width:auto;margin:0 auto}
-.done h3{margin-top:8px;font-family:var(--f-head);font-weight:900;font-size:1.25rem}
-.done .no{font-family:var(--f-num);font-weight:800;font-size:2.6rem;color:var(--blue);line-height:1.2}
+.done img{width:120px;height:auto;margin:0 auto}
+.done h3{margin-top:6px;font-weight:900;font-size:1.2rem;color:var(--blue-d)}
+.done .no{font-family:var(--num);font-weight:700;font-size:2.6rem;color:var(--blue);line-height:1.2}
 
-/* ---------- よくあるご質問 ---------- */
-.faq{margin-top:26px;display:grid;gap:10px}
-.faq details{background:#fff;border-radius:14px;box-shadow:var(--shadow);overflow:hidden}
-.faq summary{display:flex;gap:12px;align-items:center;padding:15px 14px;cursor:pointer;list-style:none;font-weight:700;font-size:.9rem;line-height:1.55}
+/* よくあるご質問 */
+.faq{background:#fff;padding:44px 20px}
+.faq details{margin-top:10px;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.faq summary{display:flex;gap:10px;align-items:center;padding:13px 14px;cursor:pointer;list-style:none;font-weight:700;font-size:.92rem;background:var(--sky-3)}
 .faq summary::-webkit-details-marker{display:none}
-.faq .q{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--blue);color:#fff;font-family:var(--f-num);font-weight:800;font-size:.88rem;flex:none}
-.faq .pm{margin-left:auto;display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--paper-2);color:var(--blue);flex:none;transition:transform .3s}
-.faq .pm .i{width:14px;height:14px;stroke-width:3}
-.faq details[open] .pm{transform:rotate(45deg);background:var(--yellow)}
-.faq .a{display:flex;gap:12px;padding:0 14px 16px}
-.faq .a .q{background:#fff2b3;color:#7a5600}
-.faq .a p{font-size:.88rem;line-height:1.85;color:var(--ink-2);padding-top:2px}
-.faq details[open]{animation:fadeIn .35s ease}
-@keyframes fadeIn{from{opacity:.4}to{opacity:1}}
+.faq summary::before{content:"Q";font-family:var(--num);font-weight:700;color:var(--blue);font-size:1.2rem}
+.faq summary::after{content:"＋";margin-left:auto;color:var(--blue);font-weight:900}
+.faq details[open] summary::after{content:"－"}
+.faq .a{display:flex;gap:10px;padding:12px 14px 14px;font-size:.88rem;color:var(--ink-2);line-height:1.8}
+.faq .a::before{content:"A";font-family:var(--num);font-weight:700;color:var(--orange);font-size:1.2rem;line-height:1.4}
 
-/* ---------- 最後の申込 ---------- */
-.final{padding:62px 20px 56px;color:#fff;position:relative;overflow:hidden}
-.final .h2{color:#fff}
-.final .h2 .y{color:var(--yellow)}
-.final .lead{color:#c7d8f6}
-.final .duo{display:flex;justify-content:center;align-items:flex-end;gap:4px;margin-top:22px}
-.final .duo img{height:110px;width:auto;filter:drop-shadow(0 10px 14px rgba(0,0,0,.3))}
-.final .cta-wrap{margin-top:18px}
-.final .cta-lead,.final .cta-micro{color:#c7d8f6}
-.final .cta-micro b{color:var(--yellow)}
-.final .disc{color:#9db6e2}
+/* 最後 */
+.final{background:var(--green);padding:40px 20px 46px;text-align:center;color:#fff}
+.final .t{font-weight:900;font-size:1.2rem;line-height:1.7}
+.final .d{margin-top:6px;font-size:.88rem;opacity:.95}
+.final .duo{display:flex;justify-content:center;gap:4px;margin-top:14px}
+.final .duo img{width:104px;height:auto}
+.final .wrapb{margin-top:6px;background:#fff;border-radius:16px;padding:18px 14px}
 
-/* ---------- フッター ---------- */
-.ft{padding:36px 20px 112px;background:#04122b;color:#aebfdc;font-size:.78rem;line-height:1.85}
+/* フッター */
+.ft{background:#0f2f57;color:#c3d3e6;padding:28px 20px 120px;font-size:.78rem;line-height:1.8}
 .ft .logo{color:#fff}
-.ft dl{margin-top:18px;display:grid;gap:8px}
-.ft dl>div{display:flex;gap:12px}
-.ft dt{flex:none;width:76px;color:#7f96bf;font-weight:700}
-.ft dd{color:#d3def2}
-.ft small{display:block;margin-top:18px;color:#6f86b0;font-size:.7rem}
+.ft dl{margin-top:14px;display:grid;gap:4px}
+.ft dl>div{display:flex;gap:10px}
+.ft dt{width:6em;flex:none;color:#8fa7c4}
+.ft .credit{margin-top:16px;padding-top:12px;border-top:1px solid rgba(255,255,255,.15);font-size:.68rem;color:#9fb5cf}
+.ft .credit a{color:#cfe0f3}
 
-/* ---------- 下部に固定の申込ボタン ---------- */
-.sticky{position:fixed;left:50%;bottom:0;z-index:50;width:min(100%,520px);transform:translate(-50%,115%);transition:transform .4s cubic-bezier(.16,1,.3,1);padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);backdrop-filter:blur(10px);box-shadow:0 -10px 28px rgba(10,42,87,.18);border-top:1px solid #dbe6f8}
-.sticky.on{transform:translate(-50%,0)}
-.sticky .cta{padding:10px 14px 10px 10px;box-shadow:0 4px 0 var(--yellow-edge),0 10px 18px rgba(201,130,0,.28)}
-.sticky .cta-ico{width:38px;height:38px;border-radius:12px}
-.sticky .cta-txt small{font-size:.68rem}
-.sticky .cta-txt b{font-size:1rem}
+/* 下部固定バー */
+.bar{position:fixed;left:50%;bottom:0;z-index:50;width:min(100%,640px);transform:translate(-50%,110%);transition:transform .35s ease;background:rgba(34,176,125,.97);padding:6px 10px calc(8px + env(safe-area-inset-bottom))}
+.bar.on{transform:translate(-50%,0)}
+.bar-top{display:flex;align-items:center;justify-content:center;gap:8px;color:#fff;font-size:.75rem;font-weight:700}
+.bar-top b{display:inline-block;min-width:2.2em;background:#fff;color:var(--ink);font-family:var(--num);font-size:1.15rem;line-height:1.3;padding:0 6px;border-radius:4px;text-align:center}
+.bar .btn{margin-top:6px;min-height:46px;font-size:.98rem;background:linear-gradient(#fff38a,var(--yellow));color:var(--ink);box-shadow:0 3px 0 #d0b220}
+.bar .btn::after{border-left-color:var(--ink)}
+.bar .btn.is-off{background:#dfe3e8;box-shadow:0 3px 0 #b8bec7}
 
-@media (max-width:400px){.tcard span{white-space:normal}}
-@media (max-width:360px){.cta-txt b{font-size:1.1rem}.h2{font-size:1.4rem}.h1{font-size:27px}.fv,.sec{padding-left:16px;padding-right:16px}.fs{display:none}}
+@media (max-width:360px){.h1{font-size:28px}.fv-body{padding:0 14px}}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .cta::after,.speech,.ring{animation:none}
+  .btn .shine::before{animation:none}
   .js [data-reveal]{opacity:1;transform:none;transition:none}
-  .pres,.sticky,.cta,.pbtn,.faq .pm,.meter i{transition:none}
+  .bar,.meter i{transition:none}
 }
 </style>
 </head>
@@ -334,195 +284,164 @@ button{font:inherit;color:inherit}
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <defs>
-    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M7.5 12.3l3 3 6-6.3"/></symbol>
     <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
-    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
-    <symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4zM14 6l3 3"/></symbol>
     <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
-    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.6-7-11.5a7 7 0 0114 0C19 14.4 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
     <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.5 19a5.5 5.5 0 0111 0M16 6.5a3 3 0 010 5.5M17.5 14.2A5.5 5.5 0 0120.5 19"/></symbol>
-    <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0013 0M12 17.5V21M8.5 21h7"/></symbol>
-    <symbol id="i-house" viewBox="0 0 24 24"><path d="M3.5 11L12 4l8.5 7M6 9.5V20h12V9.5M10 20v-5h4v5"/></symbol>
-    <symbol id="i-bag" viewBox="0 0 24 24"><rect x="3.5" y="7.5" width="17" height="12" rx="2"/><path d="M9 7.5V5.5a1.5 1.5 0 011.5-1.5h3A1.5 1.5 0 0115 5.5v2M3.5 12.5h17"/></symbol>
-    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0112 7.3a4.3 4.3 0 017.5 2.5C19.5 15.4 12 20 12 20z"/></symbol>
-    <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></symbol>
-    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4zM14 6l3 3"/></symbol>
     <symbol id="i-ticket" viewBox="0 0 24 24"><path d="M4 7h16v3.2a2 2 0 000 3.6V17H4v-3.2a2 2 0 000-3.6z"/><path d="M14 7v10" stroke-dasharray="2 2"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.6-7-11.5a7 7 0 0114 0C19 14.4 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+    <symbol id="i-house" viewBox="0 0 24 24"><path d="M3.5 11L12 4l8.5 7M6 9.5V20h12V9.5M10 20v-5h4v5"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16a1 1 0 011 1v9a1 1 0 01-1 1h-8l-4.5 4v-4H4a1 1 0 01-1-1V6a1 1 0 011-1z"/><path d="M8 10h8M8 13h5"/></symbol>
     <symbol id="ume" viewBox="0 0 40 40"><g fill="currentColor"><circle cx="20" cy="9" r="7.5"/><circle cx="30.5" cy="16.6" r="7.5"/><circle cx="26.5" cy="29" r="7.5"/><circle cx="13.5" cy="29" r="7.5"/><circle cx="9.5" cy="16.6" r="7.5"/></g><circle cx="20" cy="20" r="4.2" fill="#ffd45c"/></symbol>
   </defs>
 </svg>
 
-<div class="stage">
-<div class="lp">
+<div class="page">
 
   <header class="hd">
-    <a class="logo" href="#top"><svg aria-hidden="true"><use href="#ume"/></svg>おおた未来カイギ</a>
-    <div class="hd-r">
-      <div class="fs" role="group" aria-label="文字の大きさ"><button type="button" data-fs="normal" aria-pressed="true">標準</button><button type="button" data-fs="large" aria-pressed="false">大</button></div>
-      <a class="hd-btn" href="#entry" data-pos="header"><i><svg class="i"><use href="#i-pen"/></svg></i>申し込む</a>
-    </div>
+    <a class="logo" href="#top"><svg aria-hidden="true"><use href="#ume"/></svg><span><small>大田区のトークイベント</small>おおた未来カイギ</span></a>
+    <div class="fs" role="group" aria-label="文字の大きさ"><button type="button" data-fs="normal" aria-pressed="true">標準</button><button type="button" data-fs="large" aria-pressed="false">大</button></div>
   </header>
-
-  <div class="trust" role="group" aria-label="開催の要点">
-    <div class="tcard"><strong>120<small>名</small></strong><span>先着順・定員になり次第終了</span></div>
-    <div class="tcard"><strong>4/10<small>土</small></strong><span>2027年・大田区民ホール</span></div>
+  <p class="notice">2027年4月10日（土）開催 ／ <b>先着120名</b>・定員になり次第締め切り</p>
+  <div class="badges">
+    <div class="bdg"><svg class="i" aria-hidden="true"><use href="#i-users"/></svg><span><b>先着120名</b>定員になり次第終了</span></div>
+    <div class="bdg"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg><span><b>大田区民ホール</b>アプリコ 小ホール</span></div>
   </div>
 
   <main>
-
   <!-- ファーストビュー -->
-  <section class="fv grid-bg" id="top">
-    <div class="fv-top" data-reveal>
-      <span class="bubble" aria-hidden="true"><span>先着<b>120</b></span></span>
-      <p><budoux-ja>大田区で開く、トークイベントのご案内です</budoux-ja></p>
+  <section class="fv" id="top">
+    <div class="fv-photo">
+      <img src="img/photo-haneda.webp" alt="青空の羽田空港から飛び立つ飛行機" width="1200" height="722">
+      <span class="cap">羽田空港（大田区）</span>
     </div>
-    <p class="fv-eyebrow" data-reveal><budoux-ja>仕事も、家族も、大切。<br>でも、このままでいいのか迷っている方へ</budoux-ja></p>
-
-    <div class="fv-hero">
-      <h1 class="h1" data-reveal><span class="q">「家族」</span><br><span class="q">「仕事」</span><br>これからの<br><span class="em">人生の選択を<br>考える。</span></h1>
-      <div class="fv-photo" data-reveal>
-        <div class="arch">
+    <div class="fv-diag" aria-hidden="true"></div>
+    <div class="fv-body">
+      <div data-reveal><span class="fv-badge">大田区<br>で開催</span><span class="fv-lead">どなたでも参加できます</span></div>
+      <div class="fv-main">
+        <h1 class="h1" data-reveal><span class="k">「家族」</span><small>と</small><br><span class="k">「仕事」</span><small>の</small><br>これから<small>を</small><br>考える<small>日</small></h1>
+        <div class="fv-chara" data-reveal>
           <img class="a" src="img/amato-main.webp" alt="甘藤かつお" width="363" height="720">
           <img class="b" src="img/masuo-main.webp" alt="辛口ますお" width="333" height="720">
         </div>
-        <p class="fv-cap"><b>甘藤かつお × 辛口ますお</b>甘口と辛口、正反対のふたりが登壇</p>
       </div>
-      <p class="speech" aria-hidden="true">甘口も辛口も<br><em>本音</em>で話します</p>
+      <p class="fv-under" data-reveal><span>甘口と辛口、正反対のふたりが本音で語る</span></p>
     </div>
 
-    <p class="fv-sub" data-reveal><budoux-ja>「家族」と「仕事」を、別々ではなくいっしょに考える。大田区で暮らす皆さんと、これからの人生の選択肢を見つける時間です。</budoux-ja></p>
-
-    <div class="vcard" data-reveal>
-      <p class="vcard-hd"><svg class="i" aria-hidden="true"><use href="#i-ticket"/></svg>おおた未来カイギ 開催のご案内</p>
+    <div class="fv-card" data-reveal>
+      <p class="fv-card-hd">おおた未来カイギで考えること</p>
       <ul>
-        <li><span class="ck"><svg class="i"><use href="#i-cal"/></svg></span><div><b>2027年4月10日（土）</b><span>開場・開演の時刻は決まり次第お知らせします</span></div></li>
-        <li><span class="ck"><svg class="i"><use href="#i-pin"/></svg></span><div><b>大田区民ホール・アプリコ 小ホール</b><span><a href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E7%94%B0%E5%8C%BA%E6%B0%91%E3%83%9B%E3%83%BC%E3%83%AB%E3%83%BB%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B3" target="_blank" rel="noopener">地図を見る</a></span></div></li>
-        <li><span class="ck"><svg class="i"><use href="#i-users"/></svg></span><div><b>先着120名</b><span>定員になり次第、受付を終了します</span></div></li>
-        <li><span class="ck"><svg class="i"><use href="#i-mic"/></svg></span><div><b>登壇：甘藤かつお・辛口ますお</b><span>「家族」担当と「仕事」担当の本音トーク</span></div></li>
+        <li><svg class="i"><use href="#i-check"/></svg><span><b>家族</b>との時間と、<b>仕事</b>のバランスの取り方</span></li>
+        <li><svg class="i"><use href="#i-check"/></svg><span>夫婦・パートナーと<b>これから</b>を話すヒント</span></li>
+        <li><svg class="i"><use href="#i-check"/></svg><span>人生の後半戦の<b>選択肢</b>の見つけ方</span></li>
       </ul>
     </div>
 
-    <div class="cta-wrap" data-reveal>
-      <p class="cta-lead">入力は1分ほどで終わります</p>
-      <a class="cta" href="#entry" data-cta><span class="cta-ico"><svg class="i"><use href="#i-pen"/></svg></span><span class="cta-txt"><small data-cta-sub>先着120名・お申し込み</small><b>参加を申し込む</b></span><span class="cta-go"><svg class="i"><use href="#i-arrow"/></svg></span></a>
-      <p class="cta-micro" data-seat-text>残りの席数を確認しています</p>
+    <div class="cta" data-reveal>
+      <a class="btn" href="#entry" data-cta><span class="shine"></span><small>2027.4.10（土）大田区民ホール・アプリコ</small><b>参加を申し込む</b></a>
+      <p class="btn-note" data-seat-text>残りの席数を確認しています</p>
     </div>
-    <p class="disc">※ 登壇者の名前・イラストは仮のものです。</p>
+    <p class="note disc">※ 登壇者の名前・イラストは仮のものです。</p>
   </section>
 
-  <!-- 共感 -->
-  <section class="sec dark">
-    <p class="kicker" data-reveal>Worry</p>
-    <h2 class="h2" data-reveal><budoux-ja>仕事も、家族も、大切。<br>それでも<span class="y">「このままでいいのか」</span>迷う。</budoux-ja></h2>
-    <ul class="worry">
-      <li data-reveal><span class="wi"><svg class="i"><use href="#i-bag"/></svg></span><budoux-ja>これからの働き方やキャリアを、誰かと話したい</budoux-ja></li>
-      <li data-reveal><span class="wi"><svg class="i"><use href="#i-clock"/></svg></span><budoux-ja>仕事と家族の時間のバランスに、ずっと迷っている</budoux-ja></li>
-      <li data-reveal><span class="wi"><svg class="i"><use href="#i-heart"/></svg></span><budoux-ja>夫婦やパートナーとの関係を、見つめ直したい</budoux-ja></li>
-      <li data-reveal><span class="wi"><svg class="i"><use href="#i-compass"/></svg></span><budoux-ja>人生の後半を、どう過ごすか考えはじめている</budoux-ja></li>
-    </ul>
-    <p class="verdict" data-reveal><budoux-ja>ひとりで考えるより、<br><span class="mk">誰かの本音を聞くほうが</span>、答えは見つかりやすい。</budoux-ja></p>
-
-    <div class="pick" data-reveal>
-      <p class="pick-hd"><small>タップして選ぶ</small>いちばん気になるテーマは？</p>
-      <div class="pick-grid" role="group" aria-label="気になるテーマ">
-        <button class="pbtn" type="button" aria-pressed="false" aria-controls="pres" data-pick="family"><svg class="i"><use href="#i-house"/></svg>家族との<br>これから</button>
-        <button class="pbtn" type="button" aria-pressed="false" aria-controls="pres" data-pick="work"><svg class="i"><use href="#i-bag"/></svg>仕事・<br>キャリア</button>
-        <button class="pbtn" type="button" aria-pressed="false" aria-controls="pres" data-pick="couple"><svg class="i"><use href="#i-heart"/></svg>夫婦・<br>パートナー</button>
-        <button class="pbtn" type="button" aria-pressed="false" aria-controls="pres" data-pick="later"><svg class="i"><use href="#i-compass"/></svg>人生の<br>後半戦</button>
-      </div>
-      <div class="pres" id="pres" aria-live="polite"><div><div class="pres-in">
-        <h3 data-pres-title></h3>
-        <ul data-pres-list></ul>
-        <p class="note-s">※ 当日の内容は、登壇者と調整のうえ決まります。</p>
-      </div></div></div>
-      <div class="cta-wrap pick-cta">
-        <a class="cta" href="#entry" data-cta><span class="cta-ico"><svg class="i"><use href="#i-pen"/></svg></span><span class="cta-txt"><small>先着120名</small><b>参加を申し込む</b></span><span class="cta-go"><svg class="i"><use href="#i-arrow"/></svg></span></a>
-      </div>
+  <!-- 濃いグレーの帯 -->
+  <section class="slate">
+    <p class="q" data-reveal><budoux-ja>家族のこと、仕事のこと。<br>ひとりで抱えていませんか？</budoux-ja></p>
+    <p data-reveal><budoux-ja>仕事の選択は、家族の暮らしを変えます。<br>家族のかたちが変われば、働き方も変わります。<br><br>だからこそ、<b>ふたつをいっしょに考える時間</b>が<br>あなたの「これから」を軽くしてくれます。</budoux-ja></p>
+    <div class="duo" aria-hidden="true">
+      <img src="img/amato-point.webp" alt="" loading="lazy" width="242" height="300">
+      <img src="img/masuo-cheer.webp" alt="" loading="lazy" width="221" height="300">
     </div>
   </section>
 
-  <!-- コンセプト -->
-  <section class="sec grid-bg">
-    <p class="kicker" data-reveal>Concept</p>
-    <h2 class="h2" data-reveal><budoux-ja>別々に考えるから、迷う。<br><span class="em">「家族」と「仕事」を一枚の地図に。</span></budoux-ja></h2>
-    <p class="say" data-reveal><budoux-ja>仕事の選択は家族の暮らしを変え、家族のかたちが変われば働き方も変わります。<b>どちらか一方だけを考えても、これからの答えは見えてきません。</b>おおた未来カイギは、ふたつを並べて考えるための場所です。</budoux-ja></p>
-    <figure class="diagram" data-reveal>
-      <svg viewBox="0 0 340 220" role="img" aria-label="家族と仕事のふたつの円が重なるところに、これからがある図">
-        <circle class="ring" cx="170" cy="110" r="100" fill="none" stroke="#d7e6ff" stroke-width="2" stroke-dasharray="6 8"/>
-        <circle cx="128" cy="110" r="66" fill="rgba(224,96,122,.14)" stroke="#e0607a" stroke-width="2"/>
-        <circle cx="212" cy="110" r="66" fill="rgba(27,102,230,.12)" stroke="#1b66e6" stroke-width="2"/>
-        <text x="100" y="104" text-anchor="middle" font-family="Zen Maru Gothic, sans-serif" font-weight="900" font-size="18" fill="#c2405a">家族</text>
-        <text x="100" y="126" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-weight="700" font-size="11" fill="#3d5379">暮らし・夫婦</text>
-        <text x="240" y="104" text-anchor="middle" font-family="Zen Maru Gothic, sans-serif" font-weight="900" font-size="18" fill="#1b66e6">仕事</text>
-        <text x="240" y="126" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-weight="700" font-size="11" fill="#3d5379">働き方・キャリア</text>
-        <rect x="139" y="96" width="62" height="28" rx="14" fill="#ffcf2e"/>
-        <text x="170" y="115" text-anchor="middle" font-family="Zen Maru Gothic, sans-serif" font-weight="900" font-size="13" fill="#0e2547">これから</text>
-      </svg>
-      <figcaption>重なるところに、これからの選択肢がある</figcaption>
-    </figure>
-
-    <div class="points">
-      <div class="pt" data-reveal><p class="pl">POINT 01</p><h3><budoux-ja>甘口と辛口、<br><span class="mk">正反対のふたりの本音</span></budoux-ja></h3><p><budoux-ja>「家族」に寄り添う甘藤かつおと、「仕事」をはっきり語る辛口ますお。違う立場だからこそ見えてくる選択肢があります。</budoux-ja></p></div>
-      <div class="pt" data-reveal><p class="pl">POINT 02</p><h3><budoux-ja>ふたつのテーマを<br><span class="mk">ひとつの時間で</span></budoux-ja></h3><p><budoux-ja>どちらか一方ではなく、つなげて考えることで、これからの暮らし方のヒントが見つかります。</budoux-ja></p></div>
-      <div class="pt" data-reveal><p class="pl">POINT 03</p><h3><budoux-ja>地元・大田区で<br><span class="mk">気軽に参加できる</span></budoux-ja></h3><p><budoux-ja>会場は大田区民ホール・アプリコ。お住まいの近くで、気軽に足を運べます。</budoux-ja></p></div>
-    </div>
-    <p class="cong" data-reveal><span class="tag">こんな方に</span><br><budoux-ja>これからの働き方に迷っている方、家族との時間を大切にしたい方、人生の後半の過ごし方を考えはじめた方。年代を問わず、どなたでもご参加いただけます。</budoux-ja></p>
+  <!-- 大田区のまち -->
+  <section class="town">
+    <h2 class="ttl" data-reveal><span class="ttl-sub">空も、花も、川もある</span><span class="blue big">大田区</span><small>で</small><br>これから<small>を</small>考える</h2>
+    <p class="town-lead" data-reveal><budoux-ja>世界とつながる空港があり、季節の花が咲き、川が流れる。大田区で暮らす皆さんといっしょに、これからの人生を考えます。</budoux-ja></p>
+    <article class="spot" data-reveal>
+      <img src="img/photo-haneda.webp" alt="羽田空港の滑走路とターミナル" loading="lazy" width="1200" height="722">
+      <div><h3><span>羽田空港</span>世界へつながる、大田区の玄関口</h3><p><budoux-ja>新しい一歩を踏み出す場所。これからの働き方や生き方を考えるきっかけに。</budoux-ja></p></div>
+    </article>
+    <article class="spot ume" data-reveal>
+      <img src="img/photo-ikegami-ume.webp" alt="池上梅園の遊歩道と梅の花" loading="lazy" width="900" height="594">
+      <div><h3><span>池上梅園</span>区の花「梅」の名所</h3><p><budoux-ja>冬の寒さを越えて咲く梅のように。家族と過ごす時間を、ゆっくり見つめ直す。</budoux-ja></p></div>
+    </article>
+    <article class="spot river" data-reveal>
+      <img src="img/photo-tamagawa.webp" alt="多摩川の河口と、その先に見える羽田空港" loading="lazy" width="1000" height="625">
+      <div><h3><span>多摩川</span>暮らしのそばを流れる水辺</h3><p><budoux-ja>流れは止まらず、少しずつ形を変えていく。人生の選択も、きっと同じです。</budoux-ja></p></div>
+    </article>
   </section>
 
-  <!-- 当日まで -->
-  <section class="sec sec-exp">
-    <p class="kicker" data-reveal>Flow</p>
-    <h2 class="h2" data-reveal><budoux-ja>申し込みは1分。<br><span class="em">あとは当日、会場へ。</span></budoux-ja></h2>
-    <div class="phone" data-reveal>
-      <span class="sample-tag">画面イメージ</span>
-      <div class="screen">
-        <p class="screen-hd"><i><svg class="i"><use href="#i-check"/></svg></i>お申し込みを受け付けました</p>
-        <img src="img/amato-cheer.webp" alt="" width="223" height="300">
-        <div class="rcpt"><span>あなたの受付番号</span><b>No.1</b></div>
-        <p class="screen-foot">この画面を写真に撮るなどして、<br>受付番号を控えておいてください。</p>
-      </div>
+  <!-- 緑の帯 -->
+  <section class="greenband">
+    <p class="t" data-reveal>むずかしい準備はいりません！<br>思い立ったら、気軽にご参加ください</p>
+    <div class="bubble" data-reveal>
+      <p><budoux-ja>家族のことも、仕事のことも、<br><span class="pink">「このままでいいのかな」</span>と思った方へ。<br>ふたりの本音トークを聞きに来てください！</budoux-ja></p>
+      <a class="btn" href="#entry" data-cta><span class="shine"></span><small>先着120名</small><b>参加を申し込む</b></a>
     </div>
-    <ol class="steps">
-      <li class="step" data-reveal><span class="sn">1</span><div class="sc"><p class="when">今すぐ・約1分</p><h3>このページで申し込む</h3><p><budoux-ja>お名前・ふりがな・メールアドレスを入力するだけです。</budoux-ja></p><span class="stag">先着120名</span></div></li>
-      <li class="step" data-reveal><span class="sn">2</span><div class="sc"><p class="when">申し込みの直後</p><h3>受付番号を控える</h3><p><budoux-ja>画面に表示される受付番号を、写真やメモで控えておきます。</budoux-ja></p><span class="stag alt">画面に表示</span></div></li>
-      <li class="step" data-reveal><span class="sn">3</span><div class="sc"><p class="when">2027年4月10日（土）</p><h3>大田区民ホール・アプリコへ</h3><p><budoux-ja>小ホールで、甘藤かつおと辛口ますおの本音トークをお楽しみください。</budoux-ja></p><span class="stag">当日</span></div></li>
-    </ol>
-    <p class="honest" data-reveal><b>まだ決まっていないこと：</b><budoux-ja>開場・開演の時刻、参加費、主催者とお問い合わせ先は確認中です。決まり次第、このページでお知らせします。</budoux-ja></p>
+  </section>
+
+  <!-- POINT -->
+  <section class="points">
+    <h2 class="ttl" data-reveal><span class="ttl-sub">当日のみどころ</span>おおた未来カイギ<small>の</small><br><span class="blue">3</span><small>つの</small>ポイント</h2>
+    <p class="goal" data-reveal><small>このイベントのゴール</small><b>家族</b>も<b>仕事</b>も大切にしながら、<br>自分らしい<b>これからの選択</b>を見つけること</p>
+    <div class="pt" data-reveal><span class="ill"><svg class="i"><use href="#i-chat"/></svg></span><p class="no">POINT 01</p><h3>甘口と辛口、<br>正反対のふたりの本音トーク</h3><p><budoux-ja>「家族」に寄り添う甘藤かつおと、「仕事」をはっきり語る辛口ますお。</budoux-ja></p></div>
+    <div class="pt" data-reveal><span class="ill"><svg class="i"><use href="#i-house"/></svg></span><p class="no">POINT 02</p><h3>「家族」と「仕事」を<br>ひとつのテーマで考える</h3><p><budoux-ja>どちらか一方ではなく、つなげて考えるからヒントが見つかります。</budoux-ja></p></div>
+    <div class="pt" data-reveal><span class="ill"><svg class="i"><use href="#i-pin"/></svg></span><p class="no">POINT 03</p><h3>地元・大田区で<br>気軽に参加できる</h3><p><budoux-ja>会場は大田区民ホール・アプリコ。お住まいの近くで開催します。</budoux-ja></p></div>
+  </section>
+
+  <!-- 当日の話題 -->
+  <section class="topics">
+    <h2 class="ttl" data-reveal><span class="ttl-sub">【2027年4月10日】</span>当日<small>は</small><span class="blue">こんな話</span><small>を</small>予定</h2>
+    <p class="c note" style="margin-top:6px" data-reveal>※ 内容は登壇者と調整のうえ決まります</p>
+    <div class="topic" data-reveal><b><em>仕事を続けるか、変えるか</em>の考え方</b><span>家族への伝え方もいっしょに</span></div>
+    <div class="topic" data-reveal><b>家族の時間と<em>自分の時間</em>のバランス</b><span>甘藤かつおの「まあ、いいじゃない」の真意</span></div>
+    <div class="topic" data-reveal><b>夫婦で<em>これから</em>を話し合うコツ</b><span>すれ違いやすい場面と、その乗り越え方</span></div>
+    <div class="topic" data-reveal><b><em>人生の後半戦</em>の選び方</b><span>辛口ますおの「それ、本当にやりたいこと？」</span></div>
+    <p class="more" data-reveal>この他にもお話しします！</p>
   </section>
 
   <!-- 登壇者 -->
-  <section class="sec grid-bg" id="speakers">
-    <p class="kicker" data-reveal>Speakers</p>
-    <h2 class="h2" data-reveal><budoux-ja>甘口と辛口、<br><span class="em">ふたりが本音で語ります。</span></budoux-ja></h2>
-    <article class="pcard pin" data-reveal>
-      <div class="pcard-top">
-        <div class="ph"><img src="img/amato-main.webp" alt="甘藤かつおのイラスト" loading="lazy" width="363" height="720"></div>
-        <div class="nm"><small>「家族」担当 ／ 甘口トーク</small><strong>甘藤 かつお</strong><p><budoux-ja>家族の悩みに、とことん甘く寄り添う。口ぐせは「まあ、いいじゃない」。</budoux-ja></p></div>
-      </div>
-      <div class="quals"><span>家族のこと</span><span>夫婦のこと</span><span>パフェには目がない</span></div>
+  <section class="spk" id="speakers">
+    <h2 class="ttl" data-reveal><span class="ttl-sub">登壇者のご紹介</span>甘口<small>と</small>辛口、<br><span class="blue">ふたりが本音で語ります</span></h2>
+    <article class="card" data-reveal>
+      <div class="card-hd"><span class="av"><img src="img/amato-main.webp" alt="甘藤かつおのイラスト" loading="lazy" width="363" height="720"></span><div><strong>甘藤 かつお</strong><small>あまとう かつお</small></div></div>
+      <p class="catch">家族の悩みに、とことん甘く寄り添う</p>
+      <dl><div><dt>担当</dt><dd>「家族」のこと</dd></div><div><dt>口ぐせ</dt><dd>「まあ、いいじゃない」</dd></div><div><dt>好きなもの</dt><dd>甘いもの全般（パフェには目がない）</dd></div></dl>
     </article>
-    <article class="pcard b pin" data-reveal>
-      <div class="pcard-top">
-        <div class="ph"><img src="img/masuo-main.webp" alt="辛口ますおのイラスト" loading="lazy" width="333" height="720"></div>
-        <div class="nm"><small>「仕事」担当 ／ 辛口トーク</small><strong>辛口 ますお</strong><p><budoux-ja>仕事の悩みを、愛ある辛口ではっきり語る。口ぐせは「それ、本当にやりたいこと？」。</budoux-ja></p></div>
-      </div>
-      <div class="quals"><span>仕事のこと</span><span>キャリアのこと</span><span>激辛料理が好物</span></div>
+    <article class="card b" data-reveal>
+      <div class="card-hd"><span class="av"><img src="img/masuo-main.webp" alt="辛口ますおのイラスト" loading="lazy" width="333" height="720"></span><div><strong>辛口 ますお</strong><small>からくち ますお</small></div></div>
+      <p class="catch">仕事の悩みを、愛ある辛口ではっきり語る</p>
+      <dl><div><dt>担当</dt><dd>「仕事」のこと</dd></div><div><dt>口ぐせ</dt><dd>「それ、本当にやりたいこと？」</dd></div><div><dt>好きなもの</dt><dd>激辛料理</dd></div></dl>
     </article>
-    <p class="quote" data-reveal><budoux-ja>甘いだけでも、辛いだけでもない。<br>ふたりの本音の間に、あなたの答えがある。</budoux-ja><small>※ 登壇者の名前・イラストは仮のものです。</small></p>
+    <p class="note kari">※ 登壇者の名前・イラストは仮のものです。</p>
   </section>
 
-  <!-- 申込 -->
-  <section class="sec" id="entry">
-    <p class="kicker" data-reveal>Entry</p>
-    <h2 class="h2" data-reveal><budoux-ja>先着120名。<br><span class="em">お申し込みはこちらから。</span></budoux-ja></h2>
-
-    <div class="seat pin" data-reveal>
-      <p class="seat-hd">現在の残りの席数</p>
-      <p class="seat-num"><span data-remaining>―</span><small>席 ／ 120席</small></p>
-      <div class="meter" role="presentation"><i data-bar></i></div>
-      <div class="seat-sub"><span>お申し込み済み <b data-count>―</b>名</span><span>定員 120名</span></div>
+  <!-- 参加までの手順 -->
+  <section class="flow">
+    <div class="flow-box" data-reveal>
+      <p class="flow-hd">参加までの手順</p>
+      <ol>
+        <li><span class="ic"><svg class="i"><use href="#i-pen"/></svg></span>このページで<br>申し込む</li>
+        <li class="arr" aria-hidden="true"><svg class="i"><use href="#i-arrow"/></svg></li>
+        <li class="mid"><span class="ic"><svg class="i"><use href="#i-ticket"/></svg></span><b>受付番号</b>が<br>表示される</li>
+        <li class="arr" aria-hidden="true"><svg class="i"><use href="#i-arrow"/></svg></li>
+        <li><span class="ic"><svg class="i"><use href="#i-cal"/></svg></span>4月10日に<br>アプリコへ</li>
+      </ol>
+      <p class="note">※ 受付番号は、写真やメモで控えておいてください</p>
     </div>
+  </section>
 
+  <!-- 残席・申込 -->
+  <section class="entry" id="entry">
+    <h2 class="ttl" data-reveal><span class="ttl-sub">先着120名・定員になり次第締め切り</span>参加<small>の</small><span class="blue">お申し込み</span></h2>
+    <div class="seat" data-reveal>
+      <p class="l">現在の残りの席数</p>
+      <p class="n"><span data-remaining>―</span><small>席 ／ 120席</small></p>
+      <div class="meter" role="presentation"><i data-bar></i></div>
+      <div class="s"><span>お申し込み済み <b data-count>―</b>名</span><span>定員 120名</span></div>
+    </div>
     <div class="form" data-reveal>
       <p class="form-status" data-entry-status>残り <b data-remaining>―</b> 席 ／ 120席</p>
       <form id="entry-form" novalidate>
@@ -553,48 +472,42 @@ button{font:inherit;color:inherit}
           <div class="err"></div>
         </div>
         <div class="form-msg" role="alert" data-form-msg></div>
-        <button class="cta" type="submit" data-submit><span class="cta-ico"><svg class="i"><use href="#i-pen"/></svg></span><span class="cta-txt"><small data-submit-sub>先着120名</small><b data-submit-label>この内容で申し込む</b></span><span class="cta-go"><svg class="i"><use href="#i-arrow"/></svg></span></button>
+        <button class="btn" type="submit" data-submit><span class="shine"></span><small data-submit-sub>先着120名</small><b data-submit-label>この内容で申し込む</b></button>
       </form>
       <div class="done" data-done role="status">
         <img src="img/masuo-cheer.webp" alt="" width="221" height="300">
         <h3>お申し込みを受け付けました</h3>
         <p>あなたの受付番号</p>
         <p class="no" data-number>―</p>
-        <p class="note-s">この画面を写真に撮るなどして、受付番号を控えておいてください。</p>
+        <p class="note">この画面を写真に撮るなどして、受付番号を控えておいてください。</p>
       </div>
     </div>
   </section>
 
   <!-- よくあるご質問 -->
-  <section class="sec grid-bg" id="faq">
-    <p class="kicker" data-reveal>FAQ</p>
-    <h2 class="h2" data-reveal>申し込みの前に、よくいただく質問</h2>
-    <div class="faq">
-      <details data-reveal><summary><span class="q">Q</span>申し込みは先着順ですか？<span class="pm"><svg class="i"><use href="#i-plus"/></svg></span></summary><div class="a"><span class="q">A</span><p>はい、先着120名です。定員になった時点で受付を終了し、このページに「満席」と表示します。</p></div></details>
-      <details data-reveal><summary><span class="q">Q</span>申し込みができたか、どうやって確認できますか？<span class="pm"><svg class="i"><use href="#i-plus"/></svg></span></summary><div class="a"><span class="q">A</span><p>お申し込みが終わると、画面に受付番号が表示されます。写真に撮るなどして控えておいてください。</p></div></details>
-      <details data-reveal><summary><span class="q">Q</span>家族の分もまとめて申し込めますか？<span class="pm"><svg class="i"><use href="#i-plus"/></svg></span></summary><div class="a"><span class="q">A</span><p>1つのメールアドレスにつき1名様のお申し込みです。ご家族で参加される場合は、お一人ずつお申し込みください。</p></div></details>
-      <details data-reveal><summary><span class="q">Q</span>文字が小さくて読みにくいのですが。<span class="pm"><svg class="i"><use href="#i-plus"/></svg></span></summary><div class="a"><span class="q">A</span><p>ページの一番上にある「大」を押すと、文字が大きくなります。</p></div></details>
-      <details data-reveal><summary><span class="q">Q</span>開演の時間や参加費はいつわかりますか？<span class="pm"><svg class="i"><use href="#i-plus"/></svg></span></summary><div class="a"><span class="q">A</span><p>決まり次第、このページでお知らせします。</p></div></details>
-      <details data-reveal><summary><span class="q">Q</span>参加できなくなったときは、どうすればいいですか？<span class="pm"><svg class="i"><use href="#i-plus"/></svg></span></summary><div class="a"><span class="q">A</span><p>お問い合わせ先は決まり次第、このページでお知らせします。</p></div></details>
-    </div>
+  <section class="faq" id="faq">
+    <h2 class="ttl" data-reveal><span class="ttl-line blue">よくあるご質問</span></h2>
+    <details data-reveal><summary>申し込みは先着順ですか？</summary><div class="a">はい、先着120名です。定員になった時点で受付を終了し、このページに「満席」と表示します。</div></details>
+    <details data-reveal><summary>申し込みができたか、どうやって確認できますか？</summary><div class="a">お申し込みが終わると、画面に受付番号が表示されます。写真に撮るなどして控えておいてください。</div></details>
+    <details data-reveal><summary>家族の分もまとめて申し込めますか？</summary><div class="a">1つのメールアドレスにつき1名様のお申し込みです。ご家族で参加される場合は、お一人ずつお申し込みください。</div></details>
+    <details data-reveal><summary>文字が小さくて読みにくいのですが。</summary><div class="a">ページの一番上にある「大」を押すと、文字が大きくなります。</div></details>
+    <details data-reveal><summary>開演の時間や参加費はいつわかりますか？</summary><div class="a">決まり次第、このページでお知らせします。</div></details>
+    <details data-reveal><summary>参加できなくなったときは、どうすればいいですか？</summary><div class="a">お問い合わせ先は決まり次第、このページでお知らせします。</div></details>
   </section>
 
-  <!-- 最後の申込 -->
-  <section class="final dark">
-    <p class="kicker" data-reveal>Last Call</p>
-    <h2 class="h2" data-reveal><budoux-ja>「家族」と「仕事」。<br><span class="y">これからを、いっしょに。</span></budoux-ja></h2>
-    <p class="lead" data-reveal>2027年4月10日（土）大田区民ホール・アプリコ 小ホール</p>
+  <!-- 最後 -->
+  <section class="final">
+    <p class="t" data-reveal>「家族」と「仕事」のこれからを<br>いっしょに考えませんか？</p>
+    <p class="d" data-reveal>2027年4月10日（土）大田区民ホール・アプリコ 小ホール</p>
     <div class="duo" aria-hidden="true">
-      <img src="img/amato-point.webp" alt="" loading="lazy" width="242" height="300">
+      <img src="img/amato-cheer.webp" alt="" loading="lazy" width="223" height="300">
       <img src="img/masuo-point.webp" alt="" loading="lazy" width="247" height="300">
     </div>
-    <div class="cta-wrap" data-reveal>
-      <p class="cta-lead">入力は1分ほどで終わります</p>
-      <a class="cta" href="#entry" data-cta><span class="cta-ico"><svg class="i"><use href="#i-pen"/></svg></span><span class="cta-txt"><small>先着120名・お申し込み</small><b>参加を申し込む</b></span><span class="cta-go"><svg class="i"><use href="#i-arrow"/></svg></span></a>
-      <p class="cta-micro" data-seat-text>残りの席数を確認しています</p>
+    <div class="wrapb" data-reveal>
+      <a class="btn" href="#entry" data-cta><span class="shine"></span><small>先着120名</small><b>参加を申し込む</b></a>
+      <p class="btn-note" data-seat-text>残りの席数を確認しています</p>
     </div>
   </section>
-
   </main>
 
   <footer class="ft">
@@ -606,14 +519,20 @@ button{font:inherit;color:inherit}
       <div><dt>主催</dt><dd>確認中</dd></div>
       <div><dt>お問い合わせ</dt><dd>確認中</dd></div>
     </dl>
-    <small>※ 登壇者の名前・イラストは仮のものです。</small>
+    <p class="credit">
+      写真：<br>
+      羽田空港 … Pasci23456 / <a href="https://commons.wikimedia.org/wiki/File:RJTT_Overview_2.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>（<a href="https://creativecommons.org/publicdomain/zero/1.0/deed.ja" target="_blank" rel="noopener">CC0</a>）<br>
+      池上梅園 … Nesnad / <a href="https://commons.wikimedia.org/wiki/File:Ikegami_Baien_plum_garden_-_2024_Feb_27_various_23_08_13_332000.jpeg" target="_blank" rel="noopener">Wikimedia Commons</a>（<a href="https://creativecommons.org/licenses/by/4.0/deed.ja" target="_blank" rel="noopener">CC BY 4.0</a>）一部を切り抜き<br>
+      多摩川 … Nakonana / <a href="https://commons.wikimedia.org/wiki/File:Ebitori_River_and_Tama_River_confluence_with_view_of_Haneda_Airport,_Tokyo,_Japan_2014-08-03.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>（<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ja" target="_blank" rel="noopener">CC BY-SA 4.0</a>）一部を切り抜き<br>
+      ※ 登壇者の名前・イラストは仮のものです。
+    </p>
   </footer>
 
-  <div class="sticky" data-sticky>
-    <a class="cta" href="#entry" data-cta><span class="cta-ico"><svg class="i"><use href="#i-pen"/></svg></span><span class="cta-txt"><small data-sticky-sub>先着120名・お申し込み</small><b>参加を申し込む</b></span><span class="cta-go"><svg class="i"><use href="#i-arrow"/></svg></span></a>
+  <div class="bar" data-bar-fixed>
+    <p class="bar-top">定員120名のうち　残り <b data-remaining>―</b> 席</p>
+    <a class="btn" href="#entry" data-cta><b>参加を申し込む</b></a>
   </div>
 
-</div>
 </div>
 
 <script>
@@ -642,38 +561,15 @@ button{font:inherit;color:inherit}
     els.forEach(function (el) { el.classList.add('on'); });
   }
 
-  // 下部の固定ボタン（最初の画面を過ぎたら表示・申込欄では隠す）
-  var sticky = document.querySelector('[data-sticky]');
-  var fv = document.getElementById('top');
+  // 下部の固定バー（最初のボタンを過ぎたら表示・申込欄では隠す）
+  var bar = document.querySelector('[data-bar-fixed]');
+  var fvCta = document.querySelector('.fv .cta');
   var entry = document.getElementById('entry');
-  function onScroll() {
-    var past = fv.getBoundingClientRect().bottom < 0;
+  window.addEventListener('scroll', function () {
+    var past = fvCta.getBoundingClientRect().bottom < 0;
     var r = entry.getBoundingClientRect();
-    var inEntry = r.top < window.innerHeight * 0.8 && r.bottom > 0;
-    sticky.classList.toggle('on', past && !inEntry);
-  }
-  window.addEventListener('scroll', onScroll, { passive: true });
-
-  // 気になるテーマを選ぶ
-  var PICKS = {
-    family: ['家族との「これから」を考えたい方へ', ['家族の時間と、自分の時間のバランスの取り方', '子どもや親との関わり方が変わるタイミング', '甘藤かつおの「まあ、いいじゃない」の真意']],
-    work: ['仕事・キャリアに迷っている方へ', ['今の仕事を続けるか、変えるかの考え方', '家族に相談するときの伝え方', '辛口ますおの「それ、本当にやりたいこと？」']],
-    couple: ['夫婦・パートナーとの関係を見つめ直したい方へ', ['すれ違いが起きやすい場面と、その乗り越え方', '仕事の選択を、ふたりで決めるには', '甘口と辛口、ふたりの意見がぶつかるところ']],
-    later: ['人生の後半戦を考えはじめた方へ', ['これからの働き方と、暮らし方の選び方', '家族との関係の、新しいかたち', '大田区で、同じ想いを持つ人と出会う']]
-  };
-  var pres = document.getElementById('pres');
-  var pTitle = document.querySelector('[data-pres-title]');
-  var pList = document.querySelector('[data-pres-list]');
-  document.querySelectorAll('.pbtn').forEach(function (b) {
-    b.addEventListener('click', function () {
-      document.querySelectorAll('.pbtn').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
-      var d = PICKS[b.getAttribute('data-pick')];
-      pTitle.textContent = d[0] + '　当日はこんな話も';
-      pList.innerHTML = '';
-      d[1].forEach(function (t) { var li = document.createElement('li'); li.textContent = t; pList.appendChild(li); });
-      pres.classList.add('open');
-    });
-  });
+    bar.classList.toggle('on', past && !(r.top < window.innerHeight * 0.8 && r.bottom > 0));
+  }, { passive: true });
 
   // 残りの席数
   var form = document.getElementById('entry-form');
@@ -690,10 +586,9 @@ button{font:inherit;color:inherit}
     submitLabel.textContent = text;
     document.querySelectorAll('[data-cta]').forEach(function (a) {
       a.classList.add('is-off');
-      a.querySelector('.cta-txt small').textContent = 'お申し込み受付';
-      a.querySelector('.cta-txt b').textContent = text;
+      var small = a.querySelector('small'); if (small) small.textContent = 'お申し込み受付';
+      a.querySelector('b').textContent = text;
     });
-    document.querySelector('.hd-btn').lastChild.textContent = text === '満席・受付終了' ? '満席' : '準備中';
   }
 
   function render(s) {
@@ -706,7 +601,6 @@ button{font:inherit;color:inherit}
       closeEntry('満席・受付終了');
     } else {
       document.querySelectorAll('[data-seat-text]').forEach(function (el) { el.innerHTML = '残り <b>' + s.remaining + '席</b>（先着' + s.capacity + '名）'; });
-      setAll('[data-sticky-sub]', '残り' + s.remaining + '席・先着' + s.capacity + '名');
     }
   }
 
