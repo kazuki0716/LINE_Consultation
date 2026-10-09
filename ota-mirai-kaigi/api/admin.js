@@ -1,5 +1,5 @@
 import { timingSafeEqual } from 'node:crypto';
-import { entries, isConfigured } from './_redis.js';
+import { entries, isConfigured } from './_store.js';
 
 // GET /api/admin → 申込者一覧を CSV でダウンロード（ユーザー名 admin ／ パスワードは環境変数 ADMIN_PASSWORD）
 function authorized(req) {
@@ -26,7 +26,7 @@ export default async function handler(req, res) {
     return res.status(401).send('Unauthorized');
   }
   if (!isConfigured()) {
-    return res.status(503).send('Redis is not configured');
+    return res.status(503).send('Supabase is not configured');
   }
   try {
     const rows = await entries();

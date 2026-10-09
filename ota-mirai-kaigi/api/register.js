@@ -1,4 +1,4 @@
-import { CAPACITY, isConfigured, register } from './_redis.js';
+import { CAPACITY, isConfigured, register } from './_store.js';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const clean = (v, max) => String(v ?? '').trim().slice(0, max);
@@ -37,8 +37,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const entry = JSON.stringify({ name, kana, email, phone, at: new Date().toISOString() });
-    const result = await register(email, entry);
+    const result = await register({ name, kana, email, phone });
     if (result === -1) {
       return res.status(409).json({ error: 'full', message: '定員に達したため、受付を終了しました。' });
     }

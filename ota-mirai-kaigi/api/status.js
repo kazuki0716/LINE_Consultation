@@ -1,4 +1,4 @@
-import { CAPACITY, count, isConfigured } from './_redis.js';
+import { CAPACITY, count, isConfigured } from './_store.js';
 
 // GET /api/status → { capacity, count, remaining, open }
 export default async function handler(req, res) {
