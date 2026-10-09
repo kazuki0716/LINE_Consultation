@@ -30,8 +30,9 @@ export default async function handler(req, res) {
   }
   try {
     const rows = await entries();
-    const lines = [['No', '申込日時', 'お名前', 'ふりがな', 'メール', '電話'].map(csvCell).join(',')];
-    rows.forEach((r, i) => lines.push([i + 1, r.at, r.name, r.kana, r.email, r.phone].map(csvCell).join(',')));
+    const lines = [['No', '申込日時（日本時間）', 'お名前', 'ふりがな', 'メール', '電話'].map(csvCell).join(',')];
+    const jst = (iso) => new Date(iso).toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' });
+    rows.forEach((r, i) => lines.push([i + 1, jst(r.at), r.name, r.kana, r.email, r.phone].map(csvCell).join(',')));
     res.setHeader('Content-Type', 'text/csv; charset=utf-8');
     res.setHeader('Content-Disposition', 'attachment; filename="ota-mirai-kaigi-entries.csv"');
     return res.status(200).send('﻿' + lines.join('\r\n'));
