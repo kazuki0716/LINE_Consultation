@@ -3,253 +3,708 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>おおた未来カイギ｜2027.4.10 大田区民ホール・アプリコ</title>
-  <meta name="description" content="「家族」「仕事」これからの人生の選択を考える。2027年4月10日（土）大田区民ホール・アプリコ 小ホールにて開催。登壇：かとうてつお、石田純一。">
+  <title>おおた未来カイギ｜2027.4.10（土）大田区民ホール・アプリコ｜先着120名</title>
+  <meta name="description" content="「家族」「仕事」これからの人生の選択を考える。2027年4月10日（土）大田区民ホール・アプリコ 小ホールにて開催。登壇：かとうてつお、石田純一。先着120名。">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="おおた未来カイギ｜2027.4.10（土）大田区民ホール・アプリコ">
+  <meta property="og:title" content="おおた未来カイギ｜2027.4.10（土）先着120名">
   <meta property="og:description" content="「家族」「仕事」これからの人生の選択を考える。登壇：かとうてつお、石田純一。">
   <meta name="twitter:card" content="summary">
-  <meta name="theme-color" content="#14213d">
+  <meta name="theme-color" content="#ea424b">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@700;900&family=Outfit:wght@600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@600;700;900&family=Roboto:wght@700;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --navy: #14213d;
-      --navy-2: #1f3160;
-      --amber: #f5a524;
-      --amber-soft: #fff3dc;
-      --paper: #fbf8f2;
-      --ink: #1b1f2a;
-      --muted: #5d6475;
-      --line: #e5dfd3;
-      --radius: 20px;
+      --red: #ea424b;
+      --red-deep: #c92a33;
+      --red-serif: #f25058;
+      --band: #d64040;
+      --gold1: #bb9905;
+      --gold2: #876d00;
+      --gold-line: #c8ac34;
+      --bg: #f5f4f2;
+      --white: #ffffff;
+      --text: #101010;
+      --muted: #6b6b6b;
+      --line: #dedad3;
+      --msg-bg: #fef3f3;
+      --dark: #282828;
     }
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 72px; }
     body {
-      margin: 0; background: var(--paper); color: var(--ink);
-      font-family: "Noto Sans JP", system-ui, sans-serif; line-height: 1.8;
-      -webkit-font-smoothing: antialiased;
+      margin: 0; background: var(--white); color: var(--text);
+      font-family: "Noto Sans JP", sans-serif; line-height: 1.8; -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
     a { color: inherit; }
-    .wrap { max-width: 960px; margin: 0 auto; padding: 0 16px; }
-    .en { font-family: "Outfit", sans-serif; letter-spacing: .08em; }
+    img, svg { max-width: 100%; }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
     .serif { font-family: "Noto Serif JP", serif; }
+    .roboto { font-family: "Roboto", sans-serif; }
+    .red { color: var(--red-serif); }
+    .gold {
+      background: linear-gradient(109deg, var(--gold1) 37%, var(--gold2) 72%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .marker { background: linear-gradient(transparent 62%, #ffe7e8 62%); }
+
+    /* ボタン */
+    .btn-cta {
+      display: inline-flex; flex-direction: column; align-items: center; justify-content: center;
+      min-width: min(100%, 420px); padding: 16px 32px; border: 0; border-radius: 999px; cursor: pointer;
+      background: linear-gradient(to bottom, #f45a62, var(--red-deep)); color: #fff; text-decoration: none;
+      font: 900 20px/1.4 "Noto Sans JP", sans-serif; letter-spacing: .04em;
+      box-shadow: 0 6px 0 #9e1d25, 0 14px 30px rgba(234, 66, 75, .35);
+      transition: transform .15s, box-shadow .15s; position: relative; overflow: hidden;
+    }
+    .btn-cta small { font-size: 13px; font-weight: 700; opacity: .9; }
+    .btn-cta::after {
+      content: ""; position: absolute; top: 0; left: -60%; width: 40%; height: 100%;
+      background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .45), transparent);
+      animation: shine 3.2s ease-in-out infinite;
+    }
+    .btn-cta:hover { transform: translateY(2px); box-shadow: 0 4px 0 #9e1d25, 0 10px 24px rgba(234, 66, 75, .35); }
+    .btn-cta[disabled], .btn-cta.is-disabled { background: #a7a7a7; box-shadow: 0 6px 0 #7a7a7a; cursor: not-allowed; }
+    .btn-cta[disabled]::after, .btn-cta.is-disabled::after { display: none; }
+    @keyframes shine { 0%, 60% { left: -60%; } 100% { left: 130%; } }
+
+    /* ヘッダー */
+    .header {
+      position: fixed; inset: 0 0 auto; z-index: 50; height: 64px;
+      background: rgba(255, 255, 255, .92); backdrop-filter: blur(10px); border-bottom: 1px solid #e5e7eb;
+    }
+    .header .wrap { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; max-width: 1200px; }
+    .logo { text-decoration: none; font-weight: 900; font-size: 18px; letter-spacing: .04em; }
+    .logo span { color: var(--red); }
+    .nav { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; font-size: 14px; font-weight: 700; }
+    .nav a { text-decoration: none; color: var(--dark); }
+    .nav a:hover { color: var(--red); }
+    .header-cta {
+      text-decoration: none; background: var(--red); color: #fff; font-weight: 900; font-size: 14px;
+      padding: 9px 18px; border-radius: 999px; white-space: nowrap;
+    }
 
     /* ヒーロー */
     .hero {
+      position: relative; padding: 112px 0 72px; overflow: hidden;
       background:
-        radial-gradient(circle at 85% 15%, rgba(245, 165, 36, .35), transparent 40%),
-        radial-gradient(circle at 10% 90%, rgba(98, 138, 255, .35), transparent 45%),
-        var(--navy);
-      color: #fff; padding: 56px 0 72px; position: relative; overflow: hidden;
+        radial-gradient(circle at 92% 18%, rgba(242, 80, 88, .14), transparent 32%),
+        radial-gradient(circle at 4% 88%, rgba(200, 172, 52, .16), transparent 34%),
+        var(--bg);
     }
-    .hero .wrap { position: relative; z-index: 1; }
-    .kicker { display: inline-block; font-size: 13px; font-weight: 700; color: var(--navy); background: var(--amber); padding: 4px 14px; border-radius: 999px; }
-    .hero h1 { margin: 20px 0 8px; font-size: clamp(44px, 10vw, 96px); line-height: 1.1; font-weight: 900; letter-spacing: .02em; }
-    .hero h1 small { display: block; font-size: .28em; letter-spacing: .3em; color: var(--amber); font-family: "Outfit", sans-serif; font-weight: 600; margin-bottom: 8px; }
-    .theme { font-size: clamp(18px, 3vw, 26px); font-weight: 700; margin: 0 0 32px; }
-    .theme em { font-style: normal; color: var(--amber); }
-    .date-card {
-      display: grid; grid-template-columns: auto 1fr; gap: 4px 24px; align-items: center;
-      background: rgba(255, 255, 255, .08); border: 1px solid rgba(255, 255, 255, .2);
-      border-radius: var(--radius); padding: 20px 24px; max-width: 560px; backdrop-filter: blur(6px);
+    .hero .wrap { position: relative; z-index: 1; display: grid; grid-template-columns: 1.15fr .85fr; gap: 32px; align-items: center; }
+    .hero-meta { display: inline-flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+    .hero-meta span { background: var(--text); color: #fff; font-size: 13px; font-weight: 700; padding: 4px 12px; }
+    .hero-meta span:first-child { background: var(--red); }
+    .hero h1 .ln { display: inline-block; white-space: nowrap; }
+    .hero h1 { margin: 0; font-size: clamp(30px, 5.2vw, 62px); line-height: 1.3; font-weight: 900; letter-spacing: .02em; }
+    .hero h1 .quote { color: var(--red-serif); }
+    .hero .title {
+      display: flex; align-items: baseline; gap: 12px; margin: 22px 0 0; font-weight: 900;
+      font-size: clamp(22px, 3.2vw, 32px);
     }
-    .date-card .day { font-family: "Outfit", sans-serif; font-weight: 800; font-size: clamp(40px, 8vw, 60px); line-height: 1; grid-row: span 2; }
-    .date-card .day span { font-size: .45em; color: var(--amber); margin-left: 6px; }
-    .date-card .year { font-family: "Outfit", sans-serif; font-weight: 600; color: rgba(255, 255, 255, .7); letter-spacing: .1em; }
-    .date-card .place { font-weight: 700; font-size: 16px; }
-    .ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      padding: 14px 28px; border-radius: 999px; font-weight: 700; text-decoration: none; font-size: 16px;
-      transition: transform .15s, box-shadow .15s, background .15s;
+    .hero .title small { font-size: 14px; color: var(--muted); font-weight: 700; letter-spacing: .2em; }
+    .hero-date {
+      position: relative; aspect-ratio: 1; border-radius: 50%; background: var(--white);
+      display: grid; place-items: center; text-align: center; box-shadow: 0 30px 60px rgba(0, 0, 0, .08);
+      border: 1px solid var(--line);
     }
-    .btn-primary { background: var(--amber); color: var(--navy); box-shadow: 0 8px 24px rgba(245, 165, 36, .35); }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(245, 165, 36, .45); }
-    .btn-ghost { border: 1px solid rgba(255, 255, 255, .5); color: #fff; }
-    .btn-ghost:hover { background: rgba(255, 255, 255, .1); }
+    .hero-date::before {
+      content: ""; position: absolute; inset: 14px; border-radius: 50%; border: 1px dashed var(--gold-line);
+      animation: spin 40s linear infinite;
+    }
+    .hero-date .y { font-family: "Roboto", sans-serif; font-weight: 700; letter-spacing: .3em; color: var(--muted); font-size: clamp(14px, 1.6vw, 18px); }
+    .hero-date .d { font-family: "Roboto", sans-serif; font-weight: 900; font-size: clamp(72px, 11vw, 132px); line-height: 1; color: var(--text); }
+    .hero-date .d .dot { color: var(--red); }
+    .hero-date .w { display: inline-block; margin-top: 8px; background: var(--red); color: #fff; font-family: "Roboto", sans-serif; font-weight: 900; letter-spacing: .2em; padding: 4px 16px; border-radius: 999px; font-size: 15px; }
+    .hero-date .p { margin-top: 10px; font-weight: 700; font-size: clamp(13px, 1.4vw, 15px); }
+    @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* セクション */
-    section { padding: 80px 0; }
-    .sec-head { margin-bottom: 36px; }
-    .sec-head .en { color: var(--amber); font-size: 14px; font-weight: 800; }
-    .sec-head h2 { margin: 4px 0 0; font-size: clamp(26px, 4.5vw, 38px); line-height: 1.35; }
+    .badges { display: flex; gap: 12px; margin: 32px 0 30px; flex-wrap: wrap; }
+    .badge { position: relative; width: 150px; height: 112px; display: grid; place-items: center; text-align: center; }
+    .badge svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .badge .in { position: relative; line-height: 1.25; }
+    .badge .s { font-size: 12px; font-weight: 700; color: var(--gold2); }
+    .badge .b { font-family: "Noto Serif JP", serif; font-weight: 900; font-size: 26px; }
+    .badge .b small { font-size: 14px; }
+    .hero .cta-box { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+    .seat-pill {
+      display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: 14px;
+      background: var(--white); border: 1px solid var(--line); padding: 4px 14px; border-radius: 999px;
+    }
+    .seat-pill .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--red); animation: blink 1.4s infinite; }
+    @keyframes blink { 50% { opacity: .2; } }
 
-    /* テーマ */
-    .message { background: #fff; }
-    .message .lead { font-size: clamp(17px, 2.2vw, 20px); max-width: 40em; }
-    .points { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px; }
-    .point { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
-    .point .num { font-family: "Outfit", sans-serif; font-weight: 800; color: var(--amber); font-size: 28px; line-height: 1; }
-    .point h3 { margin: 10px 0 4px; font-size: 18px; }
-    .point p { margin: 0; color: var(--muted); font-size: 15px; }
+    /* 流れる帯 */
+    .band { background: var(--band); color: #fff; overflow: hidden; padding: 12px 0; }
+    .band .track { display: flex; width: max-content; animation: slide 30s linear infinite; }
+    .band span { white-space: nowrap; font-weight: 900; font-size: 16px; padding: 0 28px; letter-spacing: .06em; }
+    .band span::before { content: "●"; font-size: 8px; vertical-align: middle; margin-right: 28px; opacity: .6; }
+    @keyframes slide { to { transform: translateX(-50%); } }
+
+    /* セクション共通 */
+    section { position: relative; padding: 104px 0; overflow: hidden; }
+    .bg-gray { background: var(--bg); }
+    .en-bg {
+      position: absolute; top: 28px; left: 50%; transform: translateX(-50%); z-index: 0; pointer-events: none;
+      font-family: "Roboto", sans-serif; font-weight: 900; font-size: clamp(80px, 16vw, 200px); line-height: 1;
+      color: rgba(0, 0, 0, .045); white-space: nowrap; letter-spacing: .02em;
+    }
+    .bg-gray .en-bg { color: rgba(255, 255, 255, .9); }
+    section > .wrap { position: relative; z-index: 1; }
+    .sec-label { text-align: center; font-family: "Roboto", sans-serif; font-weight: 900; color: var(--red); letter-spacing: .25em; font-size: 15px; }
+    .sec-title { text-align: center; margin: 8px 0 48px; font-size: clamp(26px, 4.4vw, 42px); line-height: 1.5; font-weight: 900; }
+    .sec-title.serif { font-weight: 900; }
+
+    /* WHY */
+    .why-text { max-width: 720px; margin: 0 auto; text-align: center; font-size: clamp(16px, 2vw, 19px); line-height: 2.2; }
+    .why-text strong { font-size: 1.15em; }
+
+    /* WHAT（こんな想い） */
+    .wishes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 920px; margin: 0 auto; }
+    .wish {
+      position: relative; background: var(--white); border-radius: 18px; padding: 28px 22px 26px;
+      text-align: center; font-weight: 700; font-size: 17px; line-height: 1.7; box-shadow: 0 10px 30px rgba(0, 0, 0, .05);
+    }
+    .wish::after {
+      content: ""; position: absolute; left: 50%; bottom: -12px; transform: translateX(-50%);
+      border: 12px solid transparent; border-top-color: var(--white); border-bottom: 0;
+    }
+    .wish .em { color: var(--red); font-size: 1.2em; }
+    .wish .ic { display: block; margin: 0 auto 10px; width: 44px; height: 44px; border-radius: 50%; background: var(--msg-bg); color: var(--red); font-weight: 900; line-height: 44px; }
+    .wishes .wish:nth-child(4) { grid-column: 1 / 2; margin-left: 50%; }
+    .wishes .wish:nth-child(4), .wishes .wish:nth-child(5) { transform: translateX(0); }
+    .answer { text-align: center; margin-top: 64px; font-size: clamp(22px, 3.6vw, 34px); font-weight: 900; line-height: 1.6; }
+    .answer::before { content: ""; display: block; margin: 0 auto 24px; width: 0; height: 0; border: 22px solid transparent; border-top: 26px solid var(--red); border-bottom: 0; }
+
+    /* POINT */
+    .points { display: grid; gap: 28px; max-width: 920px; margin: 0 auto; }
+    .point {
+      display: grid; grid-template-columns: 140px 1fr; gap: 28px; align-items: center;
+      background: var(--white); border-radius: 20px; padding: 32px; box-shadow: 0 10px 30px rgba(0, 0, 0, .05);
+    }
+    .point .no { text-align: center; }
+    .point .no small { display: block; font-family: "Roboto", sans-serif; font-weight: 900; letter-spacing: .2em; color: var(--muted); font-size: 13px; }
+    .point .no b { font-family: "Roboto", sans-serif; font-weight: 900; font-size: 72px; line-height: 1; color: var(--red); }
+    .point h3 { margin: 0 0 8px; font-size: clamp(20px, 2.6vw, 26px); line-height: 1.5; }
+    .point p { margin: 0; color: #3a3a3a; }
 
     /* 登壇者 */
-    .speakers-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-    .speaker {
-      background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 28px;
-      display: grid; grid-template-columns: 88px 1fr; gap: 20px; align-items: center;
+    .speakers { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+    .speaker { background: var(--white); border: 1px solid var(--line); border-radius: 22px; overflow: hidden; }
+    .speaker-head {
+      position: relative; padding: 40px 28px 28px; color: #fff; min-height: 200px;
+      background: linear-gradient(135deg, #2b2b2b, #0a0a0a);
+      display: flex; flex-direction: column; justify-content: flex-end;
     }
-    .avatar {
-      width: 88px; height: 88px; border-radius: 50%; display: grid; place-items: center;
-      background: var(--navy); color: var(--amber); font-family: "Noto Serif JP", serif; font-weight: 900; font-size: 34px;
+    .speaker:nth-child(2) .speaker-head { background: linear-gradient(135deg, var(--red-serif), #8e1d23); }
+    .speaker-head .initial {
+      position: absolute; right: 18px; top: 4px; font-family: "Noto Serif JP", serif; font-weight: 900;
+      font-size: 140px; line-height: 1; color: rgba(255, 255, 255, .1);
     }
-    .speaker:nth-child(2) .avatar { background: var(--amber); color: var(--navy); }
-    .speaker .role { font-size: 13px; color: var(--muted); }
-    .speaker h3 { margin: 2px 0 0; font-size: 24px; }
-    .speaker .en { font-size: 12px; color: var(--muted); }
+    .speaker-head .role { font-size: 14px; font-weight: 700; opacity: .85; }
+    .speaker-head h3 { margin: 4px 0 0; font-family: "Noto Serif JP", serif; font-size: 34px; letter-spacing: .08em; line-height: 1.3; }
+    .speaker-head .en { font-family: "Roboto", sans-serif; letter-spacing: .25em; font-size: 12px; opacity: .7; }
+    .speaker ul { list-style: none; margin: 0; padding: 24px 28px 28px; }
+    .speaker li { position: relative; padding-left: 22px; margin: 6px 0; font-weight: 500; }
+    .speaker li::before { content: ""; position: absolute; left: 0; top: .7em; width: 10px; height: 10px; border-radius: 50%; border: 3px solid var(--red); }
+    .speaker .src { font-size: 12px; color: var(--muted); margin-top: 10px; }
+
+    /* 残席 */
+    .seats { background: var(--text); color: #fff; text-align: center; }
+    .seats .en-bg { color: rgba(255, 255, 255, .05); }
+    .seats .sec-title { color: #fff; }
+    .seat-board {
+      max-width: 620px; margin: 0 auto 36px; padding: 36px 24px; border-radius: 22px;
+      background: rgba(255, 255, 255, .06); border: 1px solid rgba(255, 255, 255, .14);
+    }
+    .seat-board .lbl { font-weight: 700; opacity: .8; }
+    .seat-board .num { font-family: "Roboto", sans-serif; font-weight: 900; font-size: clamp(72px, 14vw, 128px); line-height: 1; margin: 6px 0; }
+    .seat-board .num small { font-size: .3em; opacity: .7; margin-left: 6px; }
+    .bar { height: 14px; border-radius: 999px; background: rgba(255, 255, 255, .15); overflow: hidden; margin-top: 20px; }
+    .bar i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--gold1), #f2d36b); border-radius: inherit; transition: width 1.4s cubic-bezier(.2, .8, .2, 1); }
+    .bar-cap { display: flex; justify-content: space-between; font-size: 13px; opacity: .75; margin-top: 8px; }
 
     /* 開催概要 */
-    .details { background: #fff; }
-    .table { border-top: 2px solid var(--navy); }
-    .row { display: grid; grid-template-columns: 160px 1fr; gap: 16px; padding: 18px 4px; border-bottom: 1px solid var(--line); }
-    .row dt { font-weight: 700; color: var(--navy); }
+    .table { max-width: 820px; margin: 0 auto; background: var(--white); border-radius: 20px; padding: 8px 32px; box-shadow: 0 10px 30px rgba(0, 0, 0, .05); }
+    .row { display: grid; grid-template-columns: 170px 1fr; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+    .row:last-child { border-bottom: 0; }
+    .row dt { font-weight: 900; }
+    .row dt::before { content: ""; display: inline-block; width: 4px; height: 1em; background: var(--red); vertical-align: -2px; margin-right: 10px; }
     .row dd { margin: 0; }
-    .tbd { display: inline-block; font-size: 13px; font-weight: 700; color: #9a6400; background: var(--amber-soft); padding: 2px 10px; border-radius: 6px; }
-    .map-link { display: inline-block; margin-top: 6px; font-size: 14px; color: var(--navy-2); font-weight: 700; }
+    .tbd { display: inline-block; font-size: 13px; font-weight: 700; color: var(--red-deep); background: var(--msg-bg); padding: 1px 10px; border-radius: 4px; }
+    .map { display: inline-block; margin-top: 4px; font-size: 14px; font-weight: 700; color: var(--red); }
 
-    /* 申込 */
-    .entry { background: var(--navy); color: #fff; text-align: center; }
-    .entry h2 { margin: 0 0 12px; font-size: clamp(28px, 5vw, 44px); }
-    .entry p { color: rgba(255, 255, 255, .8); margin: 0 0 28px; }
-    .entry .btn-primary[aria-disabled="true"] { opacity: .7; cursor: default; box-shadow: none; transform: none; }
+    /* 申込フォーム */
+    .entry-card { max-width: 720px; margin: 0 auto; background: var(--white); border-radius: 24px; padding: 40px 36px; box-shadow: 0 20px 50px rgba(0, 0, 0, .08); }
+    .entry-status { text-align: center; font-weight: 900; margin-bottom: 24px; }
+    .entry-status .remain { color: var(--red); font-family: "Roboto", sans-serif; font-size: 1.6em; }
+    .field { margin-bottom: 20px; }
+    .field label { display: block; font-weight: 700; margin-bottom: 6px; }
+    .req, .opt { display: inline-block; font-size: 11px; font-weight: 700; padding: 1px 8px; border-radius: 4px; margin-left: 8px; vertical-align: 2px; }
+    .req { background: var(--red); color: #fff; }
+    .opt { background: #e8e8e8; color: #555; }
+    .field input[type="text"], .field input[type="email"], .field input[type="tel"] {
+      width: 100%; font: inherit; font-size: 16px; padding: 14px 16px; border: 1px solid #cacaca; border-radius: 10px; background: #fafafa;
+    }
+    .field input:focus { outline: 2px solid var(--red); outline-offset: 1px; background: #fff; }
+    .field .err { display: none; color: var(--red-deep); font-size: 13px; font-weight: 700; margin-top: 4px; }
+    .field.has-error input { border-color: var(--red); }
+    .field.has-error .err { display: block; }
+    .agree { background: var(--bg); border-radius: 12px; padding: 16px 18px; font-size: 14px; }
+    .agree p { margin: 0 0 10px; color: #3a3a3a; }
+    .agree label { display: flex; gap: 10px; align-items: center; font-weight: 700; cursor: pointer; }
+    .agree input { width: 20px; height: 20px; accent-color: var(--red); }
+    .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+    .form-msg { display: none; margin-top: 16px; padding: 14px 16px; border-radius: 10px; font-weight: 700; background: var(--msg-bg); color: var(--red-deep); }
+    .form-msg.show { display: block; }
+    .submit-wrap { text-align: center; margin-top: 28px; }
+    .done { display: none; text-align: center; }
+    .done.show { display: block; }
+    .done .check { width: 72px; height: 72px; margin: 0 auto 16px; border-radius: 50%; background: var(--red); color: #fff; font-size: 36px; line-height: 72px; font-weight: 900; }
+    .done .no { font-family: "Roboto", sans-serif; font-weight: 900; font-size: 48px; color: var(--red); line-height: 1.2; }
 
     /* FAQ */
-    details { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 18px 22px; margin-bottom: 12px; }
-    summary { font-weight: 700; cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
-    summary::-webkit-details-marker { display: none; }
-    summary::after { content: "＋"; color: var(--amber); font-weight: 900; }
-    details[open] summary::after { content: "－"; }
-    details p { margin: 10px 0 0; color: var(--muted); }
+    .faq { max-width: 820px; margin: 0 auto; }
+    .faq details { background: var(--white); border-radius: 14px; margin-bottom: 12px; box-shadow: 0 6px 18px rgba(0, 0, 0, .04); }
+    .faq summary { list-style: none; cursor: pointer; padding: 20px 56px 20px 60px; position: relative; font-weight: 900; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::before { content: "Q"; position: absolute; left: 22px; top: 16px; font-family: "Roboto", sans-serif; font-size: 22px; color: var(--red); }
+    .faq summary::after { content: ""; position: absolute; right: 24px; top: 50%; width: 10px; height: 10px; border-right: 2px solid var(--text); border-bottom: 2px solid var(--text); transform: translateY(-70%) rotate(45deg); transition: transform .2s; }
+    .faq details[open] summary::after { transform: translateY(-30%) rotate(-135deg); }
+    .faq .a { position: relative; padding: 0 24px 22px 60px; color: #3a3a3a; }
+    .faq .a::before { content: "A"; position: absolute; left: 22px; top: -4px; font-family: "Roboto", sans-serif; font-weight: 900; font-size: 22px; color: var(--gold1); }
 
-    footer { background: var(--ink); color: rgba(255, 255, 255, .75); font-size: 13px; padding: 36px 0 96px; }
-    footer strong { color: #fff; font-size: 16px; }
+    /* 最後のCTA */
+    .final { text-align: center; background: linear-gradient(135deg, #fff6f6, var(--bg)); }
+    .final h2 { margin: 0 0 12px; font-size: clamp(26px, 4.6vw, 44px); line-height: 1.5; }
 
-    /* スマホ下部の固定ボタン */
-    .sticky-cta {
-      position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 10; display: none;
-      background: var(--amber); color: var(--navy); text-align: center; font-weight: 900; text-decoration: none;
-      padding: 14px; border-radius: 999px; box-shadow: 0 10px 30px rgba(20, 33, 61, .35);
+    footer { background: #0a0a0a; color: #c9c9c9; padding: 40px 0 120px; font-size: 13px; }
+    footer .logo { color: #fff; display: inline-block; margin-bottom: 8px; }
+
+    /* スマホ固定CTA */
+    .fixed-cta {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; display: none; padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+      background: rgba(255, 255, 255, .95); border-top: 1px solid #e5e7eb; transform: translateY(110%); transition: transform .3s;
     }
+    .fixed-cta.show { transform: none; }
+    .fixed-cta .btn-cta { width: 100%; min-width: 0; padding: 10px; font-size: 17px; }
 
-    .fade { opacity: 0; transform: translateY(24px); transition: opacity .8s, transform .8s; }
-    .fade.in { opacity: 1; transform: none; }
+    /* スクロールで現れる */
+    .fade-up { opacity: 0; transform: translateY(36px); transition: opacity .9s ease, transform .9s cubic-bezier(.2, .8, .2, 1); }
+    .fade-up.in { opacity: 1; transform: none; }
+    .d1 { transition-delay: .1s; } .d2 { transition-delay: .2s; } .d3 { transition-delay: .3s; } .d4 { transition-delay: .4s; }
     @media (prefers-reduced-motion: reduce) {
-      .fade { opacity: 1; transform: none; transition: none; }
+      .fade-up { opacity: 1; transform: none; transition: none; }
+      .band .track, .hero-date::before, .btn-cta::after, .seat-pill .dot { animation: none; }
       html { scroll-behavior: auto; }
     }
 
-    @media (max-width: 720px) {
-      .points, .speakers-grid { grid-template-columns: 1fr; }
+    @media (max-width: 900px) {
+      .nav { display: none; }
+      .hero .wrap { grid-template-columns: 1fr; }
+      .hero-date { max-width: 320px; width: 80%; margin: 8px auto 0; order: -1; }
+      .wishes { grid-template-columns: 1fr 1fr; }
+      .wishes .wish:nth-child(4) { grid-column: auto; margin-left: 0; }
+      .wishes .wish:nth-child(5) { grid-column: 1 / -1; }
+      .speakers { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      section { padding: 80px 0; }
+      .hero { padding-top: 88px; }
+      .badges { gap: 4px; justify-content: space-between; }
+      .badge { width: 31%; height: 96px; }
+      .badge .b { font-size: 20px; }
+      .badge .s { font-size: 11px; }
+      .wishes { grid-template-columns: 1fr; }
+      .wishes .wish:nth-child(5) { grid-column: auto; }
+      .point { grid-template-columns: 1fr; text-align: center; padding: 28px 22px; gap: 8px; }
       .row { grid-template-columns: 1fr; gap: 2px; }
-      .sticky-cta { display: block; }
-      .speaker { grid-template-columns: 72px 1fr; padding: 22px; }
-      .avatar { width: 72px; height: 72px; font-size: 28px; }
+      .table { padding: 4px 20px; }
+      .entry-card { padding: 30px 20px; }
+      .hero .cta-box { align-items: stretch; }
+      .btn-cta { min-width: 0; width: 100%; padding: 14px 16px; font-size: 18px; }
+      .fixed-cta { display: block; }
     }
   </style>
 </head>
 <body>
-  <header class="hero">
+  <header class="header">
     <div class="wrap">
-      <span class="kicker">トークイベント開催</span>
-      <h1 class="serif"><small>OTA MIRAI KAIGI</small>おおた未来カイギ</h1>
-      <p class="theme">「<em>家族</em>」「<em>仕事</em>」<br>これからの人生の選択を考える。</p>
-      <div class="date-card">
-        <div class="day">4.10<span>SAT</span></div>
-        <div class="year">2027</div>
-        <div class="place">大田区民ホール・アプリコ 小ホール</div>
-      </div>
-      <div class="ctas">
-        <a class="btn btn-primary" href="#entry">参加について</a>
-        <a class="btn btn-ghost" href="#details">開催概要を見る</a>
-      </div>
+      <a class="logo serif" href="#top">おおた<span>未来</span>カイギ</a>
+      <ul class="nav">
+        <li><a href="#why">テーマ</a></li>
+        <li><a href="#speakers">登壇者</a></li>
+        <li><a href="#overview">開催概要</a></li>
+        <li><a href="#faq">よくある質問</a></li>
+      </ul>
+      <a class="header-cta" href="#entry">参加申込</a>
     </div>
   </header>
 
-  <main>
-    <section class="message">
+  <main id="top">
+    <!-- ヒーロー -->
+    <div class="hero">
       <div class="wrap">
-        <div class="sec-head fade"><div class="en">THEME</div><h2>家族のこと、仕事のこと。<br>これからを、いっしょに考える時間。</h2></div>
-        <p class="lead fade">人生の節目には、家族と仕事の両方に関わる選択がやってきます。経営の現場を知る人、表舞台に立ち続けてきた人。それぞれの経験から、これからの生き方のヒントを語り合います。</p>
+        <div>
+          <div class="hero-meta fade-up"><span>トークイベント</span><span>2027.4.10 SAT</span></div>
+          <h1 class="serif fade-up d1"><span class="ln"><span class="quote">「家族」</span><span class="quote">「仕事」</span></span><br><span class="ln">これからの人生の</span><br><span class="ln">選択を考える。</span></h1>
+          <p class="title serif fade-up d2">おおた未来カイギ <small>OTA MIRAI KAIGI</small></p>
+          <div class="badges fade-up d3">
+            <div class="badge"><svg viewBox="0 0 150 112" aria-hidden="true"><defs><linearGradient id="lg" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#d9b630"/><stop offset="1" stop-color="#876d00"/></linearGradient></defs><path d="M66.3,107.2 L50.6,101.7 L37.6,91.2 L28.8,77.1 L25.1,60.9 L26.9,44.4 L34.0,29.3" fill="none" stroke="url(#lg)" stroke-width="1.6" stroke-linecap="round"/><ellipse cx="48.3" cy="96.1" rx="7" ry="3" transform="rotate(247 48.3 96.1)" fill="url(#lg)"/><ellipse cx="44.7" cy="102.6" rx="7" ry="3" transform="rotate(171 44.7 102.6)" fill="url(#lg)"/><ellipse cx="37.3" cy="85.3" rx="7" ry="3" transform="rotate(266 37.3 85.3)" fill="url(#lg)"/><ellipse cx="31.7" cy="90.2" rx="7" ry="3" transform="rotate(190 31.7 90.2)" fill="url(#lg)"/><ellipse cx="30.4" cy="71.4" rx="7" ry="3" transform="rotate(286 30.4 71.4)" fill="url(#lg)"/><ellipse cx="23.6" cy="74.2" rx="7" ry="3" transform="rotate(210 23.6 74.2)" fill="url(#lg)"/><ellipse cx="28.5" cy="56.0" rx="7" ry="3" transform="rotate(305 28.5 56.0)" fill="url(#lg)"/><ellipse cx="21.1" cy="56.4" rx="7" ry="3" transform="rotate(229 21.1 56.4)" fill="url(#lg)"/><ellipse cx="31.7" cy="40.8" rx="7" ry="3" transform="rotate(324 31.7 40.8)" fill="url(#lg)"/><ellipse cx="24.6" cy="38.8" rx="7" ry="3" transform="rotate(248 24.6 38.8)" fill="url(#lg)"/><ellipse cx="39.8" cy="27.6" rx="7" ry="3" transform="rotate(343 39.8 27.6)" fill="url(#lg)"/><ellipse cx="33.7" cy="23.3" rx="7" ry="3" transform="rotate(267 33.7 23.3)" fill="url(#lg)"/><path d="M83.7,107.2 L99.4,101.7 L112.4,91.2 L121.2,77.1 L124.9,60.9 L123.1,44.4 L116.0,29.3" fill="none" stroke="url(#lg)" stroke-width="1.6" stroke-linecap="round"/><ellipse cx="101.7" cy="96.1" rx="7" ry="3" transform="rotate(-67 101.7 96.1)" fill="url(#lg)"/><ellipse cx="105.3" cy="102.6" rx="7" ry="3" transform="rotate(9 105.3 102.6)" fill="url(#lg)"/><ellipse cx="112.7" cy="85.3" rx="7" ry="3" transform="rotate(-86 112.7 85.3)" fill="url(#lg)"/><ellipse cx="118.3" cy="90.2" rx="7" ry="3" transform="rotate(-10 118.3 90.2)" fill="url(#lg)"/><ellipse cx="119.6" cy="71.4" rx="7" ry="3" transform="rotate(-106 119.6 71.4)" fill="url(#lg)"/><ellipse cx="126.4" cy="74.2" rx="7" ry="3" transform="rotate(-30 126.4 74.2)" fill="url(#lg)"/><ellipse cx="121.5" cy="56.0" rx="7" ry="3" transform="rotate(-125 121.5 56.0)" fill="url(#lg)"/><ellipse cx="128.9" cy="56.4" rx="7" ry="3" transform="rotate(-49 128.9 56.4)" fill="url(#lg)"/><ellipse cx="118.3" cy="40.8" rx="7" ry="3" transform="rotate(-144 118.3 40.8)" fill="url(#lg)"/><ellipse cx="125.4" cy="38.8" rx="7" ry="3" transform="rotate(-68 125.4 38.8)" fill="url(#lg)"/><ellipse cx="110.2" cy="27.6" rx="7" ry="3" transform="rotate(-163 110.2 27.6)" fill="url(#lg)"/><ellipse cx="116.3" cy="23.3" rx="7" ry="3" transform="rotate(-87 116.3 23.3)" fill="url(#lg)"/></svg><div class="in"><div class="s">先着</div><div class="b gold">120<small>名</small></div></div></div>
+            <div class="badge"><svg viewBox="0 0 150 112" aria-hidden="true"><defs><linearGradient id="lg" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#d9b630"/><stop offset="1" stop-color="#876d00"/></linearGradient></defs><path d="M66.3,107.2 L50.6,101.7 L37.6,91.2 L28.8,77.1 L25.1,60.9 L26.9,44.4 L34.0,29.3" fill="none" stroke="url(#lg)" stroke-width="1.6" stroke-linecap="round"/><ellipse cx="48.3" cy="96.1" rx="7" ry="3" transform="rotate(247 48.3 96.1)" fill="url(#lg)"/><ellipse cx="44.7" cy="102.6" rx="7" ry="3" transform="rotate(171 44.7 102.6)" fill="url(#lg)"/><ellipse cx="37.3" cy="85.3" rx="7" ry="3" transform="rotate(266 37.3 85.3)" fill="url(#lg)"/><ellipse cx="31.7" cy="90.2" rx="7" ry="3" transform="rotate(190 31.7 90.2)" fill="url(#lg)"/><ellipse cx="30.4" cy="71.4" rx="7" ry="3" transform="rotate(286 30.4 71.4)" fill="url(#lg)"/><ellipse cx="23.6" cy="74.2" rx="7" ry="3" transform="rotate(210 23.6 74.2)" fill="url(#lg)"/><ellipse cx="28.5" cy="56.0" rx="7" ry="3" transform="rotate(305 28.5 56.0)" fill="url(#lg)"/><ellipse cx="21.1" cy="56.4" rx="7" ry="3" transform="rotate(229 21.1 56.4)" fill="url(#lg)"/><ellipse cx="31.7" cy="40.8" rx="7" ry="3" transform="rotate(324 31.7 40.8)" fill="url(#lg)"/><ellipse cx="24.6" cy="38.8" rx="7" ry="3" transform="rotate(248 24.6 38.8)" fill="url(#lg)"/><ellipse cx="39.8" cy="27.6" rx="7" ry="3" transform="rotate(343 39.8 27.6)" fill="url(#lg)"/><ellipse cx="33.7" cy="23.3" rx="7" ry="3" transform="rotate(267 33.7 23.3)" fill="url(#lg)"/><path d="M83.7,107.2 L99.4,101.7 L112.4,91.2 L121.2,77.1 L124.9,60.9 L123.1,44.4 L116.0,29.3" fill="none" stroke="url(#lg)" stroke-width="1.6" stroke-linecap="round"/><ellipse cx="101.7" cy="96.1" rx="7" ry="3" transform="rotate(-67 101.7 96.1)" fill="url(#lg)"/><ellipse cx="105.3" cy="102.6" rx="7" ry="3" transform="rotate(9 105.3 102.6)" fill="url(#lg)"/><ellipse cx="112.7" cy="85.3" rx="7" ry="3" transform="rotate(-86 112.7 85.3)" fill="url(#lg)"/><ellipse cx="118.3" cy="90.2" rx="7" ry="3" transform="rotate(-10 118.3 90.2)" fill="url(#lg)"/><ellipse cx="119.6" cy="71.4" rx="7" ry="3" transform="rotate(-106 119.6 71.4)" fill="url(#lg)"/><ellipse cx="126.4" cy="74.2" rx="7" ry="3" transform="rotate(-30 126.4 74.2)" fill="url(#lg)"/><ellipse cx="121.5" cy="56.0" rx="7" ry="3" transform="rotate(-125 121.5 56.0)" fill="url(#lg)"/><ellipse cx="128.9" cy="56.4" rx="7" ry="3" transform="rotate(-49 128.9 56.4)" fill="url(#lg)"/><ellipse cx="118.3" cy="40.8" rx="7" ry="3" transform="rotate(-144 118.3 40.8)" fill="url(#lg)"/><ellipse cx="125.4" cy="38.8" rx="7" ry="3" transform="rotate(-68 125.4 38.8)" fill="url(#lg)"/><ellipse cx="110.2" cy="27.6" rx="7" ry="3" transform="rotate(-163 110.2 27.6)" fill="url(#lg)"/><ellipse cx="116.3" cy="23.3" rx="7" ry="3" transform="rotate(-87 116.3 23.3)" fill="url(#lg)"/></svg><div class="in"><div class="s">2027年</div><div class="b gold">4/10<small>土</small></div></div></div>
+            <div class="badge"><svg viewBox="0 0 150 112" aria-hidden="true"><defs><linearGradient id="lg" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#d9b630"/><stop offset="1" stop-color="#876d00"/></linearGradient></defs><path d="M66.3,107.2 L50.6,101.7 L37.6,91.2 L28.8,77.1 L25.1,60.9 L26.9,44.4 L34.0,29.3" fill="none" stroke="url(#lg)" stroke-width="1.6" stroke-linecap="round"/><ellipse cx="48.3" cy="96.1" rx="7" ry="3" transform="rotate(247 48.3 96.1)" fill="url(#lg)"/><ellipse cx="44.7" cy="102.6" rx="7" ry="3" transform="rotate(171 44.7 102.6)" fill="url(#lg)"/><ellipse cx="37.3" cy="85.3" rx="7" ry="3" transform="rotate(266 37.3 85.3)" fill="url(#lg)"/><ellipse cx="31.7" cy="90.2" rx="7" ry="3" transform="rotate(190 31.7 90.2)" fill="url(#lg)"/><ellipse cx="30.4" cy="71.4" rx="7" ry="3" transform="rotate(286 30.4 71.4)" fill="url(#lg)"/><ellipse cx="23.6" cy="74.2" rx="7" ry="3" transform="rotate(210 23.6 74.2)" fill="url(#lg)"/><ellipse cx="28.5" cy="56.0" rx="7" ry="3" transform="rotate(305 28.5 56.0)" fill="url(#lg)"/><ellipse cx="21.1" cy="56.4" rx="7" ry="3" transform="rotate(229 21.1 56.4)" fill="url(#lg)"/><ellipse cx="31.7" cy="40.8" rx="7" ry="3" transform="rotate(324 31.7 40.8)" fill="url(#lg)"/><ellipse cx="24.6" cy="38.8" rx="7" ry="3" transform="rotate(248 24.6 38.8)" fill="url(#lg)"/><ellipse cx="39.8" cy="27.6" rx="7" ry="3" transform="rotate(343 39.8 27.6)" fill="url(#lg)"/><ellipse cx="33.7" cy="23.3" rx="7" ry="3" transform="rotate(267 33.7 23.3)" fill="url(#lg)"/><path d="M83.7,107.2 L99.4,101.7 L112.4,91.2 L121.2,77.1 L124.9,60.9 L123.1,44.4 L116.0,29.3" fill="none" stroke="url(#lg)" stroke-width="1.6" stroke-linecap="round"/><ellipse cx="101.7" cy="96.1" rx="7" ry="3" transform="rotate(-67 101.7 96.1)" fill="url(#lg)"/><ellipse cx="105.3" cy="102.6" rx="7" ry="3" transform="rotate(9 105.3 102.6)" fill="url(#lg)"/><ellipse cx="112.7" cy="85.3" rx="7" ry="3" transform="rotate(-86 112.7 85.3)" fill="url(#lg)"/><ellipse cx="118.3" cy="90.2" rx="7" ry="3" transform="rotate(-10 118.3 90.2)" fill="url(#lg)"/><ellipse cx="119.6" cy="71.4" rx="7" ry="3" transform="rotate(-106 119.6 71.4)" fill="url(#lg)"/><ellipse cx="126.4" cy="74.2" rx="7" ry="3" transform="rotate(-30 126.4 74.2)" fill="url(#lg)"/><ellipse cx="121.5" cy="56.0" rx="7" ry="3" transform="rotate(-125 121.5 56.0)" fill="url(#lg)"/><ellipse cx="128.9" cy="56.4" rx="7" ry="3" transform="rotate(-49 128.9 56.4)" fill="url(#lg)"/><ellipse cx="118.3" cy="40.8" rx="7" ry="3" transform="rotate(-144 118.3 40.8)" fill="url(#lg)"/><ellipse cx="125.4" cy="38.8" rx="7" ry="3" transform="rotate(-68 125.4 38.8)" fill="url(#lg)"/><ellipse cx="110.2" cy="27.6" rx="7" ry="3" transform="rotate(-163 110.2 27.6)" fill="url(#lg)"/><ellipse cx="116.3" cy="23.3" rx="7" ry="3" transform="rotate(-87 116.3 23.3)" fill="url(#lg)"/></svg><div class="in"><div class="s">登壇</div><div class="b gold" style="font-size:18px">石田純一</div></div></div>
+          </div>
+          <div class="cta-box fade-up d4">
+            <span class="seat-pill"><span class="dot"></span><span data-seat-text>先着120名・残席を確認中</span></span>
+            <a class="btn-cta" href="#entry" data-cta><small>先着120名</small>参加を申し込む</a>
+          </div>
+        </div>
+        <div class="hero-date fade-up d2" aria-label="2027年4月10日 土曜日 大田区民ホール・アプリコ 小ホール">
+          <div>
+            <div class="y">2027</div>
+            <div class="d">4<span class="dot">.</span>10</div>
+            <div class="w">SAT</div>
+            <div class="p">大田区民ホール・アプリコ<br>小ホール</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="band" aria-hidden="true">
+      <div class="track">
+        <span>2027.4.10 SAT</span><span>大田区民ホール・アプリコ 小ホール</span><span>先着120名限定</span><span>登壇：かとうてつお × 石田純一</span><span>「家族」「仕事」これからの人生の選択を考える</span>
+        <span>2027.4.10 SAT</span><span>大田区民ホール・アプリコ 小ホール</span><span>先着120名限定</span><span>登壇：かとうてつお × 石田純一</span><span>「家族」「仕事」これからの人生の選択を考える</span>
+      </div>
+    </div>
+
+    <!-- WHY -->
+    <section id="why">
+      <div class="en-bg">WHY?</div>
+      <div class="wrap">
+        <div class="sec-label fade-up">WHY</div>
+        <h2 class="sec-title serif fade-up">なぜ今、<span class="red">「家族」</span>と<span class="red">「仕事」</span>を<br>いっしょに考えるのか</h2>
+        <div class="why-text fade-up">
+          <p>仕事の選択は、家族の暮らしを変えます。<br>家族のかたちが変われば、働き方も変わります。</p>
+          <p>どちらか一方だけを考えても、<br><strong class="marker">これからの人生の答えは出ない。</strong></p>
+          <p>だからこそ、ふたつを並べて考える時間を。<br>おおた未来カイギは、そのための場所です。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT -->
+    <section class="bg-gray">
+      <div class="en-bg">WHAT</div>
+      <div class="wrap">
+        <div class="sec-label fade-up">WHAT</div>
+        <h2 class="sec-title serif fade-up">こんな想いを<br>抱えていませんか？</h2>
+        <div class="wishes">
+          <div class="wish fade-up"><span class="ic">✓</span>これからの<br><span class="em">キャリア</span>に迷っている</div>
+          <div class="wish fade-up d1"><span class="ic">✓</span><span class="em">仕事と家族</span>の<br>バランスに悩んでいる</div>
+          <div class="wish fade-up d2"><span class="ic">✓</span><span class="em">パートナー</span>との関係を<br>見つめ直したい</div>
+          <div class="wish fade-up d1"><span class="ic">✓</span>人生の後半戦の<br><span class="em">選択肢</span>を知りたい</div>
+          <div class="wish fade-up d2"><span class="ic">✓</span>同じ想いを持つ<br><span class="em">大田区の仲間</span>と出会いたい</div>
+        </div>
+        <p class="answer serif fade-up">その想い、<span class="red">おおた未来カイギ</span>で<br>いっしょに考えませんか？</p>
+      </div>
+    </section>
+
+    <!-- POINT -->
+    <section>
+      <div class="en-bg">POINT</div>
+      <div class="wrap">
+        <div class="sec-label fade-up">POINT</div>
+        <h2 class="sec-title serif fade-up">おおた未来カイギ<br>3つのポイント</h2>
         <div class="points">
-          <div class="point fade"><div class="num">01</div><h3>家族</h3><p>パートナーや家族との関係を、あらためて見つめ直す。</p></div>
-          <div class="point fade"><div class="num">02</div><h3>仕事</h3><p>キャリアや働き方の選択を、自分ごととして考える。</p></div>
-          <div class="point fade"><div class="num">03</div><h3>これから</h3><p>大田区で暮らす人の、これからの人生の選択肢を広げる。</p></div>
+          <div class="point fade-up"><div class="no"><small>POINT</small><b>01</b></div><div><h3>経営と家族、<span class="red">両方を知る</span>登壇者</h3><p>総合商社で長く働き、いまは会社を経営する立場から。表舞台に立ち続け、飲食店を営む立場から。異なる経験を持つふたりが語ります。</p></div></div>
+          <div class="point fade-up"><div class="no"><small>POINT</small><b>02</b></div><div><h3>「家族」と「仕事」を<br><span class="red">ひとつのテーマ</span>で考える</h3><p>どちらか一方ではなく、ふたつをつなげて考えることで、これからの人生の選択肢が見えてきます。</p></div></div>
+          <div class="point fade-up"><div class="no"><small>POINT</small><b>03</b></div><div><h3>大田区の<span class="red">地元</span>で開催</h3><p>会場は大田区民ホール・アプリコ。地元で暮らす人が、気軽に足を運べる場所で開催します。</p></div></div>
         </div>
       </div>
     </section>
 
-    <section id="speakers">
+    <!-- 登壇者 -->
+    <section id="speakers" class="bg-gray">
+      <div class="en-bg">SPEAKER</div>
       <div class="wrap">
-        <div class="sec-head fade"><div class="en">SPEAKERS</div><h2>登壇者</h2></div>
-        <div class="speakers-grid">
-          <div class="speaker fade">
-            <div class="avatar" aria-hidden="true">加</div>
-            <div><div class="role">元三菱商事 ／ 会社経営</div><h3>かとうてつお</h3><div class="en">TETSUO KATO</div></div>
-          </div>
-          <div class="speaker fade">
-            <div class="avatar" aria-hidden="true">石</div>
-            <div><div class="role">俳優 ／ 飲食店経営</div><h3>石田 純一</h3><div class="en">JUNICHI ISHIDA</div></div>
-          </div>
+        <div class="sec-label fade-up">SPEAKERS</div>
+        <h2 class="sec-title serif fade-up">登壇者</h2>
+        <div class="speakers">
+          <article class="speaker fade-up">
+            <div class="speaker-head"><span class="initial" aria-hidden="true">加</span><div class="role">元三菱商事 ／ 会社経営</div><h3>かとうてつお</h3><div class="en">TETSUO KATO</div></div>
+            <ul>
+              <li>名古屋大学法学部卒業</li>
+              <li>三菱商事に28年間勤務</li>
+              <li>米国オハイオ州に7年間駐在</li>
+              <li>米国公認会計士・中小企業診断士</li>
+            </ul>
+          </article>
+          <article class="speaker fade-up d1">
+            <div class="speaker-head"><span class="initial" aria-hidden="true">石</span><div class="role">俳優 ／ 飲食店経営</div><h3>石田 純一</h3><div class="en">JUNICHI ISHIDA</div></div>
+            <ul>
+              <li>俳優</li>
+              <li>飲食店経営</li>
+            </ul>
+          </article>
         </div>
       </div>
     </section>
 
-    <section id="details" class="details">
+    <!-- 残席 -->
+    <section class="seats">
+      <div class="en-bg">LIMITED</div>
       <div class="wrap">
-        <div class="sec-head fade"><div class="en">DETAILS</div><h2>開催概要</h2></div>
-        <dl class="table fade">
+        <div class="sec-label fade-up">LIMITED SEATS</div>
+        <h2 class="sec-title serif fade-up">先着<span class="gold" style="background-image:linear-gradient(109deg,#e9c64a 37%,#bb9905 72%)">120名</span>限定</h2>
+        <div class="seat-board fade-up">
+          <div class="lbl">現在の残席</div>
+          <div class="num"><span data-remaining>―</span><small>/ 120席</small></div>
+          <div class="bar"><i data-bar></i></div>
+          <div class="bar-cap"><span>申込済み <b data-count>―</b>名</span><span>定員 120名</span></div>
+        </div>
+        <a class="btn-cta fade-up" href="#entry" data-cta><small>定員になり次第、締め切ります</small>参加を申し込む</a>
+      </div>
+    </section>
+
+    <!-- 開催概要 -->
+    <section id="overview">
+      <div class="en-bg">INFO</div>
+      <div class="wrap">
+        <div class="sec-label fade-up">INFORMATION</div>
+        <h2 class="sec-title serif fade-up">開催概要</h2>
+        <dl class="table fade-up">
           <div class="row"><dt>イベント名</dt><dd>おおた未来カイギ</dd></div>
-          <div class="row"><dt>日時</dt><dd>2027年4月10日（土）<br>開場・開演：<span class="tbd">確認中</span></dd></div>
-          <div class="row"><dt>会場</dt><dd>大田区民ホール・アプリコ 小ホール<br><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E7%94%B0%E5%8C%BA%E6%B0%91%E3%83%9B%E3%83%BC%E3%83%AB%E3%83%BB%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B3" target="_blank" rel="noopener">地図を見る ↗</a></dd></div>
+          <div class="row"><dt>テーマ</dt><dd>「家族」「仕事」これからの人生の選択を考える。</dd></div>
+          <div class="row"><dt>開催日</dt><dd>2027年4月10日（土）</dd></div>
+          <div class="row"><dt>開場・開演</dt><dd><span class="tbd">確認中</span></dd></div>
+          <div class="row"><dt>会場</dt><dd>大田区民ホール・アプリコ 小ホール<br><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E7%94%B0%E5%8C%BA%E6%B0%91%E3%83%9B%E3%83%BC%E3%83%AB%E3%83%BB%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B3" target="_blank" rel="noopener">Googleマップで見る ↗</a></dd></div>
           <div class="row"><dt>登壇者</dt><dd>かとうてつお（元三菱商事 ／ 会社経営）<br>石田 純一（俳優 ／ 飲食店経営）</dd></div>
+          <div class="row"><dt>定員</dt><dd>先着120名（定員になり次第、締め切ります）</dd></div>
           <div class="row"><dt>参加費</dt><dd><span class="tbd">確認中</span></dd></div>
-          <div class="row"><dt>定員</dt><dd><span class="tbd">確認中</span></dd></div>
-          <div class="row"><dt>申込方法</dt><dd><span class="tbd">確認中</span></dd></div>
           <div class="row"><dt>主催</dt><dd><span class="tbd">確認中</span></dd></div>
           <div class="row"><dt>お問い合わせ</dt><dd><span class="tbd">確認中</span></dd></div>
         </dl>
       </div>
     </section>
 
-    <section id="entry" class="entry">
+    <!-- 申込フォーム -->
+    <section id="entry" class="bg-gray">
+      <div class="en-bg">ENTRY</div>
       <div class="wrap">
-        <h2 class="serif fade">参加お申し込み</h2>
-        <p class="fade">お申し込み方法は決まり次第、このページでお知らせします。</p>
-        <a class="btn btn-primary fade" aria-disabled="true" role="link">受付開始までお待ちください</a>
+        <div class="sec-label fade-up">ENTRY</div>
+        <h2 class="sec-title serif fade-up">参加お申し込み</h2>
+        <div class="entry-card fade-up">
+          <div class="entry-status" data-entry-status>残席 <span class="remain" data-remaining>―</span> / 120席</div>
+
+          <form id="entry-form" novalidate>
+            <div class="field" data-field="name">
+              <label for="f-name">お名前<span class="req">必須</span></label>
+              <input id="f-name" name="name" type="text" autocomplete="name" placeholder="大田 太郎" maxlength="50" required>
+              <div class="err"></div>
+            </div>
+            <div class="field" data-field="kana">
+              <label for="f-kana">ふりがな<span class="req">必須</span></label>
+              <input id="f-kana" name="kana" type="text" placeholder="おおた たろう" maxlength="50" required>
+              <div class="err"></div>
+            </div>
+            <div class="field" data-field="email">
+              <label for="f-email">メールアドレス<span class="req">必須</span></label>
+              <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="example@mail.com" maxlength="254" required>
+              <div class="err"></div>
+            </div>
+            <div class="field" data-field="phone">
+              <label for="f-phone">電話番号<span class="opt">任意</span></label>
+              <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="090-1234-5678" maxlength="20">
+              <div class="err"></div>
+            </div>
+            <div class="hp" aria-hidden="true"><label>website<input name="website" type="text" tabindex="-1" autocomplete="off"></label></div>
+            <div class="field agree" data-field="agree">
+              <p>ご入力いただいた個人情報は、本イベントの受付およびご連絡のためにのみ利用し、それ以外の目的では利用しません。</p>
+              <label><input name="agree" type="checkbox"> 個人情報の取り扱いに同意する</label>
+              <div class="err"></div>
+            </div>
+            <div class="form-msg" role="alert" data-form-msg></div>
+            <div class="submit-wrap">
+              <button class="btn-cta" type="submit" data-submit><small>先着120名</small>この内容で申し込む</button>
+            </div>
+          </form>
+
+          <div class="done" data-done>
+            <div class="check">✓</div>
+            <h3 class="serif" style="font-size:clamp(19px,4.6vw,24px);margin:0 0 6px">お申し込みを受け付けました</h3>
+            <p style="margin:0">あなたの受付番号</p>
+            <div class="no" data-number>―</div>
+            <p style="color:var(--muted);font-size:14px">この画面のスクリーンショットなどで、受付番号を控えておいてください。</p>
+          </div>
+        </div>
       </div>
     </section>
 
+    <!-- FAQ -->
     <section id="faq">
+      <div class="en-bg">FAQ</div>
       <div class="wrap">
-        <div class="sec-head fade"><div class="en">FAQ</div><h2>よくあるご質問</h2></div>
-        <details class="fade"><summary>何時から始まりますか？</summary><p>開場・開演時刻は決まり次第お知らせします。</p></details>
-        <details class="fade"><summary>参加費はかかりますか？</summary><p>参加費は決まり次第お知らせします。</p></details>
-        <details class="fade"><summary>大田区民でなくても参加できますか？</summary><p>参加条件は決まり次第お知らせします。</p></details>
+        <div class="sec-label fade-up">FAQ</div>
+        <h2 class="sec-title serif fade-up">よくあるご質問</h2>
+        <div class="faq">
+          <details class="fade-up"><summary>申し込みは先着順ですか？</summary><div class="a">はい、先着120名です。定員に達した時点で受付を終了し、このページに「満席」と表示されます。</div></details>
+          <details class="fade-up"><summary>申し込みが完了したか確認できますか？</summary><div class="a">申し込み完了の画面に受付番号が表示されます。スクリーンショットなどで控えておいてください。</div></details>
+          <details class="fade-up"><summary>同じメールアドレスで複数人分申し込めますか？</summary><div class="a">1つのメールアドレスにつき1名様のお申し込みです。複数名で参加される場合は、お一人ずつお申し込みください。</div></details>
+          <details class="fade-up"><summary>開演時刻や参加費はいつわかりますか？</summary><div class="a">決まり次第、このページでお知らせします。</div></details>
+          <details class="fade-up"><summary>キャンセルしたい場合はどうすればいいですか？</summary><div class="a">お問い合わせ先は決まり次第、このページでお知らせします。</div></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 最後のCTA -->
+    <section class="final">
+      <div class="wrap">
+        <h2 class="serif fade-up"><span class="red">「家族」「仕事」</span><br>これからを、いっしょに。</h2>
+        <p class="fade-up">2027年4月10日（土）大田区民ホール・アプリコ 小ホール</p>
+        <a class="btn-cta fade-up" href="#entry" data-cta><small data-cta-sub>先着120名</small>参加を申し込む</a>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="wrap">
-      <strong class="serif">おおた未来カイギ</strong><br>
+      <span class="logo serif">おおた<span>未来</span>カイギ</span><br>
       2027年4月10日（土）大田区民ホール・アプリコ 小ホール<br>
       主催・お問い合わせ：確認中
     </div>
   </footer>
 
-  <a class="sticky-cta" href="#entry">4/10（土）おおた未来カイギ ▶ 参加について</a>
+  <div class="fixed-cta" data-fixed-cta>
+    <a class="btn-cta" href="#entry" data-cta><small data-fixed-sub>先着120名</small>参加を申し込む</a>
+  </div>
 
   <script>
     (function () {
-      var els = document.querySelectorAll('.fade');
-      if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('in'); }); return; }
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-      }, { threshold: 0.15 });
-      els.forEach(function (e) { io.observe(e); });
+      var CAPACITY = 120;
+
+      // スクロールで現れるアニメーション
+      var els = document.querySelectorAll('.fade-up');
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+        }, { threshold: 0.12 });
+        els.forEach(function (el) { io.observe(el); });
+      } else {
+        els.forEach(function (el) { el.classList.add('in'); });
+      }
+
+      // スマホ下部の固定ボタン（ヒーローを過ぎたら出す・申込欄では隠す）
+      var fixed = document.querySelector('[data-fixed-cta]');
+      var entry = document.getElementById('entry');
+      function onScroll() {
+        var r = entry.getBoundingClientRect();
+        var inEntry = r.top < window.innerHeight && r.bottom > 0;
+        fixed.classList.toggle('show', window.scrollY > 500 && !inEntry);
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+
+      // 残席表示
+      var form = document.getElementById('entry-form');
+      var submit = form.querySelector('[data-submit]');
+      var msg = document.querySelector('[data-form-msg]');
+
+      function setAll(sel, text) { document.querySelectorAll(sel).forEach(function (el) { el.textContent = text; }); }
+
+      function closeEntry(text) {
+        submit.disabled = true;
+        submit.innerHTML = '<small>お申し込み受付</small>' + text;
+        document.querySelectorAll('[data-cta]').forEach(function (a) {
+          a.classList.add('is-disabled');
+          a.innerHTML = '<small>お申し込み受付</small>' + text;
+        });
+      }
+
+      function render(s) {
+        setAll('[data-remaining]', s.remaining);
+        setAll('[data-count]', s.count);
+        document.querySelector('[data-bar]').style.width = Math.min(100, (s.count / s.capacity) * 100) + '%';
+        if (!s.open) {
+          setAll('[data-seat-text]', '満席のため受付を終了しました');
+          document.querySelector('[data-entry-status]').textContent = '満席のため受付を終了しました';
+          closeEntry('満席・受付終了');
+        } else {
+          setAll('[data-seat-text]', '残り ' + s.remaining + ' 席（先着' + s.capacity + '名）');
+          setAll('[data-fixed-sub]', '残り' + s.remaining + '席');
+        }
+      }
+
+      function loadStatus() {
+        return fetch('/api/status', { cache: 'no-store' })
+          .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+          .then(render)
+          .catch(function () {
+            setAll('[data-seat-text]', 'お申し込み受付の準備中です');
+            document.querySelector('[data-entry-status]').textContent = 'お申し込み受付の準備中です';
+            closeEntry('受付準備中');
+          });
+      }
+      loadStatus();
+
+      // 申込送信
+      function clearErrors() {
+        form.querySelectorAll('.field').forEach(function (f) { f.classList.remove('has-error'); f.querySelector('.err').textContent = ''; });
+        msg.classList.remove('show');
+      }
+      function showErrors(errors) {
+        Object.keys(errors).forEach(function (k) {
+          var f = form.querySelector('[data-field="' + k + '"]');
+          if (f) { f.classList.add('has-error'); f.querySelector('.err').textContent = errors[k]; }
+        });
+        var first = form.querySelector('.has-error input');
+        if (first) first.focus();
+      }
+
+      function f(n) { return form.elements.namedItem(n); }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (submit.disabled) return;
+        clearErrors();
+        var data = {
+          name: f('name').value, kana: f('kana').value, email: f('email').value,
+          phone: f('phone').value, website: f('website').value, agree: f('agree').checked
+        };
+        var errors = {};
+        if (!data.name.trim()) errors.name = 'お名前を入力してください。';
+        if (!data.kana.trim()) errors.kana = 'ふりがなを入力してください。';
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email.trim())) errors.email = 'メールアドレスを正しく入力してください。';
+        if (!data.agree) errors.agree = '個人情報の取り扱いへの同意が必要です。';
+        if (Object.keys(errors).length) return showErrors(errors);
+
+        submit.disabled = true;
+        var label = submit.innerHTML;
+        submit.innerHTML = '<small>しばらくお待ちください</small>送信中…';
+        fetch('/api/register', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
+          .then(function (r) { return r.json().then(function (b) { return { status: r.status, body: b }; }); })
+          .then(function (res) {
+            if (res.status === 201 || (res.status === 200 && res.body.ok)) {
+              form.style.display = 'none';
+              document.querySelector('[data-entry-status]').style.display = 'none';
+              document.querySelector('[data-number]').textContent = res.body.number ? 'No.' + res.body.number : '受付完了';
+              document.querySelector('[data-done]').classList.add('show');
+              loadStatus();
+              return;
+            }
+            submit.disabled = false;
+            submit.innerHTML = label;
+            if (res.body.errors) return showErrors(res.body.errors);
+            msg.textContent = res.body.message || '送信に失敗しました。時間をおいて再度お試しください。';
+            msg.classList.add('show');
+            if (res.body.error === 'full') loadStatus();
+          })
+          .catch(function () {
+            submit.disabled = false;
+            submit.innerHTML = label;
+            msg.textContent = '通信に失敗しました。電波の良い場所で再度お試しください。';
+            msg.classList.add('show');
+          });
+      });
     })();
   </script>
 </body>
