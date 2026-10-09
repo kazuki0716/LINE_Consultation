@@ -38,7 +38,7 @@ function psql(sql, vars = {}, role = 'service_role') {
   });
 }
 
-// Supabase REST のうち、受付プログラムが使う3つの呼び出しだけをまねる
+// Supabase REST のうち、受付プログラムが使う呼び出しだけをまねる
 function startShim() {
   shim = http.createServer((req, res) => {
     let raw = '';
@@ -54,6 +54,22 @@ function startShim() {
           return send(200, Number(out));
         }
         if (req.method === 'POST' && u.pathname === '/rest/v1/rpc/ota_count') return send(200, Number(await psql('select ota_count()')));
+        // 本物の Supabase と同じく、関数がないときは PGRST202 を返す
+        const fnExists = async (fn) => (await psql(`select count(*) from pg_proc where proname = '${fn}'`, {}, 'postgres')) !== '0';
+        if (u.pathname.startsWith('/rest/v1/rpc/') && !(await fnExists(u.pathname.split('/').pop().replace(/\W/g, '')))) {
+          return send(404, { code: 'PGRST202', message: `Could not find the function ${u.pathname}` });
+        }
+        if (req.method === 'POST' && u.pathname === '/rest/v1/rpc/ota_status') {
+          return send(200, JSON.parse(await psql("select ota_status(:'d')", { d: JSON.parse(raw).p_default })));
+        }
+        if (req.method === 'POST' && u.pathname === '/rest/v1/rpc/ota_set_capacity') {
+          await psql("select ota_set_capacity(:'c')", { c: JSON.parse(raw).p_capacity });
+          res.writeHead(204); return res.end();
+        }
+        if (req.method === 'POST' && u.pathname === '/rest/v1/rpc/ota_reset') {
+          await psql('select ota_reset()');
+          res.writeHead(204); return res.end();
+        }
         if (req.method === 'GET' && u.pathname === '/rest/v1/ota_entries') {
           const out = await psql("select coalesce(json_agg(t order by t.id), '[]') from (select id, name, kana, email, phone, created_at from ota_entries) t");
           return send(200, JSON.parse(out));
@@ -67,7 +83,7 @@ function startShim() {
   return new Promise((r) => shim.listen(0, '127.0.0.1', r));
 }
 
-async function call(handler, { method = 'GET', body, headers = {} } = {}) {
+async function call(handler, { method = 'GET', url = '/', body, headers = {} } = {}) {
   const res = {
     statusCode: 200, headers: {}, body: undefined,
     setHeader(k, v) { this.headers[k.toLowerCase()] = v; },
@@ -75,7 +91,7 @@ async function call(handler, { method = 'GET', body, headers = {} } = {}) {
     json(b) { this.body = b; return this; },
     send(b) { this.body = b; return this; },
   };
-  await handler({ method, body, headers }, res);
+  await handler({ method, url, body, headers }, res);
   return res;
 }
 
@@ -93,7 +109,12 @@ before(async () => {
   }
   // Supabase にある役割（ロール）を用意してから、本番と同じ SQL を流す
   await psql('create role anon nologin; create role authenticated nologin; create role service_role nologin bypassrls;', {}, 'postgres');
-  execFileSync(...run('psql', ['-h', dir, '-p', String(PORT), '-U', 'postgres', '-v', 'ON_ERROR_STOP=1', '-q', '-f', SCHEMA]), { stdio: 'ignore' });
+  // 旧版の SQL を流して申込を1件入れてから、新しい SQL を2回流す（作り直しても申込が消えないことの確認用）
+  const applySql = (file) => execFileSync(...run('psql', ['-h', dir, '-p', String(PORT), '-U', 'postgres', '-v', 'ON_ERROR_STOP=1', '-q', '-f', file]), { stdio: 'ignore' });
+  applySql(path.join(import.meta.dirname, 'fixtures', 'schema-v1.sql'));
+  await psql("insert into ota_entries (name, kana, email) values ('旧版', 'きゅうばん', 'old@example.com')", {}, 'postgres');
+  applySql(SCHEMA);
+  applySql(SCHEMA);
 
   await startShim();
   process.env.SUPABASE_URL = `http://127.0.0.1:${shim.address().port}/`;
@@ -111,8 +132,15 @@ after(() => {
   if (dir) setTimeout(() => rmSync(dir, { recursive: true, force: true }), 500);
 });
 
+const auth = (pw = 'secret-pass') => ({ authorization: 'Basic ' + Buffer.from(`admin:${pw}`).toString('base64') });
+const setCap = (c) => psql(`update ota_settings set capacity = ${c === null ? 'null' : Number(c)} where id = 1`, {}, 'postgres');
+
+test('新しい SQL を旧版の上から流しても、申込は消えない', { skip }, async () => {
+  assert.equal(await psql("select count(*) from ota_entries where email = 'old@example.com'", {}, 'postgres'), '1');
+});
+
 const person = (i) => ({ name: `テスト${i}`, kana: `てすと${i}`, email: `user${i}@example.com`, agree: true });
-const reset = () => psql('truncate ota_entries restart identity', {}, 'postgres');
+const reset = async () => { await psql('truncate ota_entries restart identity', {}, 'postgres'); await setCap(null); };
 
 test('入力が不正なら 400 と項目ごとのエラーを返す', { skip }, async () => {
   const r = await call(register, { method: 'POST', body: { email: 'not-an-email' } });
@@ -152,7 +180,6 @@ test('同じメールアドレスでは二重に申し込めない（大文字�
 test('管理用 CSV はパスワードが合うときだけ取得でき、数式は無害化される', { skip }, async () => {
   await reset();
   await call(register, { method: 'POST', body: { ...person('csv'), name: '=HYPERLINK("x")' } });
-  const auth = (pw) => ({ authorization: 'Basic ' + Buffer.from(`admin:${pw}`).toString('base64') });
   assert.equal((await call(admin, { headers: auth('wrong') })).statusCode, 401);
   const ok = await call(admin, { headers: auth('secret-pass') });
   assert.equal(ok.statusCode, 200);
@@ -161,8 +188,84 @@ test('管理用 CSV はパスワードが合うときだけ取得でき、数式
   assert.match(ok.body, /\d{4}\/\d{1,2}\/\d{1,2} \d{1,2}:\d{2}:\d{2}/); // 日本時間の日時
 });
 
-test('公開用キー（anon）では申込者を読めず、関数も呼べない', { skip }, async () => {
-  await assert.rejects(psql('select * from ota_entries', {}, 'anon'), /permission denied/);
-  await assert.rejects(psql("select ota_register('a','a','a@a.a','',999)", {}, 'anon'), /permission denied/);
-  await assert.rejects(psql('select ota_count()', {}, 'authenticated'), /permission denied/);
+test('公開用キー（anon など）では申込者も設定も読めず、関数も呼べない', { skip }, async () => {
+  for (const role of ['anon', 'authenticated']) {
+    await assert.rejects(psql('select * from ota_entries', {}, role), /permission denied/);
+    await assert.rejects(psql('select * from ota_settings', {}, role), /permission denied/);
+    await assert.rejects(psql("select ota_register('a','a','a@a.a','',999)", {}, role), /permission denied/);
+    await assert.rejects(psql('select ota_status(1)', {}, role), /permission denied/);
+    await assert.rejects(psql('select ota_set_capacity(999)', {}, role), /permission denied/);
+    await assert.rejects(psql('select ota_reset()', {}, role), /permission denied/);
+  }
+});
+
+test('管理画面から定員を変えると、すぐに受付と残席に反映される', { skip }, async () => {
+  await reset();
+  assert.equal((await call(status)).body.capacity, 120); // 未設定のときは CAPACITY（120）
+  const r = await call(admin, { method: 'POST', headers: auth(), body: { action: 'capacity', capacity: 2 } });
+  assert.equal(r.statusCode, 200);
+  assert.deepEqual(r.body.status, { capacity: 2, count: 0, remaining: 2, open: true });
+  assert.equal((await call(register, { method: 'POST', body: person('a') })).statusCode, 201);
+  assert.equal((await call(register, { method: 'POST', body: person('b') })).statusCode, 201);
+  assert.equal((await call(register, { method: 'POST', body: person('c') })).body.error, 'full');
+  // 増やせば、また受け付ける
+  await call(admin, { method: 'POST', headers: auth(), body: { action: 'capacity', capacity: 3 } });
+  assert.equal((await call(register, { method: 'POST', body: person('c') })).body.number, 3);
+});
+
+test('定員の値が不正なら変更しない', { skip }, async () => {
+  for (const capacity of [0, -1, 1.5, 'abc', 100001]) {
+    assert.equal((await call(admin, { method: 'POST', headers: auth(), body: { action: 'capacity', capacity } })).statusCode, 400);
+  }
+});
+
+test('リセットは確認の言葉が合うときだけ実行され、受付番号が1に戻る', { skip }, async () => {
+  await reset();
+  await call(register, { method: 'POST', body: person('x') });
+  await call(register, { method: 'POST', body: person('y') });
+  assert.equal((await call(admin, { method: 'POST', headers: auth(), body: { action: 'reset', confirm: 'りせっと' } })).statusCode, 400);
+  assert.equal((await call(status)).body.count, 2);
+  const r = await call(admin, { method: 'POST', headers: auth(), body: { action: 'reset', confirm: 'リセット' } });
+  assert.equal(r.statusCode, 200);
+  assert.equal(r.body.status.count, 0);
+  assert.equal((await call(register, { method: 'POST', body: person('z') })).body.number, 1);
+});
+
+test('管理の操作はパスワードがないとできない', { skip }, async () => {
+  await reset();
+  await call(register, { method: 'POST', body: person('keep') });
+  const reset1 = await call(admin, { method: 'POST', headers: auth('wrong'), body: { action: 'reset', confirm: 'リセット' } });
+  const cap1 = await call(admin, { method: 'POST', body: { action: 'capacity', capacity: 1 } });
+  assert.equal(reset1.statusCode, 401);
+  assert.equal(cap1.statusCode, 401);
+  assert.equal((await call(status)).body.count, 1);
+  // 管理ページからの呼び出しでは、ブラウザ標準のパスワード画面を出さない
+  const fromPage = await call(admin, { headers: { ...auth('wrong'), 'x-admin-page': '1' } });
+  assert.equal(fromPage.statusCode, 401);
+  assert.equal(fromPage.headers['www-authenticate'], undefined);
+});
+
+test('最新の SQL を流す前でも残席は表示でき、管理の操作は案内付きで止まる', { skip }, async () => {
+  await reset();
+  await call(register, { method: 'POST', body: person('old') });
+  await psql('alter function ota_status(int) rename to ota_status_hidden; alter function ota_set_capacity(int) rename to ota_set_capacity_hidden', {}, 'postgres');
+  try {
+    assert.deepEqual((await call(status)).body, { capacity: 120, count: 1, remaining: 119, open: true });
+    const r = await call(admin, { method: 'POST', headers: auth(), body: { action: 'capacity', capacity: 5 } });
+    assert.equal(r.statusCode, 503);
+    assert.equal(r.body.error, 'schema_outdated');
+  } finally {
+    await psql('alter function ota_status_hidden(int) rename to ota_status; alter function ota_set_capacity_hidden(int) rename to ota_set_capacity', {}, 'postgres');
+  }
+});
+
+test('管理ページ用の一覧（JSON）に、定員・申込数・申込者が入る', { skip }, async () => {
+  await reset();
+  await call(register, { method: 'POST', body: { ...person('j'), phone: '090-1234-5678' } });
+  const r = await call(admin, { url: '/api/admin?format=json', headers: auth() });
+  assert.equal(r.statusCode, 200);
+  assert.deepEqual(r.body.status, { capacity: 120, count: 1, remaining: 119, open: true });
+  assert.equal(r.body.entries[0].no, 1);
+  assert.equal(r.body.entries[0].email, 'userj@example.com');
+  assert.equal(r.body.entries[0].phone, '090-1234-5678');
 });

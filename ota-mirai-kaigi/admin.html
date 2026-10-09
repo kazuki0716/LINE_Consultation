@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>管理ページ｜おおた未来カイギ</title>
+<style>
+:root{--blue:#1a73c9;--blue-d:#0f4f97;--sky:#e6f4fd;--sky-2:#cfe9fb;--green:#22b07d;--green-d:#178a60;--red:#d93a3a;--ink:#1f2a37;--ink-2:#4b5563;--line:#d9e6f2}
+*{box-sizing:border-box}
+body{margin:0;background:var(--sky);color:var(--ink);font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;line-height:1.7}
+.wrap{max-width:860px;margin:0 auto;padding:20px 16px 60px}
+h1{margin:0 0 4px;font-size:1.35rem;color:var(--blue-d)}
+h2{margin:0 0 12px;font-size:1.05rem}
+.sub{margin:0 0 18px;color:var(--ink-2);font-size:.9rem}
+.card{background:#fff;border-radius:12px;padding:18px;margin-top:14px;box-shadow:0 4px 14px rgba(26,115,201,.08)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+input[type=password],input[type=number],input[type=text]{font:inherit;font-size:1rem;padding:10px 12px;border:2px solid #c9dcef;border-radius:8px;min-width:0}
+input:focus{outline:none;border-color:var(--blue)}
+button{font:inherit;font-weight:700;border:0;border-radius:8px;padding:10px 16px;cursor:pointer;background:var(--blue);color:#fff}
+button.green{background:var(--green)}
+button.gray{background:#e6ebf1;color:var(--ink)}
+button.red{background:var(--red)}
+button:disabled{opacity:.5;cursor:not-allowed}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.stat{background:var(--sky);border-radius:10px;padding:12px;text-align:center}
+.stat b{display:block;font-size:2rem;line-height:1.2;color:var(--blue)}
+.stat span{font-size:.82rem;color:var(--ink-2);font-weight:700}
+.msg{display:none;margin-top:12px;padding:10px 12px;border-radius:8px;font-weight:700;font-size:.92rem}
+.msg.ok{display:block;background:#e3f6ee;color:var(--green-d)}
+.msg.ng{display:block;background:#fdecec;color:var(--red)}
+.danger{border:2px solid #f3c4c4}
+.danger h2{color:var(--red)}
+.note{font-size:.85rem;color:var(--ink-2);margin:6px 0 12px}
+label.chk{display:flex;gap:8px;align-items:center;font-size:.92rem;margin-bottom:10px}
+table{width:100%;border-collapse:collapse;font-size:.88rem}
+th,td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top;word-break:break-all}
+th{background:var(--sky);color:var(--blue-d);white-space:nowrap}
+.tablewrap{overflow-x:auto}
+.empty{color:var(--ink-2);text-align:center;padding:18px}
+[hidden]{display:none!important}
+@media(max-width:520px){.stats{grid-template-columns:1fr 1fr 1fr}.stat b{font-size:1.5rem}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>おおた未来カイギ 管理ページ</h1>
+  <p class="sub">申込状況の確認・定員の変更・申込のリセットができます。</p>
+
+  <!-- ログイン -->
+  <section class="card" id="login">
+    <h2>パスワードを入力してください</h2>
+    <form class="row" id="login-form">
+      <input type="password" id="pw" autocomplete="current-password" placeholder="ADMIN_PASSWORD" required style="flex:1">
+      <button type="submit">開く</button>
+    </form>
+    <p class="msg" id="login-msg"></p>
+  </section>
+
+  <div id="main" hidden>
+    <section class="card">
+      <div class="row" style="justify-content:space-between;margin-bottom:12px">
+        <h2 style="margin:0">いまの申込状況</h2>
+        <div class="row"><button class="gray" id="reload" type="button">最新にする</button><button class="gray" id="logout" type="button">閉じる</button></div>
+      </div>
+      <div class="stats">
+        <div class="stat"><b id="s-cap">―</b><span>定員</span></div>
+        <div class="stat"><b id="s-count">―</b><span>申込数</span></div>
+        <div class="stat"><b id="s-remain">―</b><span>残り</span></div>
+      </div>
+      <p class="msg" id="main-msg"></p>
+    </section>
+
+    <section class="card">
+      <h2>定員を変える</h2>
+      <p class="note">変更はすぐにページへ反映されます（Vercel の再公開は不要です）。</p>
+      <form class="row" id="cap-form">
+        <input type="number" id="cap" min="1" max="100000" step="1" required style="width:140px">
+        <span>名</span>
+        <button type="submit">定員を変更する</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="row" style="justify-content:space-between;margin-bottom:10px">
+        <h2 style="margin:0">申込者一覧</h2>
+        <button class="green" id="csv" type="button">CSVをダウンロード</button>
+      </div>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>No</th><th>申込日時</th><th>お名前</th><th>ふりがな</th><th>メール</th><th>電話</th></tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card danger">
+      <h2>申込をリセットする</h2>
+      <p class="note">申込を全件消して、受付番号を No.1 からに戻します。<b>消したデータは元に戻せません。</b></p>
+      <form id="reset-form">
+        <label class="chk"><input type="checkbox" id="backup" checked> 消す前に CSV をダウンロードする</label>
+        <div class="row">
+          <input type="text" id="confirm" placeholder="「リセット」と入力" autocomplete="off" style="width:200px">
+          <button class="red" type="submit">申込を全件消す</button>
+        </div>
+      </form>
+    </section>
+  </div>
+</div>
+
+<script>
+(function () {
+  var pw = '';
+  try { pw = sessionStorage.getItem('ota-admin') || ''; } catch (e) {}
+  var $ = function (id) { return document.getElementById(id); };
+
+  function api(method, body, asText) {
+    return fetch('/api/admin' + (method === 'GET' && !asText ? '?format=json' : ''), {
+      method: method,
+      cache: 'no-store',
+      headers: { 'Authorization': 'Basic ' + btoa(unescape(encodeURIComponent('admin:' + pw))), 'X-Admin-Page': '1', 'Content-Type': 'application/json' },
+      body: body ? JSON.stringify(body) : undefined
+    }).then(function (r) {
+      if (asText && r.ok) return r.blob().then(function (b) { return { ok: true, blob: b }; });
+      return r.json().catch(function () { return {}; }).then(function (d) { d.ok = r.ok; d.httpStatus = r.status; return d; });
+    });
+  }
+
+  function show(el, text, ok) { el.textContent = text; el.className = 'msg ' + (ok ? 'ok' : 'ng'); }
+  function clearMsg() { $('main-msg').className = 'msg'; }
+
+  function render(d) {
+    var s = d.status;
+    $('s-cap').textContent = s.capacity;
+    $('s-count').textContent = s.count;
+    $('s-remain').textContent = s.remaining;
+    if (document.activeElement !== $('cap')) $('cap').value = s.capacity;
+    var tbody = $('rows');
+    tbody.innerHTML = '';
+    if (!d.entries.length) {
+      var tr = document.createElement('tr');
+      tr.innerHTML = '<td colspan="6" class="empty">まだ申込はありません</td>';
+      tbody.appendChild(tr);
+      return;
+    }
+    d.entries.forEach(function (e) {
+      var tr = document.createElement('tr');
+      [e.no, e.at, e.name, e.kana, e.email, e.phone].forEach(function (v) {
+        var td = document.createElement('td'); td.textContent = v == null ? '' : v; tr.appendChild(td);
+      });
+      tbody.appendChild(tr);
+    });
+  }
+
+  function load() {
+    return api('GET').then(function (d) {
+      if (d.httpStatus === 401) { logout(); show($('login-msg'), 'パスワードが違います。', false); return; }
+      if (!d.ok) { show($('main-msg'), d.message || '読み込みに失敗しました。', false); return; }
+      $('login').hidden = true; $('main').hidden = false;
+      render(d);
+    }).catch(function () { show($('main-msg'), '通信に失敗しました。', false); });
+  }
+
+  function logout() {
+    pw = '';
+    try { sessionStorage.removeItem('ota-admin'); } catch (e) {}
+    $('main').hidden = true; $('login').hidden = false; $('pw').value = '';
+  }
+
+  function downloadCsv() {
+    return api('GET', null, true).then(function (d) {
+      if (!d.ok) throw new Error('csv');
+      var a = document.createElement('a');
+      var stamp = new Date().toLocaleString('sv-SE', { timeZone: 'Asia/Tokyo' }).replace(/[: ]/g, '-');
+      a.href = URL.createObjectURL(d.blob);
+      a.download = 'ota-mirai-kaigi-entries-' + stamp + '.csv';
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+    });
+  }
+
+  $('login-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    pw = $('pw').value;
+    try { sessionStorage.setItem('ota-admin', pw); } catch (err) {}
+    $('login-msg').className = 'msg';
+    load();
+  });
+  $('logout').addEventListener('click', logout);
+  $('reload').addEventListener('click', function () { clearMsg(); load(); });
+  $('csv').addEventListener('click', function () {
+    clearMsg();
+    downloadCsv().catch(function () { show($('main-msg'), 'CSV のダウンロードに失敗しました。', false); });
+  });
+
+  $('cap-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    clearMsg();
+    var cap = Number($('cap').value);
+    if (!window.confirm('定員を ' + cap + ' 名に変更します。よろしいですか？')) return;
+    api('POST', { action: 'capacity', capacity: cap }).then(function (d) {
+      if (!d.ok) return show($('main-msg'), d.message || '変更に失敗しました。', false);
+      show($('main-msg'), '定員を ' + d.status.capacity + ' 名に変更しました。', true);
+      load();
+    });
+  });
+
+  $('reset-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    clearMsg();
+    var word = $('confirm').value.trim();
+    if (word !== 'リセット') return show($('main-msg'), '確認のため「リセット」と入力してください。', false);
+    if (!window.confirm('申込を全件消します。元に戻せません。よろしいですか？')) return;
+    var before = $('backup').checked ? downloadCsv() : Promise.resolve();
+    before.then(function () {
+      return api('POST', { action: 'reset', confirm: word });
+    }).then(function (d) {
+      if (!d.ok) return show($('main-msg'), d.message || 'リセットに失敗しました。', false);
+      $('confirm').value = '';
+      show($('main-msg'), '申込を全件消しました。受付番号は No.1 から始まります。', true);
+      load();
+    }).catch(function () {
+      show($('main-msg'), 'CSV のダウンロードに失敗したため、リセットを中止しました。', false);
+    });
+  });
+
+  if (pw) load();
+})();
+</script>
+</body>
+</html>

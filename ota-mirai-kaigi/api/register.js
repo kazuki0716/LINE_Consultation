@@ -1,4 +1,4 @@
-import { CAPACITY, isConfigured, register } from './_store.js';
+import { isConfigured, register } from './_store.js';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const clean = (v, max) => String(v ?? '').trim().slice(0, max);
@@ -44,7 +44,7 @@ export default async function handler(req, res) {
     if (result === -2) {
       return res.status(409).json({ error: 'duplicate', message: 'このメールアドレスはすでにお申し込み済みです。' });
     }
-    return res.status(201).json({ ok: true, number: result, remaining: Math.max(CAPACITY - result, 0) });
+    return res.status(201).json({ ok: true, number: result });
   } catch (e) {
     console.error(e);
     return res.status(500).json({ error: 'server_error', message: '送信に失敗しました。時間をおいて再度お試しください。' });
