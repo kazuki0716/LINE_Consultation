@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>おおた未来カイギ｜2027.4.10 大田区民ホール・アプリコ</title>
+  <meta name="description" content="「家族」「仕事」これからの人生の選択を考える。2027年4月10日（土）大田区民ホール・アプリコ 小ホールにて開催。登壇：かとうてつお、石田純一。">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="おおた未来カイギ｜2027.4.10（土）大田区民ホール・アプリコ">
+  <meta property="og:description" content="「家族」「仕事」これからの人生の選択を考える。登壇：かとうてつお、石田純一。">
+  <meta name="twitter:card" content="summary">
+  <meta name="theme-color" content="#14213d">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@700;900&family=Outfit:wght@600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #14213d;
+      --navy-2: #1f3160;
+      --amber: #f5a524;
+      --amber-soft: #fff3dc;
+      --paper: #fbf8f2;
+      --ink: #1b1f2a;
+      --muted: #5d6475;
+      --line: #e5dfd3;
+      --radius: 20px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background: var(--paper); color: var(--ink);
+      font-family: "Noto Sans JP", system-ui, sans-serif; line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    .wrap { max-width: 960px; margin: 0 auto; padding: 0 16px; }
+    .en { font-family: "Outfit", sans-serif; letter-spacing: .08em; }
+    .serif { font-family: "Noto Serif JP", serif; }
+
+    /* ヒーロー */
+    .hero {
+      background:
+        radial-gradient(circle at 85% 15%, rgba(245, 165, 36, .35), transparent 40%),
+        radial-gradient(circle at 10% 90%, rgba(98, 138, 255, .35), transparent 45%),
+        var(--navy);
+      color: #fff; padding: 56px 0 72px; position: relative; overflow: hidden;
+    }
+    .hero .wrap { position: relative; z-index: 1; }
+    .kicker { display: inline-block; font-size: 13px; font-weight: 700; color: var(--navy); background: var(--amber); padding: 4px 14px; border-radius: 999px; }
+    .hero h1 { margin: 20px 0 8px; font-size: clamp(44px, 10vw, 96px); line-height: 1.1; font-weight: 900; letter-spacing: .02em; }
+    .hero h1 small { display: block; font-size: .28em; letter-spacing: .3em; color: var(--amber); font-family: "Outfit", sans-serif; font-weight: 600; margin-bottom: 8px; }
+    .theme { font-size: clamp(18px, 3vw, 26px); font-weight: 700; margin: 0 0 32px; }
+    .theme em { font-style: normal; color: var(--amber); }
+    .date-card {
+      display: grid; grid-template-columns: auto 1fr; gap: 4px 24px; align-items: center;
+      background: rgba(255, 255, 255, .08); border: 1px solid rgba(255, 255, 255, .2);
+      border-radius: var(--radius); padding: 20px 24px; max-width: 560px; backdrop-filter: blur(6px);
+    }
+    .date-card .day { font-family: "Outfit", sans-serif; font-weight: 800; font-size: clamp(40px, 8vw, 60px); line-height: 1; grid-row: span 2; }
+    .date-card .day span { font-size: .45em; color: var(--amber); margin-left: 6px; }
+    .date-card .year { font-family: "Outfit", sans-serif; font-weight: 600; color: rgba(255, 255, 255, .7); letter-spacing: .1em; }
+    .date-card .place { font-weight: 700; font-size: 16px; }
+    .ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 14px 28px; border-radius: 999px; font-weight: 700; text-decoration: none; font-size: 16px;
+      transition: transform .15s, box-shadow .15s, background .15s;
+    }
+    .btn-primary { background: var(--amber); color: var(--navy); box-shadow: 0 8px 24px rgba(245, 165, 36, .35); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(245, 165, 36, .45); }
+    .btn-ghost { border: 1px solid rgba(255, 255, 255, .5); color: #fff; }
+    .btn-ghost:hover { background: rgba(255, 255, 255, .1); }
+
+    /* セクション */
+    section { padding: 80px 0; }
+    .sec-head { margin-bottom: 36px; }
+    .sec-head .en { color: var(--amber); font-size: 14px; font-weight: 800; }
+    .sec-head h2 { margin: 4px 0 0; font-size: clamp(26px, 4.5vw, 38px); line-height: 1.35; }
+
+    /* テーマ */
+    .message { background: #fff; }
+    .message .lead { font-size: clamp(17px, 2.2vw, 20px); max-width: 40em; }
+    .points { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px; }
+    .point { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
+    .point .num { font-family: "Outfit", sans-serif; font-weight: 800; color: var(--amber); font-size: 28px; line-height: 1; }
+    .point h3 { margin: 10px 0 4px; font-size: 18px; }
+    .point p { margin: 0; color: var(--muted); font-size: 15px; }
+
+    /* 登壇者 */
+    .speakers-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .speaker {
+      background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 28px;
+      display: grid; grid-template-columns: 88px 1fr; gap: 20px; align-items: center;
+    }
+    .avatar {
+      width: 88px; height: 88px; border-radius: 50%; display: grid; place-items: center;
+      background: var(--navy); color: var(--amber); font-family: "Noto Serif JP", serif; font-weight: 900; font-size: 34px;
+    }
+    .speaker:nth-child(2) .avatar { background: var(--amber); color: var(--navy); }
+    .speaker .role { font-size: 13px; color: var(--muted); }
+    .speaker h3 { margin: 2px 0 0; font-size: 24px; }
+    .speaker .en { font-size: 12px; color: var(--muted); }
+
+    /* 開催概要 */
+    .details { background: #fff; }
+    .table { border-top: 2px solid var(--navy); }
+    .row { display: grid; grid-template-columns: 160px 1fr; gap: 16px; padding: 18px 4px; border-bottom: 1px solid var(--line); }
+    .row dt { font-weight: 700; color: var(--navy); }
+    .row dd { margin: 0; }
+    .tbd { display: inline-block; font-size: 13px; font-weight: 700; color: #9a6400; background: var(--amber-soft); padding: 2px 10px; border-radius: 6px; }
+    .map-link { display: inline-block; margin-top: 6px; font-size: 14px; color: var(--navy-2); font-weight: 700; }
+
+    /* 申込 */
+    .entry { background: var(--navy); color: #fff; text-align: center; }
+    .entry h2 { margin: 0 0 12px; font-size: clamp(28px, 5vw, 44px); }
+    .entry p { color: rgba(255, 255, 255, .8); margin: 0 0 28px; }
+    .entry .btn-primary[aria-disabled="true"] { opacity: .7; cursor: default; box-shadow: none; transform: none; }
+
+    /* FAQ */
+    details { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 18px 22px; margin-bottom: 12px; }
+    summary { font-weight: 700; cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "＋"; color: var(--amber); font-weight: 900; }
+    details[open] summary::after { content: "－"; }
+    details p { margin: 10px 0 0; color: var(--muted); }
+
+    footer { background: var(--ink); color: rgba(255, 255, 255, .75); font-size: 13px; padding: 36px 0 96px; }
+    footer strong { color: #fff; font-size: 16px; }
+
+    /* スマホ下部の固定ボタン */
+    .sticky-cta {
+      position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 10; display: none;
+      background: var(--amber); color: var(--navy); text-align: center; font-weight: 900; text-decoration: none;
+      padding: 14px; border-radius: 999px; box-shadow: 0 10px 30px rgba(20, 33, 61, .35);
+    }
+
+    .fade { opacity: 0; transform: translateY(24px); transition: opacity .8s, transform .8s; }
+    .fade.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .fade { opacity: 1; transform: none; transition: none; }
+      html { scroll-behavior: auto; }
+    }
+
+    @media (max-width: 720px) {
+      .points, .speakers-grid { grid-template-columns: 1fr; }
+      .row { grid-template-columns: 1fr; gap: 2px; }
+      .sticky-cta { display: block; }
+      .speaker { grid-template-columns: 72px 1fr; padding: 22px; }
+      .avatar { width: 72px; height: 72px; font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <span class="kicker">トークイベント開催</span>
+      <h1 class="serif"><small>OTA MIRAI KAIGI</small>おおた未来カイギ</h1>
+      <p class="theme">「<em>家族</em>」「<em>仕事</em>」<br>これからの人生の選択を考える。</p>
+      <div class="date-card">
+        <div class="day">4.10<span>SAT</span></div>
+        <div class="year">2027</div>
+        <div class="place">大田区民ホール・アプリコ 小ホール</div>
+      </div>
+      <div class="ctas">
+        <a class="btn btn-primary" href="#entry">参加について</a>
+        <a class="btn btn-ghost" href="#details">開催概要を見る</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="message">
+      <div class="wrap">
+        <div class="sec-head fade"><div class="en">THEME</div><h2>家族のこと、仕事のこと。<br>これからを、いっしょに考える時間。</h2></div>
+        <p class="lead fade">人生の節目には、家族と仕事の両方に関わる選択がやってきます。経営の現場を知る人、表舞台に立ち続けてきた人。それぞれの経験から、これからの生き方のヒントを語り合います。</p>
+        <div class="points">
+          <div class="point fade"><div class="num">01</div><h3>家族</h3><p>パートナーや家族との関係を、あらためて見つめ直す。</p></div>
+          <div class="point fade"><div class="num">02</div><h3>仕事</h3><p>キャリアや働き方の選択を、自分ごととして考える。</p></div>
+          <div class="point fade"><div class="num">03</div><h3>これから</h3><p>大田区で暮らす人の、これからの人生の選択肢を広げる。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="speakers">
+      <div class="wrap">
+        <div class="sec-head fade"><div class="en">SPEAKERS</div><h2>登壇者</h2></div>
+        <div class="speakers-grid">
+          <div class="speaker fade">
+            <div class="avatar" aria-hidden="true">加</div>
+            <div><div class="role">元三菱商事 ／ 会社経営</div><h3>かとうてつお</h3><div class="en">TETSUO KATO</div></div>
+          </div>
+          <div class="speaker fade">
+            <div class="avatar" aria-hidden="true">石</div>
+            <div><div class="role">俳優 ／ 飲食店経営</div><h3>石田 純一</h3><div class="en">JUNICHI ISHIDA</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="details" class="details">
+      <div class="wrap">
+        <div class="sec-head fade"><div class="en">DETAILS</div><h2>開催概要</h2></div>
+        <dl class="table fade">
+          <div class="row"><dt>イベント名</dt><dd>おおた未来カイギ</dd></div>
+          <div class="row"><dt>日時</dt><dd>2027年4月10日（土）<br>開場・開演：<span class="tbd">確認中</span></dd></div>
+          <div class="row"><dt>会場</dt><dd>大田区民ホール・アプリコ 小ホール<br><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E7%94%B0%E5%8C%BA%E6%B0%91%E3%83%9B%E3%83%BC%E3%83%AB%E3%83%BB%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B3" target="_blank" rel="noopener">地図を見る ↗</a></dd></div>
+          <div class="row"><dt>登壇者</dt><dd>かとうてつお（元三菱商事 ／ 会社経営）<br>石田 純一（俳優 ／ 飲食店経営）</dd></div>
+          <div class="row"><dt>参加費</dt><dd><span class="tbd">確認中</span></dd></div>
+          <div class="row"><dt>定員</dt><dd><span class="tbd">確認中</span></dd></div>
+          <div class="row"><dt>申込方法</dt><dd><span class="tbd">確認中</span></dd></div>
+          <div class="row"><dt>主催</dt><dd><span class="tbd">確認中</span></dd></div>
+          <div class="row"><dt>お問い合わせ</dt><dd><span class="tbd">確認中</span></dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section id="entry" class="entry">
+      <div class="wrap">
+        <h2 class="serif fade">参加お申し込み</h2>
+        <p class="fade">お申し込み方法は決まり次第、このページでお知らせします。</p>
+        <a class="btn btn-primary fade" aria-disabled="true" role="link">受付開始までお待ちください</a>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="wrap">
+        <div class="sec-head fade"><div class="en">FAQ</div><h2>よくあるご質問</h2></div>
+        <details class="fade"><summary>何時から始まりますか？</summary><p>開場・開演時刻は決まり次第お知らせします。</p></details>
+        <details class="fade"><summary>参加費はかかりますか？</summary><p>参加費は決まり次第お知らせします。</p></details>
+        <details class="fade"><summary>大田区民でなくても参加できますか？</summary><p>参加条件は決まり次第お知らせします。</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <strong class="serif">おおた未来カイギ</strong><br>
+      2027年4月10日（土）大田区民ホール・アプリコ 小ホール<br>
+      主催・お問い合わせ：確認中
+    </div>
+  </footer>
+
+  <a class="sticky-cta" href="#entry">4/10（土）おおた未来カイギ ▶ 参加について</a>
+
+  <script>
+    (function () {
+      var els = document.querySelectorAll('.fade');
+      if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('in'); }); return; }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+      }, { threshold: 0.15 });
+      els.forEach(function (e) { io.observe(e); });
+    })();
+  </script>
+</body>
+</html>
