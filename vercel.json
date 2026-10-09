@@ -1,6 +1,6 @@
 {
   "rewrites": [
-    { "source": "/", "destination": "/roots-lab/index.html" },
-    { "source": "/img/:path*", "destination": "/roots-lab/img/:path*" }
+    { "source": "/", "destination": "/ota-mirai-kaigi/index.html" },
+    { "source": "/img/:path*", "destination": "/ota-mirai-kaigi/img/:path*" }
   ]
 }
