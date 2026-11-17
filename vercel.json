@@ -1,16 +1,1 @@
-{
-  "rewrites": [
-    {
-      "source": "/",
-      "destination": "/ota-mirai-kaigi/index.html"
-    },
-    {
-      "source": "/admin",
-      "destination": "/ota-mirai-kaigi/admin.html"
-    },
-    {
-      "source": "/img/:path*",
-      "destination": "/ota-mirai-kaigi/img/:path*"
-    }
-  ]
-}
+{}

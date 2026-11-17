@@ -7,3 +7,5 @@ node_modules
 *.tsbuildinfo
 next-env.d.ts
 lib/persona.generated.ts
+test-results
+playwright-report

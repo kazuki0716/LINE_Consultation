@@ -1,8 +1,0 @@
-{
-  "name": "ota-mirai-kaigi",
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "test": "node --test test/api.test.js"
-  }
-}
