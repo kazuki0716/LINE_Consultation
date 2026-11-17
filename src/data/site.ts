@@ -4,6 +4,7 @@ export const site = {
   phone: "099-297-6761",
   address: "〒890-0066 鹿児島県鹿児島市真砂町65-1 アカシア県庁前1階",
   official: "https://ueda-dental.net/",
+  booking: "https://eapo3.dental-net.co.jp/default?V3=QNAevLnQbvLNbRPQrz%2flFQ%3d%3d&V2=3hWIa%2byKSyWRkLsp4zEMeg%3d%3d&V5=nrQo5uAPJyCawihM%2bC%2bMmA%3d%3d",
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
 };
 

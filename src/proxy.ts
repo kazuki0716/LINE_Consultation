@@ -20,5 +20,6 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!api/login|login|_next/static|_next/image|favicon.ico).*)"],
+  // Static photography does not need to invoke the authentication middleware.
+  matcher: ["/((?!api/login|login|_next/static|_next/image|images|favicon.ico).*)"],
 };

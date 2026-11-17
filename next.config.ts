@@ -5,7 +5,9 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 const nextConfig: NextConfig = {
   basePath,
   assetPrefix: basePath || undefined,
-  images: { formats: ["image/avif", "image/webp"] },
+  // These supplied photos are already web-sized. Static delivery avoids
+  // spending Vercel image transformations on a password-protected preview.
+  images: { unoptimized: true },
   poweredByHeader: false,
   async headers() {
     return [{
