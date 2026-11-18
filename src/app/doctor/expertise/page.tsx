@@ -1,0 +1,99 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, ArrowUpRight, BadgeCheck, BookOpen, Building2, ShieldCheck } from "lucide-react";
+import { CTA } from "@/components/CTA";
+import { Reveal } from "@/components/Reveal";
+import { credentials, expertiseRecords, memberships } from "@/data/expertise";
+import { doctor, site } from "@/data/site";
+
+export const metadata: Metadata = {
+  title: "上田大介院長の専門性・活動実績｜うえだ歯科医院",
+  description: "うえだ歯科医院 上田大介院長の経歴、口腔外科の認定資格、所属学会、第三者メディアによる取材・掲載情報を出典とともにご紹介します。",
+  alternates: { canonical: "/doctor/expertise" },
+};
+
+const categoryLabels = {
+  official: "医院公式",
+  interview: "第三者取材",
+  media: "外部メディア",
+  association: "関連団体",
+  warranty: "保証関連",
+} as const;
+
+const formatDate = (date: string | null) => date ? `${date.replaceAll("-", ".")} 最終更新` : "掲載内容を確認済み";
+
+export default function ExpertisePage() {
+  const mediaRecords = expertiseRecords.filter((item) => item.category !== "official");
+  const personJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "上田 大介",
+    alternateName: "上田大介",
+    jobTitle: "歯科医師・院長",
+    image: `${site.siteUrl}/images/doctor/ueda-daisuke-portrait.jpg`,
+    url: `${site.siteUrl}/doctor/expertise`,
+    worksFor: { "@type": "Dentist", name: site.name, url: site.official, address: site.address },
+    alumniOf: { "@type": "CollegeOrUniversity", name: "九州歯科大学" },
+    hasCredential: [{ "@type": "EducationalOccupationalCredential", name: "日本口腔外科学会 認定医" }],
+    memberOf: memberships.map((name) => ({ "@type": "Organization", name })),
+    sameAs: [
+      "https://ueda-dental.net/doctor/",
+      "https://doctorsfile.jp/h/199133/df/1/",
+      "https://doctorsfile.jp/h/199133/",
+    ],
+  };
+
+  return <>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }} />
+    <main className="expertise-page">
+      <section className="expertise-hero">
+        <div className="container expertise-hero__grid">
+          <div className="expertise-hero__copy">
+            <nav aria-label="パンくずリスト" className="breadcrumbs"><Link href="/">ホーム</Link><span>/</span><Link href="/doctor">院長紹介</Link><span>/</span><span>専門性・活動実績</span></nav>
+            <p className="expertise-kicker">CLINICAL BACKGROUND / VERIFIED PROFILE</p>
+            <h1>診断の背景まで、<br/><em>確かめて選べる。</em></h1>
+            <p className="expertise-intro">インプラントは、手術だけで完結する治療ではありません。口腔外科で培った診断経験を土台に、お口全体と全身状態を確認し、治療後まで見通してご提案します。</p>
+            <div className="expertise-proof"><BadgeCheck aria-hidden="true"/><span><b>出典を明示</b>このページは医院公式情報と確認済みの外部掲載のみで構成しています。</span></div>
+          </div>
+          <div className="expertise-portrait">
+            <Image src="/images/doctor/ueda-daisuke-portrait.jpg" alt="うえだ歯科医院 院長 上田大介" fill priority sizes="(max-width: 760px) 100vw, 45vw"/>
+            <div className="expertise-portrait__caption"><span>DIRECTOR / DENTIST</span><strong>上田 大介</strong><small>DAISUKE UEDA</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section className="expertise-statement"><div className="container expertise-statement__grid">
+        <p>PHILOSOPHY</p><blockquote>「できる治療」ではなく、<br/>その方にとって<strong>選ぶ理由のある治療</strong>を。</blockquote>
+        <p>検査結果とご希望をすり合わせ、入れ歯やブリッジも含めて比較します。インプラントを前提にせず、分からないことを残さない相談から始めます。</p>
+      </div></section>
+
+      <section className="expertise-section" id="career"><div className="container expertise-two-col">
+        <div className="expertise-heading"><span>01 / BACKGROUND</span><h2>口腔外科から、<br/>地域の日常診療へ。</h2><p>病院歯科口腔外科での勤務経験を経て、2021年に鹿児島市で開院しました。</p></div>
+        <ol className="expertise-timeline">{doctor.career.map((item, index) => { const [year, ...rest] = item.split("　"); return <Reveal key={item}><li><span>{String(index + 1).padStart(2, "0")}</span><time>{year}</time><p>{rest.join("　")}</p></li></Reveal>; })}</ol>
+      </div></section>
+
+      <section className="expertise-section expertise-section--dark" id="credentials"><div className="container">
+        <div className="expertise-section__head"><div><span>02 / CREDENTIALS</span><h2>認定資格と所属を、<br/>正確に分けて伝える。</h2></div><p>「学会に所属していること」と「専門医・認定医であること」は同じではありません。確認できた区分のまま掲載しています。</p></div>
+        <div className="credential-grid">
+          {credentials.map((item) => <Reveal key={item.title} className="credential-card"><ShieldCheck aria-hidden="true"/><span>{item.kind}</span><h3>{item.title}</h3><p>{item.note}</p></Reveal>)}
+          <Reveal className="membership-card"><Building2 aria-hidden="true"/><span>所属学会・研究会</span><ul>{memberships.map((name) => <li key={name}>{name}</li>)}</ul><small>所属は、資格や学会発表歴を意味するものではありません。</small></Reveal>
+        </div>
+      </div></section>
+
+      <section className="expertise-section" id="media"><div className="container">
+        <div className="expertise-section__head expertise-section__head--light"><div><span>03 / MEDIA &amp; RECORDS</span><h2>第三者掲載からも、<br/>人柄と診療姿勢を知る。</h2></div><p>執筆記事と取材記事を混同せず、媒体が確認できた掲載情報だけをご案内します。</p></div>
+        <div className="record-feature">
+          <div><span>FEATURED INTERVIEW</span><BookOpen aria-hidden="true"/></div><h3>上田大介院長<br/>独自取材記事</h3><p>診療方針や口腔外科での経験、医院づくりについて、ドクターズ・ファイルが取材しています。</p><dl><div><dt>媒体</dt><dd>ドクターズ・ファイル</dd></div><div><dt>取材日</dt><dd>2024年10月11日</dd></div><div><dt>最終更新</dt><dd>2026年7月31日</dd></div></dl><a href="https://doctorsfile.jp/h/199133/df/1/" target="_blank" rel="noopener noreferrer">取材記事を読む<ArrowUpRight aria-hidden="true"/></a>
+        </div>
+        <div className="record-grid">{mediaRecords.slice(1).map((item, index) => <Reveal key={item.id} delay={index * .04} className="record-card"><div className="record-card__meta"><span>{categoryLabels[item.category]}</span><small>{formatDate(item.date)}</small></div><h3>{item.title}</h3><p>{item.description}</p><footer><b>{item.publisher}</b><a href={item.sourceUrl} target="_blank" rel="noopener noreferrer" aria-label={`${item.title}を外部サイトで確認`}>出典を確認<ArrowUpRight aria-hidden="true"/></a></footer></Reveal>)}</div>
+      </div></section>
+
+      <section className="expertise-section expertise-approach"><div className="container expertise-two-col">
+        <div className="expertise-heading"><span>04 / IMPLANT POLICY</span><h2>外科処置の前に、<br/>診断と対話がある。</h2></div>
+        <div className="expertise-approach__body"><p>歯を失った原因、残っている歯の状態、顎の骨や歯ぐき、全身の健康状態。同じ「一本を失った」状態でも、必要な治療は一人ひとり異なります。</p><p>うえだ歯科医院では検査結果を共有し、治療期間・費用・リスクを含めて説明します。迷っている段階でも構いません。まず、今のお口にどんな選択肢があるかを一緒に整理しましょう。</p><div className="approach-links"><Link href="/about-implant">インプラントを知る<ArrowRight aria-hidden="true"/></Link><Link href="/comparison">治療方法を比較する<ArrowRight aria-hidden="true"/></Link></div><a className="source-note" href="https://ueda-dental.net/menu/implant/" target="_blank" rel="noopener noreferrer">出典：うえだ歯科医院 公式インプラント治療ページ<ArrowUpRight aria-hidden="true"/></a></div>
+      </div></section>
+    </main>
+    <CTA/>
+  </>;
+}
