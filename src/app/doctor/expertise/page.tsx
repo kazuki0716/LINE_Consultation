@@ -22,7 +22,12 @@ const categoryLabels = {
 } as const;
 
 const formatDate = (date: string | null) => date ? `${date.replaceAll("-", ".")} 最終更新` : "PROFILE";
-const sourceImages: Record<string, string> = { "doctors-file-clinic": "/images/sources/doctors-file-clinic.jpg", "guidedent-listing": "/images/sources/guidedent.jpg" };
+const sourceImages: Record<string, string> = {
+  "doctors-file-interview": "/images/sources/doctors-file-interview.jpg",
+  "doctors-file-clinic": "/images/sources/doctors-file-clinic.jpg",
+  "kagoshima-dental-association": "/images/clinic/exterior.jpg",
+  "guidedent-listing": "/images/sources/guidedent.jpg",
+};
 
 export default function ExpertisePage() {
   const mediaRecords = expertiseRecords.filter((item) => item.category !== "official");
@@ -84,10 +89,21 @@ export default function ExpertisePage() {
 
       <section className="expertise-section" id="media"><div className="container">
         <div className="expertise-section__head expertise-section__head--light"><div><span>03 / MEDIA &amp; RECORDS</span><h2>第三者の取材から、<br/>人柄と診療姿勢を知る。</h2></div><p>上田院長がどのような思いで患者さんと向き合い、医院をつくってきたのか。外部メディアの記事もあわせてご覧ください。</p></div>
-        <div className="record-feature">
-          <div className="record-feature__image"><Image src="/images/sources/doctors-file-interview.jpg" alt="ドクターズ・ファイル 上田大介院長インタビュー" fill sizes="(max-width:760px) 100vw, 30vw"/></div><h3>上田大介院長<br/>独自取材記事</h3><p>診療方針や口腔外科での経験、医院づくりについて、ドクターズ・ファイルが取材しています。</p><dl><div><dt>媒体</dt><dd>ドクターズ・ファイル</dd></div><div><dt>取材日</dt><dd>2024年10月11日</dd></div><div><dt>最終更新</dt><dd>2026年7月31日</dd></div></dl><a href="https://doctorsfile.jp/h/199133/df/1/" target="_blank" rel="noopener noreferrer">取材記事を読む<ArrowUpRight aria-hidden="true"/></a>
+        <div className="media-list">
+          <div className="media-list__bar"><span>上田大介院長の掲載記事・医院情報</span><small>{mediaRecords.length} ARTICLES</small></div>
+          {mediaRecords.map((item, index) => <Reveal key={item.id} delay={index * .03}>
+            <a className="media-list__item" href={item.sourceUrl} target="_blank" rel="noopener noreferrer">
+              <div className="media-list__thumb"><Image src={sourceImages[item.id]} alt="" fill sizes="(max-width:760px) 110px, 210px"/></div>
+              <div className="media-list__body">
+                <div className="media-list__meta"><span>{categoryLabels[item.category]}</span><b>{item.publisher}</b></div>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+                <small>{item.id === "doctors-file-interview" ? "取材日 2024年10月11日　最終更新 2026年7月31日" : formatDate(item.date)}</small>
+              </div>
+              <ArrowUpRight className="media-list__arrow" aria-hidden="true"/>
+            </a>
+          </Reveal>)}
         </div>
-        <div className="record-grid">{mediaRecords.slice(1).map((item, index) => <Reveal key={item.id} delay={index * .04} className="record-card">{sourceImages[item.id]&&<div className="record-card__image"><Image src={sourceImages[item.id]} alt={`${item.publisher} 掲載ページ`} fill sizes="(max-width:760px) 100vw, 50vw"/></div>}<div className="record-card__meta"><span>{categoryLabels[item.category]}</span><small>{formatDate(item.date)}</small></div><h3>{item.title}</h3><p>{item.description}</p><footer><b>{item.publisher}</b><a href={item.sourceUrl} target="_blank" rel="noopener noreferrer" aria-label={`${item.title}を外部サイトで読む`}>掲載ページを見る<ArrowUpRight aria-hidden="true"/></a></footer></Reveal>)}</div>
       </div></section>
 
       <section className="expertise-section expertise-approach"><div className="container expertise-two-col">
