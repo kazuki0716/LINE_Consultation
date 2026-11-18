@@ -31,6 +31,8 @@ const sourceImages: Record<string, string> = {
 
 export default function ExpertisePage() {
   const mediaRecords = expertiseRecords.filter((item) => item.category !== "official");
+  const articleRecords = mediaRecords.filter((item) => item.category === "interview");
+  const listingRecords = mediaRecords.filter((item) => item.category !== "interview");
   const personJsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -90,8 +92,8 @@ export default function ExpertisePage() {
       <section className="expertise-section" id="media"><div className="container">
         <div className="expertise-section__head expertise-section__head--light"><div><span>03 / MEDIA &amp; RECORDS</span><h2>第三者の取材から、<br/>人柄と診療姿勢を知る。</h2></div><p>上田院長がどのような思いで患者さんと向き合い、医院をつくってきたのか。外部メディアの記事もあわせてご覧ください。</p></div>
         <div className="media-list">
-          <div className="media-list__bar"><span>上田大介院長の掲載記事・医院情報</span><small>{mediaRecords.length} ARTICLES</small></div>
-          {mediaRecords.map((item, index) => <Reveal key={item.id} delay={index * .03}>
+          <div className="media-list__bar"><span>上田大介院長の掲載記事</span><small>{articleRecords.length} INTERVIEW</small></div>
+          {articleRecords.map((item, index) => <Reveal key={item.id} delay={index * .03}>
             <a className="media-list__item" href={item.sourceUrl} target="_blank" rel="noopener noreferrer">
               <div className="media-list__thumb"><Image src={sourceImages[item.id]} alt="" fill sizes="(max-width:760px) 110px, 210px"/></div>
               <div className="media-list__body">
@@ -103,6 +105,10 @@ export default function ExpertisePage() {
               <ArrowUpRight className="media-list__arrow" aria-hidden="true"/>
             </a>
           </Reveal>)}
+        </div>
+        <div className="external-listings">
+          <div className="external-listings__head"><span>EXTERNAL PROFILES</span><h3>医院の外部掲載情報</h3><p>第三者機関・サービスに掲載されている医院情報です。</p></div>
+          <div>{listingRecords.map((item) => <a key={item.id} href={item.sourceUrl} target="_blank" rel="noopener noreferrer"><span>{categoryLabels[item.category]}</span><strong>{item.publisher}</strong><small>{item.title}</small><ArrowUpRight aria-hidden="true"/></a>)}</div>
         </div>
       </div></section>
 
