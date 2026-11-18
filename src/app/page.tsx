@@ -5,13 +5,13 @@ import { Reveal } from "@/components/Reveal";
 import { Comparison } from "@/components/Comparison";
 import { FAQ } from "@/components/FAQ";
 import { CTA } from "@/components/CTA";
-import { ModernHero } from "@/components/ModernHero";
+import { TrustHero } from "@/components/TrustHero";
 import { ClinicalNumbers } from "@/components/ClinicalNumbers";
 import { doctor, journey } from "@/data/site";
 
 export default function Home() {
   return <>
-    <ModernHero/>
+    <TrustHero/>
 
     <section id="concerns" className="section concerns"><div className="container"><Reveal><p className="section-number">01 — START HERE</p><div className="section-heading split"><h2>何がいちばん<br/>気になっていますか。</h2><p>入れ歯が合わない。手術がこわい。費用が分からない。まずは今の困りごとを整理するところから始めましょう。</p></div></Reveal><div className="concern-grid">{[
       ["歯を失った", "治療の選択肢を知りたい", "/about-implant"], ["入れ歯が合わない", "ほかの方法と比べたい", "/comparison"], ["手術が不安", "治療の流れを知りたい", "/treatment"], ["費用が気になる", "費用とリスクを確認したい", "/cost"], ["持病がある", "治療できるか相談したい", "/faq"], ["医師を知りたい", "経歴や考え方を確認したい", "/doctor"]
