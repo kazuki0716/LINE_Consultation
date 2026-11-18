@@ -1,10 +1,4 @@
 import Link from "next/link";
 import { nav, site } from "@/data/site";
 
-export function Footer() {
-  return <footer className="footer"><div className="container footer-grid">
-    <div><p className="footer-brand">UEDA <span>DENTAL CLINIC</span></p><p>うえだ歯科医院<br/>インプラント情報サイト</p><p className="muted">{site.address}</p></div>
-    <div className="footer-links"><p>Information</p>{nav.map(([label, href]) => <Link href={href} key={href}>{label}</Link>)}<Link href="/articles">記事一覧</Link><Link href="/access">アクセス</Link></div>
-    <div className="footer-links"><p>Clinic</p><Link href="/doctor/expertise">院長の専門性・活動実績</Link><a href={site.official} target="_blank" rel="noopener noreferrer">医院公式サイト ↗</a><Link href="/privacy">プライバシーポリシー</Link><Link href="/site-policy">サイトポリシー</Link></div>
-  </div><div className="container footer-bottom"><span>© UEDA DENTAL CLINIC</span><span>鹿児島市で、歯を失ったときの選択肢を考える</span></div></footer>;
-}
+export function Footer(){return <footer className="footer"><div className="container footer-lead"><div><p className="footer-brand">UEDA <span>DENTAL CLINIC</span></p><h2>治療を決める前に、<br/>知ることから始める。</h2></div><Link href="/articles" className="footer-journal">記事一覧を見る <span>→</span></Link></div><div className="container footer-grid"><div><p className="footer-label">TREATMENT GUIDE</p>{nav.slice(0,4).map(([label,href])=><Link href={href} key={href}>{label}</Link>)}</div><div><p className="footer-label">DOCTOR &amp; CLINIC</p><Link href="/doctor">院長紹介</Link><Link href="/doctor/expertise">専門性・活動実績</Link><Link href="/access">医院案内・アクセス</Link><a href={site.official} target="_blank" rel="noopener noreferrer">医院公式サイト ↗</a></div><div><p className="footer-label">LEARN &amp; SUPPORT</p><Link href="/articles">インプラント記事一覧</Link><Link href="/faq">よくある質問</Link><a href={site.booking} target="_blank" rel="noopener noreferrer">WEB予約 ↗</a><a href={`tel:${site.phone.replaceAll("-","")}`}>{site.phone}</a></div><div><p className="footer-label">POLICY</p><Link href="/privacy">プライバシーポリシー</Link><Link href="/site-policy">サイトポリシー</Link><p className="muted">{site.address}</p></div></div><div className="container footer-bottom"><span>© UEDA DENTAL CLINIC</span><span>鹿児島市で、歯を失ったときの選択肢を考える</span></div></footer>}
