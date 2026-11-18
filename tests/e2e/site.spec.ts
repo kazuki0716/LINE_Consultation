@@ -11,7 +11,7 @@ test.beforeEach(async ({ page }) => {
 
 test("top page presents the core journey", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByRole("heading", { name: /選ぶ前に/ })).toBeVisible();
+  await expect(page.getByRole("heading", { name: /手術の前に/ })).toBeVisible();
   await expect(page.getByRole("heading", { name: /先に決めなくても/ })).toBeVisible();
   await expect(page.getByRole("heading", { name: /診察前によく/ })).toBeVisible();
   expect(await page.locator("body").evaluate(el => el.scrollWidth <= el.clientWidth + 1)).toBeTruthy();

@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Noto_Sans_JP, Inter } from "next/font/google";
+import { Zen_Kaku_Gothic_New, Manrope } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { site } from "@/data/site";
 import "./globals.css";
 
-const noto = Noto_Sans_JP({ subsets: ["latin"], variable: "--font-jp", display: "swap" });
-const inter = Inter({ subsets: ["latin"], variable: "--font-en", display: "swap" });
+const zen = Zen_Kaku_Gothic_New({ subsets: ["latin"], weight: ["300", "400", "500", "700"], variable: "--font-jp", display: "swap" });
+const manrope = Manrope({ subsets: ["latin"], variable: "--font-en", display: "swap" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.siteUrl),
@@ -17,5 +17,5 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const schema = { "@context": "https://schema.org", "@type": "Dentist", name: site.name, url: site.siteUrl, telephone: site.phone, address: { "@type": "PostalAddress", postalCode: "890-0066", addressRegion: "鹿児島県", addressLocality: "鹿児島市", streetAddress: "真砂町65-1 アカシア県庁前1階" } };
-  return <html lang="ja" data-scroll-behavior="smooth" className={`${noto.variable} ${inter.variable}`}><body><a href="#main" className="skip-link">本文へ移動</a><Header/><main id="main">{children}</main><Footer/><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}/></body></html>;
+  return <html lang="ja" data-scroll-behavior="smooth" className={`${zen.variable} ${manrope.variable}`}><body><a href="#main" className="skip-link">本文へ移動</a><Header/><main id="main">{children}</main><Footer/><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}/></body></html>;
 }

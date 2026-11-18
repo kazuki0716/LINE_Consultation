@@ -6,6 +6,7 @@ import { Comparison } from "@/components/Comparison";
 import { FAQ } from "@/components/FAQ";
 import { CTA } from "@/components/CTA";
 import { ModernHero } from "@/components/ModernHero";
+import { ClinicalNumbers } from "@/components/ClinicalNumbers";
 import { doctor, journey } from "@/data/site";
 
 export default function Home() {
@@ -36,6 +37,7 @@ export default function Home() {
     <section className="section cost-preview"><div className="container"><Reveal><p className="section-number">06 — COST & RISKS</p><div className="section-heading split"><h2>分からないまま<br/>進めることはありません。</h2><p>費用の内訳、治療にかかる期間、考えられるリスク。相談の段階から順番にご説明します。</p></div></Reveal><div className="cost-grid"><Reveal className="cost-card"><span>インプラント1本（税込）</span><h3>385,000円</h3><p>インプラント本体、かぶせ物、歯ぐきの手術を含みます。骨造成が必要な場合は材料費が加わります。</p></Reveal><Reveal className="risk-card"><span>主なリスク・副作用</span><ul><li>外科処置に伴う痛み、腫れ、出血、感染</li><li>神経や血管など周囲組織への影響</li><li>骨と結合しない、または脱落する可能性</li><li>治療後のインプラント周囲組織の炎症</li></ul></Reveal></div><Link href="/cost" className="button secondary-button">費用とリスクを確認する <ArrowRight/></Link></div></section>
 
     <section className="section faq-section"><div className="container"><Reveal><p className="section-number">07 — FAQ</p><div className="section-heading split"><h2>診察前によく<br/>いただくご質問</h2><p>痛みのこと、期間のこと、持病のこと。来院前に気になる内容からご覧ください。</p></div></Reveal><FAQ limit={5}/><Link href="/faq" className="text-link faq-more">ほかの質問も見る <ArrowRight/></Link></div></section>
+    <ClinicalNumbers/>
     <CTA/>
   </>;
 }
